@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeSlide
 };
 
+@class XKPhotoScrollView;
+
 @interface XKPhotoScrollViewViewState : NSObject <NSCopying>
 
 @property (nonatomic, strong) UIView *view;
@@ -30,10 +32,10 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 @protocol XKPhotoScrollViewDataSource
 
-- (void)photoScrollView:(id)photoScrollView requestViewAtRow:(unsigned int)row col:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView cancelRequestAtRow:(unsigned int)row col:(unsigned int)col;
-- (unsigned int)photoScrollViewRows:(id)photoScrollView;
-- (unsigned int)photoScrollViewCols:(id)photoScrollView;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(unsigned int)row col:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(unsigned int)row col:(unsigned int)col;
+- (unsigned int)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView;
+- (unsigned int)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView;
 
 @end
 
@@ -41,18 +43,18 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 @optional
 
-- (void)photoScrollView:(id)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didLongPressView:(UIView *)view atPoint:(CGPoint)pt atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didTouchView:(UIView *)view withTouches:(NSSet *)touches atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didDragView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didUpdateTransformationForView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
-- (void)photoScrollView:(id)photoScrollView didZoomView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didPinchDismissView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didRotateTo:(float)rotation;
-- (void)photoScrollView:(id)photoScrollView didChangeToRow:(unsigned int)row col:(unsigned int)col;
-- (void)photoScrollView:(id)photoScrollView didSetCurrentView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
-- (void)photoScrollView:(id)photoScrollView isStabilizing:(UIView *)view;
-- (void)photoScrollView:(id)photoScrollView didStabilizeView:(UIView *)view;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didLongPressView:(UIView *)view atPoint:(CGPoint)pt atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTouchView:(UIView *)view withTouches:(NSSet *)touches atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didDragView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didUpdateTransformationForView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didZoomView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didPinchDismissView:(UIView *)view atRow:(unsigned int)row atCol:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didRotateTo:(float)rotation;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didChangeToRow:(unsigned int)row col:(unsigned int)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didSetCurrentView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView isStabilizing:(UIView *)view;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didStabilizeView:(UIView *)view;
 
 @end
 
