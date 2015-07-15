@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum XKPhotoScrollViewViewType {
+typedef NS_ENUM(NSInteger, XKPhotoScrollViewViewType) {
 	XKPhotoScrollViewViewTypeMain = 1,
 	XKPhotoScrollViewViewTypeReveal,
-} XKPhotoScrollViewViewType;
+};
 
-typedef enum XKPhotoScrollViewAnimationType {
+typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeFade,
 	XKPhotoScrollViewAnimationTypeSlide
-} XKPhotoScrollViewAnimationType;
+};
 
 @interface XKPhotoScrollViewViewState : NSObject <NSCopying>
 
@@ -53,6 +53,7 @@ typedef enum XKPhotoScrollViewAnimationType {
 - (void)photoScrollView:(id)photoScrollView didSetCurrentView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
 - (void)photoScrollView:(id)photoScrollView isStabilizing:(UIView *)view;
 - (void)photoScrollView:(id)photoScrollView didStabilizeView:(UIView *)view;
+
 @end
 
 @interface XKPhotoScrollView : UIView
