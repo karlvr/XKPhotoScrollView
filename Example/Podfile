@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'XKPhotoScrollView_Example', :exclusive => true do
+  pod "XKPhotoScrollView", :path => "../"
+end
+
+target 'XKPhotoScrollView_Tests', :exclusive => true do
+  pod "XKPhotoScrollView", :path => "../"
+
+  
+end
