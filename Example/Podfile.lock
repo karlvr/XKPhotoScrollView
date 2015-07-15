@@ -1,0 +1,14 @@
+PODS:
+  - XKPhotoScrollView (0.1.0)
+
+DEPENDENCIES:
+  - XKPhotoScrollView (from `../`)
+
+EXTERNAL SOURCES:
+  XKPhotoScrollView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XKPhotoScrollView: 73a615e22c05eb0d0b8542e999e9a02a529b1939
+
+COCOAPODS: 0.36.3
