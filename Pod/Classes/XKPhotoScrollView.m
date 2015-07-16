@@ -8,12 +8,52 @@
 
 #import "XKPhotoScrollView.h"
 
-#import "XKCGUtils.h"
-
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
 #define DEBUG_PHOTO_SCROLL_VIEW
 #undef DEBUG_PHOTO_SCROLL_VIEW
+
+static inline CGPoint CGPointNegate(CGPoint p) {
+    return CGPointMake(-p.x, -p.y);
+}
+
+static inline CGPoint CGPointAdd(CGPoint a, CGPoint b) {
+    return CGPointMake(a.x + b.x, a.y + b.y);
+}
+
+static inline CGPoint CGPointOffset(CGPoint a, CGFloat x, CGFloat y) {
+    return CGPointMake(a.x + x, a.y + y);
+}
+
+static inline CGPoint CGPointMul(CGPoint a, CGFloat m) {
+    return CGPointMake(a.x * m, a.y * m);
+}
+
+static inline CGPoint CGPointMid(CGPoint a, CGPoint b) {
+    return CGPointMake((a.x + b.x) / 2, (a.y + b.y) / 2);
+}
+
+static inline CGFloat CGPointDist(CGPoint a, CGPoint b) {
+    float x = a.x - b.x;
+    float y = a.y - b.y;
+    return sqrt(x * x + y * y);
+}
+
+static inline CGPoint CGPointMakeProportional(CGPoint a, CGSize b) {
+    return CGPointMake(a.x / b.width, a.y / b.height);
+}
+
+static inline CGPoint CGPointFromProportional(CGPoint a, CGSize b) {
+    return CGPointMake(a.x * b.width, a.y * b.height);
+}
+
+static inline CGSize CGSizeMul(CGSize size, CGFloat m) {
+    return CGSizeMake(size.width * m, size.height * m);
+}
+
+static inline CGSize CGSizeInvert(CGSize size) {
+    return CGSizeMake(size.height, size.width);
+}
 
 typedef NS_ENUM(NSInteger, XKPhotoScrollViewTouchMode) {
 	XKPhotoScrollViewTouchModeNone,
