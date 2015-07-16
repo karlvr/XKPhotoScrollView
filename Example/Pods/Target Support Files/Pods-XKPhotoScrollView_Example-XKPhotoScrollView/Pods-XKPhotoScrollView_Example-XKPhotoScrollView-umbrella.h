@@ -1,8 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#import "XKCAUtils.h"
 #import "XKCGUtils.h"
-#import "XKDebug.h"
 #import "XKPhotoScrollView.h"
 #import "XKUIUtils.h"
 

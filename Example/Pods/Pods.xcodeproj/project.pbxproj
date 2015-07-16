@@ -7,165 +7,159 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		081DBD51B626B62BA9E8A047 /* XKCAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC04112C73410FC72C86F40 /* XKCAUtils.m */; };
-		0E3E2889A58803DBA4DF500E /* XKUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 677A29BA45B6A69169396051 /* XKUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0ECB1657F5F80F6D77C95925 /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 42768CBCB176309D7A105C99 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		14341A01B8F1A164EDB0F5A2 /* XKUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC124CE62BA2C4A687FC018 /* XKUIUtils.m */; };
-		205A77F741EE2E332D303939 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
-		20A6D9FFCA85B08C93BB43B3 /* Pods-XKPhotoScrollView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F9F051D62884DBA8148844 /* Pods-XKPhotoScrollView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27AED100840EF575A1062C6D /* XKCAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC04112C73410FC72C86F40 /* XKCAUtils.m */; };
-		54DD1E8B1CD98DCE50D9FABD /* XKCAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C1F5C7367086B6F689A409F7 /* XKCAUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CE79A9586EF9D96570E59DD /* Pods-XKPhotoScrollView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0264DAC03368EC5D8E7EB2D5 /* Pods-XKPhotoScrollView_Tests-dummy.m */; };
-		62BC9B14F283BE3B35872F92 /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 42768CBCB176309D7A105C99 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		644F7F0FC442E0B72D2F6797 /* Pods-XKPhotoScrollView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE71FEF5B41DD16BA71170 /* Pods-XKPhotoScrollView_Example-dummy.m */; };
-		68FD04B9498911192D66056E /* XKCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 332443C5002C9F348404CE51 /* XKCGUtils.m */; };
-		6ACED1EA35229ADAAD31F68A /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A38D81D13DC1526A360929E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */; };
-		6E5DEC466DE4401C1CA22316 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
-		762AC0F8DB6A21C5CFDB9D60 /* XKCAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C1F5C7367086B6F689A409F7 /* XKCAUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D750FE8A4AE65F0EC534903 /* XKCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 332443C5002C9F348404CE51 /* XKCGUtils.m */; };
-		88691A87D11ADD0590F5099C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
-		8A82821D960DBE6BD193C090 /* XKPhotoScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A24D91735534F2B75B8B174D /* XKPhotoScrollView.bundle */; };
-		8C048BB0B09026119C054898 /* XKPhotoScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F5140C7AE259163A10963DD /* XKPhotoScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C23592A4F7A9D7F8FBDAB6F0 /* XKPhotoScrollView.bundle */; };
-		A692DDE3D0014EE77EFB403F /* XKPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01535FED02A5DCC0C37C605 /* XKPhotoScrollView.m */; };
-		B0376666DD4975F61334C5B0 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 892C9D2628550D1E72B92E65 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B22B88581AC5ECE7325569CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
-		C8B4EDF7BB160DBA1515E135 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D99AB06D7C56BE4DDBF8A85 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */; };
-		CE272CE565F6C2F85173961B /* XKUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC124CE62BA2C4A687FC018 /* XKUIUtils.m */; };
-		D54E3A1B65D9A00A3060BC06 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8FCBF0E5FA942BCEC71054 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA40901C6FE880987E5150F3 /* XKPhotoScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E973081745FA0A87A6BA5BA3 /* Pods-XKPhotoScrollView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BE2BE00CAA22E6590BC97F /* Pods-XKPhotoScrollView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB15D49C18AC97ED1664E37B /* XKUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 677A29BA45B6A69169396051 /* XKUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFCFFE806899589332643FD1 /* XKPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01535FED02A5DCC0C37C605 /* XKPhotoScrollView.m */; };
+		138E04490A3A52904BEC5820 /* XKUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FE4359EDAD9C62FF982642 /* XKUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1694E03872592E6BCE075CE0 /* Pods-XKPhotoScrollView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E94B4C1B8495A8A830BB756D /* Pods-XKPhotoScrollView_Tests-dummy.m */; };
+		19855F32645C074306A29D3F /* XKPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FDF327124A22B8C80D4BDD /* XKPhotoScrollView.m */; };
+		1A4B99732DC46DF54185EAB5 /* XKUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D4990EF38E8FA1C9598966 /* XKUIUtils.m */; };
+		1EF325D7CCDC0389E7F39F3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE5CCF1372F860C01FB5561 /* Foundation.framework */; };
+		20BE5E39DF4FF34934D8A447 /* XKUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D4990EF38E8FA1C9598966 /* XKUIUtils.m */; };
+		240EC85B426FB23817DDA960 /* XKPhotoScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5FD7A0245A2CBF4B4F370622 /* XKPhotoScrollView.bundle */; };
+		307B2FA378B386D73087458B /* XKUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FE4359EDAD9C62FF982642 /* XKUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AFDF95B3987E976B8BEDF10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE5CCF1372F860C01FB5561 /* Foundation.framework */; };
+		404BEE4DD03D32B01681EA5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE5CCF1372F860C01FB5561 /* Foundation.framework */; };
+		546E562DC4888D993337BA2F /* XKCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E69B738C37CAD58DF3F34 /* XKCGUtils.m */; };
+		6C360803AA0CA135479C9AF2 /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A2450DF9F77890F7EBEC38 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7787D95FBB64EC9EC084186F /* XKPhotoScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = D958AEEF75F8F09DDCA11FEF /* XKPhotoScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96574FF49A25639D53F71098 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F0F6F5063FC23C601E42AD /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */; };
+		BC1A318384990AF628922166 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 824D10F3D666CE2112FAA80D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE6AE6F8D8FB546FD0424C9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE5CCF1372F860C01FB5561 /* Foundation.framework */; };
+		C3C942896D22DB4582D6BEBB /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25085D2CB0CCB2B1F7DE43C5 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C790644615049A3C01FC3DAB /* Pods-XKPhotoScrollView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E66E22C87BDCD22ACA78ABD /* Pods-XKPhotoScrollView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9FEB1BE28FAAD22453BFD0F /* Pods-XKPhotoScrollView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED261BC6AB751A9C70580C09 /* Pods-XKPhotoScrollView_Example-dummy.m */; };
+		D09A63DFA6E07BF349E07DC9 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F1353EACE62E2BB81662F0 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */; };
+		DB9016F4CFE6F686B1DBBC99 /* XKPhotoScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA6A04BA867962733C75E2EE /* XKPhotoScrollView.bundle */; };
+		DC31095D579C4F80226D4CA3 /* XKPhotoScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = D958AEEF75F8F09DDCA11FEF /* XKPhotoScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD196FC394C23DCCAB0F7CDF /* XKCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E69B738C37CAD58DF3F34 /* XKCGUtils.m */; };
+		E143C7729D33C200A88B7CBF /* Pods-XKPhotoScrollView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 329F290E154C3D22209FB153 /* Pods-XKPhotoScrollView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9E2E7E27B74B1683DBE6FEB /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A2450DF9F77890F7EBEC38 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB9081D9E0B47F788BEAE28F /* XKPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FDF327124A22B8C80D4BDD /* XKPhotoScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0B08FDF7E1AA67A693F10723 /* PBXContainerItemProxy */ = {
+		5AD24310548A0D39643020EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7573EB7E1571D06516032BF2 /* Project object */;
+			containerPortal = 67C0692CE7C9D33817A9EA46 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 897302083F21AECC8B63584D;
-			remoteInfo = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
-		};
-		258DBACB96C70D69E5A083B0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7573EB7E1571D06516032BF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0D05E5E90C0E1CE7FFC7E15;
-			remoteInfo = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView";
-		};
-		71BEDCC323527B9DAD89E0C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7573EB7E1571D06516032BF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22495F1D88BA095625DFCD5E;
+			remoteGlobalIDString = 4881C94FE3F45AF38B18E885;
 			remoteInfo = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView";
 		};
-		F9ED0E73F6DE7CAA2DDB4936 /* PBXContainerItemProxy */ = {
+		62A15F17A2A2E772D02071EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7573EB7E1571D06516032BF2 /* Project object */;
+			containerPortal = 67C0692CE7C9D33817A9EA46 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF041E04EC72CB1BAE9B5AC8;
+			remoteGlobalIDString = 9471CB15122D0BC9A4BB772F;
+			remoteInfo = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView";
+		};
+		E4AA7326A2FAD394A25FCB0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C0692CE7C9D33817A9EA46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B61418A96A08E0A914D0301C;
 			remoteInfo = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
+		};
+		FDDF97280EC420D83AA430DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C0692CE7C9D33817A9EA46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21708A806D2C5364DE0600E4;
+			remoteInfo = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0264DAC03368EC5D8E7EB2D5 /* Pods-XKPhotoScrollView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Tests-dummy.m"; sourceTree = "<group>"; };
-		02BE2BE00CAA22E6590BC97F /* Pods-XKPhotoScrollView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-umbrella.h"; sourceTree = "<group>"; };
-		038381D8FFF3834B4F49FB95 /* Pods-XKPhotoScrollView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Example-resources.sh"; sourceTree = "<group>"; };
-		06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		0DE663C05213BF4A0AFD9B8C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap"; sourceTree = "<group>"; };
-		0DF595B6D1D3C90E88BCB049 /* Pods-XKPhotoScrollView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XKPhotoScrollView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		1D78198B134857DF4F8DBB2E /* Pods-XKPhotoScrollView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Example-frameworks.sh"; sourceTree = "<group>"; };
-		1E987CE6D05BDB30A2B69A22 /* Pods-XKPhotoScrollView_Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Tests-environment.h"; sourceTree = "<group>"; };
-		233EEE7D404EB18D1E8F93AB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Info.plist"; sourceTree = "<group>"; };
-		2A38D81D13DC1526A360929E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m"; sourceTree = "<group>"; };
-		2B1021B352804DF9E25A266D /* Pods-XKPhotoScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2EC04112C73410FC72C86F40 /* XKCAUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKCAUtils.m; sourceTree = "<group>"; };
-		332443C5002C9F348404CE51 /* XKCGUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKCGUtils.m; sourceTree = "<group>"; };
-		3BCE71FEF5B41DD16BA71170 /* Pods-XKPhotoScrollView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Example-dummy.m"; sourceTree = "<group>"; };
-		41DAFB93AAF57960D40C9742 /* Pods-XKPhotoScrollView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		42768CBCB176309D7A105C99 /* XKCGUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKCGUtils.h; sourceTree = "<group>"; };
-		4DC124CE62BA2C4A687FC018 /* XKUIUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKUIUtils.m; sourceTree = "<group>"; };
-		5152026080C0F69D5D9A3D17 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap"; sourceTree = "<group>"; };
-		522718558EF1005801437BF0 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		52EFA7F5F00003305F0969E8 /* Pods-XKPhotoScrollView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XKPhotoScrollView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		58FDB3BD00316BD403F6AAD6 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig"; sourceTree = "<group>"; };
-		60F9F051D62884DBA8148844 /* Pods-XKPhotoScrollView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Tests-umbrella.h"; sourceTree = "<group>"; };
-		677A29BA45B6A69169396051 /* XKUIUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKUIUtils.h; sourceTree = "<group>"; };
-		679A52889CDBE09DE99E9CCA /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
-		6A4B24B85092A92887B00698 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
-		734C8847613B0C4287559164 /* XKPhotoScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKPhotoScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7838220C161E5DE7AA52A24D /* Pods-XKPhotoScrollView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XKPhotoScrollView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7D99AB06D7C56BE4DDBF8A85 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; sourceTree = "<group>"; };
-		863CDE680360AE00BCFB99BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		892C9D2628550D1E72B92E65 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h"; sourceTree = "<group>"; };
-		95CB1CF35264BB68D529FF9D /* Pods-XKPhotoScrollView_Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-environment.h"; sourceTree = "<group>"; };
-		9D59F1A5D898F619F7522282 /* Pods_XKPhotoScrollView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A24D91735534F2B75B8B174D /* XKPhotoScrollView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XKPhotoScrollView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A97457813A652B2C85F1E33F /* Pods-XKPhotoScrollView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Example.modulemap"; sourceTree = "<group>"; };
-		AAA1EA9EC049200777A867D2 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig"; sourceTree = "<group>"; };
-		AAE99151C39F894E5920B26A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B442701500B8FED20E46290B /* Pods-XKPhotoScrollView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Tests.modulemap"; sourceTree = "<group>"; };
-		BB2B11F0246C257C6A24B538 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig"; sourceTree = "<group>"; };
-		BB38317BC7D1441E1BF2266A /* Pods-XKPhotoScrollView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XKPhotoScrollView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C04E6A51517E6CEE599606DF /* XKPhotoScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKPhotoScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1F5C7367086B6F689A409F7 /* XKCAUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKCAUtils.h; sourceTree = "<group>"; };
-		C23592A4F7A9D7F8FBDAB6F0 /* XKPhotoScrollView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XKPhotoScrollView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		C74E8FC92F518A9C47700F62 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig"; sourceTree = "<group>"; };
-		C927CC4E3C8D0E7E589275CA /* Pods_XKPhotoScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDB60964CC428CFFCC64026C /* Pods-XKPhotoScrollView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D01535FED02A5DCC0C37C605 /* XKPhotoScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKPhotoScrollView.m; sourceTree = "<group>"; };
-		D9695D2232D07B66E15FC4D6 /* Pods-XKPhotoScrollView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Tests-resources.sh"; sourceTree = "<group>"; };
-		DB8FCBF0E5FA942BCEC71054 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h"; sourceTree = "<group>"; };
-		DE99CBFB7A4C0F7D241CA153 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2E8F2C8E035538681689BB9 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKPhotoScrollView.h; sourceTree = "<group>"; };
-		F7AC3829CC0FC0F41625AE12 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		076F02942260B9A4550F245A /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig"; sourceTree = "<group>"; };
+		0E66E22C87BDCD22ACA78ABD /* Pods-XKPhotoScrollView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-umbrella.h"; sourceTree = "<group>"; };
+		1C3F662C3B5D0323A9AE045D /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap"; sourceTree = "<group>"; };
+		1D638294B8CEC38A331AFA46 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F8E7972EA5FD0749157B41C /* Pods-XKPhotoScrollView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XKPhotoScrollView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		2051EBC727EB81A358CA9E2B /* Pods-XKPhotoScrollView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Tests.modulemap"; sourceTree = "<group>"; };
+		2361F4494B6ED5C83135A5FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25085D2CB0CCB2B1F7DE43C5 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h"; sourceTree = "<group>"; };
+		2AF3594DD17FECCE28CCF2D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3050DAFA1123310B2CF8E2CB /* Pods-XKPhotoScrollView_Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-environment.h"; sourceTree = "<group>"; };
+		329F290E154C3D22209FB153 /* Pods-XKPhotoScrollView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		35D4990EF38E8FA1C9598966 /* XKUIUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKUIUtils.m; sourceTree = "<group>"; };
+		38BAD777790F737C312CDA39 /* Pods-XKPhotoScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3CE5CCF1372F860C01FB5561 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		48F0F6F5063FC23C601E42AD /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; sourceTree = "<group>"; };
+		4FB2236750647BBB239D95C7 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
+		51B8648A34617474149338D5 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
+		5FD7A0245A2CBF4B4F370622 /* XKPhotoScrollView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XKPhotoScrollView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		64D71EDE0AA518FE7D45EEA1 /* Pods-XKPhotoScrollView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig"; sourceTree = "<group>"; };
+		6AA98BEBD06C53C8C00977B1 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig"; sourceTree = "<group>"; };
+		6C45F9F1FA3ED36355CFFD92 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C4BEAE63280388BAE28A1CA /* Pods-XKPhotoScrollView_Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Tests-environment.h"; sourceTree = "<group>"; };
+		6DAD8124095F22B4FFC2E690 /* Pods-XKPhotoScrollView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XKPhotoScrollView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		7A9D11DEE5A03EF6B4593756 /* Pods-XKPhotoScrollView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XKPhotoScrollView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		802DF981E288C8471848E256 /* Pods-XKPhotoScrollView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XKPhotoScrollView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		80AEE73F985DEEE6B836BB80 /* Pods-XKPhotoScrollView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Example.modulemap"; sourceTree = "<group>"; };
+		824D10F3D666CE2112FAA80D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h"; sourceTree = "<group>"; };
+		84A2450DF9F77890F7EBEC38 /* XKCGUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKCGUtils.h; sourceTree = "<group>"; };
+		84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig"; sourceTree = "<group>"; };
+		88FF23FD459493A78973AABD /* Pods_XKPhotoScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964E69B738C37CAD58DF3F34 /* XKCGUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKCGUtils.m; sourceTree = "<group>"; };
+		9DAC10D3725BCD9D1DF806EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Info.plist"; sourceTree = "<group>"; };
+		A34C63F66E8F59A6E5A236D1 /* Pods-XKPhotoScrollView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Example-resources.sh"; sourceTree = "<group>"; };
+		A62EBBE773B79A9AFB2FD8DC /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap"; sourceTree = "<group>"; };
+		AC6CDCD5FEF6A2245E8B0AA3 /* XKPhotoScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKPhotoScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B49F2AD27E279120CB69E19D /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B78655BCF585EF351538DF9B /* Pods-XKPhotoScrollView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		C2AD4CD003F47F4F73733694 /* XKPhotoScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKPhotoScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C56BD4056087F04C5EC313F3 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C7F1353EACE62E2BB81662F0 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m"; sourceTree = "<group>"; };
+		D0129565E9405875AF2DA5DE /* Pods-XKPhotoScrollView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		D0FDF327124A22B8C80D4BDD /* XKPhotoScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKPhotoScrollView.m; sourceTree = "<group>"; };
+		D958AEEF75F8F09DDCA11FEF /* XKPhotoScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKPhotoScrollView.h; sourceTree = "<group>"; };
+		E94B4C1B8495A8A830BB756D /* Pods-XKPhotoScrollView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Tests-dummy.m"; sourceTree = "<group>"; };
+		EA6A04BA867962733C75E2EE /* XKPhotoScrollView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XKPhotoScrollView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED261BC6AB751A9C70580C09 /* Pods-XKPhotoScrollView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XKPhotoScrollView_Example-dummy.m"; sourceTree = "<group>"; };
+		F2FE4359EDAD9C62FF982642 /* XKUIUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKUIUtils.h; sourceTree = "<group>"; };
+		F782A12808DBE36A3FDB0481 /* Pods_XKPhotoScrollView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE9DC88E44D34075481892C8 /* Pods-XKPhotoScrollView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XKPhotoScrollView_Tests-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0DCD863229788F4DC5137202 /* Frameworks */ = {
+		1BA71E955C7EA873F4CAD672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6AE6F8D8FB546FD0424C9C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A2C73F15F0AE17AD6718C51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37D563F7AF4BFD589FBF5816 /* Frameworks */ = {
+		5E05E96FC1FF97727A47B1C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B22B88581AC5ECE7325569CF /* Foundation.framework in Frameworks */,
+				3AFDF95B3987E976B8BEDF10 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		73497BC47AF7046810648B46 /* Frameworks */ = {
+		8DE132805ADBFBD79153C77D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E5DEC466DE4401C1CA22316 /* Foundation.framework in Frameworks */,
+				404BEE4DD03D32B01681EA5B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80F45E9A8C1839687041D881 /* Frameworks */ = {
+		C1AEDDB6DCE62AA33F1C6A67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88691A87D11ADD0590F5099C /* Foundation.framework in Frameworks */,
+				1EF325D7CCDC0389E7F39F3B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B51DBF244C134B85C4D1896B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				205A77F741EE2E332D303939 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B970E1FB6F4972391911B55E /* Frameworks */ = {
+		E3DBB26415787B1B20FD921A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -175,227 +169,224 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1ACF00E84D69D789FAE0F2C3 /* Targets Support Files */ = {
+		1BD8927CA892376DAA64E027 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5941B125306F7F0E8C4474C8 /* Pods-XKPhotoScrollView_Example */,
-				A4FE11ECAA4EF397E6D52F77 /* Pods-XKPhotoScrollView_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		1CA5A824E37114BFCD5F2CE0 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DE99CBFB7A4C0F7D241CA153 /* Info.plist */,
-				233EEE7D404EB18D1E8F93AB /* Info.plist */,
-				5152026080C0F69D5D9A3D17 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap */,
-				AAA1EA9EC049200777A867D2 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig */,
-				58FDB3BD00316BD403F6AAD6 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */,
-				2A38D81D13DC1526A360929E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */,
-				679A52889CDBE09DE99E9CCA /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch */,
-				DB8FCBF0E5FA942BCEC71054 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */,
-				0DE663C05213BF4A0AFD9B8C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap */,
-				BB2B11F0246C257C6A24B538 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig */,
-				C74E8FC92F518A9C47700F62 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */,
-				7D99AB06D7C56BE4DDBF8A85 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */,
-				6A4B24B85092A92887B00698 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch */,
-				892C9D2628550D1E72B92E65 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */,
+				2361F4494B6ED5C83135A5FF /* Info.plist */,
+				9DAC10D3725BCD9D1DF806EF /* Info.plist */,
+				A62EBBE773B79A9AFB2FD8DC /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap */,
+				076F02942260B9A4550F245A /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView.xcconfig */,
+				84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */,
+				C7F1353EACE62E2BB81662F0 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m */,
+				51B8648A34617474149338D5 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch */,
+				824D10F3D666CE2112FAA80D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h */,
+				1C3F662C3B5D0323A9AE045D /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap */,
+				6AA98BEBD06C53C8C00977B1 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.xcconfig */,
+				68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */,
+				48F0F6F5063FC23C601E42AD /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */,
+				4FB2236750647BBB239D95C7 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch */,
+				25085D2CB0CCB2B1F7DE43C5 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
 			sourceTree = "<group>";
 		};
-		3B04B635E173AF336CCD1135 /* XKPhotoScrollView */ = {
+		1E38C1BDD2B202400DDCA2A4 /* Pods-XKPhotoScrollView_Example */ = {
 			isa = PBXGroup;
 			children = (
-				8ED6FC2E877A85F74FB78F00 /* Pod */,
-				1CA5A824E37114BFCD5F2CE0 /* Support Files */,
-			);
-			name = XKPhotoScrollView;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		5941B125306F7F0E8C4474C8 /* Pods-XKPhotoScrollView_Example */ = {
-			isa = PBXGroup;
-			children = (
-				AAE99151C39F894E5920B26A /* Info.plist */,
-				A97457813A652B2C85F1E33F /* Pods-XKPhotoScrollView_Example.modulemap */,
-				7838220C161E5DE7AA52A24D /* Pods-XKPhotoScrollView_Example-acknowledgements.markdown */,
-				0DF595B6D1D3C90E88BCB049 /* Pods-XKPhotoScrollView_Example-acknowledgements.plist */,
-				3BCE71FEF5B41DD16BA71170 /* Pods-XKPhotoScrollView_Example-dummy.m */,
-				95CB1CF35264BB68D529FF9D /* Pods-XKPhotoScrollView_Example-environment.h */,
-				1D78198B134857DF4F8DBB2E /* Pods-XKPhotoScrollView_Example-frameworks.sh */,
-				038381D8FFF3834B4F49FB95 /* Pods-XKPhotoScrollView_Example-resources.sh */,
-				02BE2BE00CAA22E6590BC97F /* Pods-XKPhotoScrollView_Example-umbrella.h */,
-				522718558EF1005801437BF0 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */,
-				2B1021B352804DF9E25A266D /* Pods-XKPhotoScrollView_Example.release.xcconfig */,
+				1D638294B8CEC38A331AFA46 /* Info.plist */,
+				80AEE73F985DEEE6B836BB80 /* Pods-XKPhotoScrollView_Example.modulemap */,
+				802DF981E288C8471848E256 /* Pods-XKPhotoScrollView_Example-acknowledgements.markdown */,
+				6DAD8124095F22B4FFC2E690 /* Pods-XKPhotoScrollView_Example-acknowledgements.plist */,
+				ED261BC6AB751A9C70580C09 /* Pods-XKPhotoScrollView_Example-dummy.m */,
+				3050DAFA1123310B2CF8E2CB /* Pods-XKPhotoScrollView_Example-environment.h */,
+				64D71EDE0AA518FE7D45EEA1 /* Pods-XKPhotoScrollView_Example-frameworks.sh */,
+				A34C63F66E8F59A6E5A236D1 /* Pods-XKPhotoScrollView_Example-resources.sh */,
+				0E66E22C87BDCD22ACA78ABD /* Pods-XKPhotoScrollView_Example-umbrella.h */,
+				C56BD4056087F04C5EC313F3 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */,
+				38BAD777790F737C312CDA39 /* Pods-XKPhotoScrollView_Example.release.xcconfig */,
 			);
 			name = "Pods-XKPhotoScrollView_Example";
 			path = "Target Support Files/Pods-XKPhotoScrollView_Example";
 			sourceTree = "<group>";
 		};
-		75B6F43BCDF84392E9BE023D /* Products */ = {
+		2DC526D0D3A48DBF00EAF08B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C927CC4E3C8D0E7E589275CA /* Pods_XKPhotoScrollView_Example.framework */,
-				9D59F1A5D898F619F7522282 /* Pods_XKPhotoScrollView_Tests.framework */,
-				C23592A4F7A9D7F8FBDAB6F0 /* XKPhotoScrollView.bundle */,
-				A24D91735534F2B75B8B174D /* XKPhotoScrollView.bundle */,
-				C04E6A51517E6CEE599606DF /* XKPhotoScrollView.framework */,
-				734C8847613B0C4287559164 /* XKPhotoScrollView.framework */,
+				84A2450DF9F77890F7EBEC38 /* XKCGUtils.h */,
+				964E69B738C37CAD58DF3F34 /* XKCGUtils.m */,
+				D958AEEF75F8F09DDCA11FEF /* XKPhotoScrollView.h */,
+				D0FDF327124A22B8C80D4BDD /* XKPhotoScrollView.m */,
+				F2FE4359EDAD9C62FF982642 /* XKUIUtils.h */,
+				35D4990EF38E8FA1C9598966 /* XKUIUtils.m */,
 			);
-			name = Products;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		75D4F4F79A096BC53E41D60A /* Frameworks */ = {
+		3749B677CBE3E231D6DB2DE9 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FEE1E6AC47A591CF5488DDD0 /* iOS */,
+				1E38C1BDD2B202400DDCA2A4 /* Pods-XKPhotoScrollView_Example */,
+				CE204C465641D331414C8767 /* Pods-XKPhotoScrollView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3C231FEFFE62F8B164214B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A117437AC7969D3661DB5BCF /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8ED6FC2E877A85F74FB78F00 /* Pod */ = {
+		46225B067D06ECA88620C5E3 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B1F2D289A29EDA28BBEC9F06 /* Classes */,
+				2DC526D0D3A48DBF00EAF08B /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		A4FE11ECAA4EF397E6D52F77 /* Pods-XKPhotoScrollView_Tests */ = {
+		5A1E0299F144325769F55DF7 /* XKPhotoScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				863CDE680360AE00BCFB99BF /* Info.plist */,
-				B442701500B8FED20E46290B /* Pods-XKPhotoScrollView_Tests.modulemap */,
-				52EFA7F5F00003305F0969E8 /* Pods-XKPhotoScrollView_Tests-acknowledgements.markdown */,
-				BB38317BC7D1441E1BF2266A /* Pods-XKPhotoScrollView_Tests-acknowledgements.plist */,
-				0264DAC03368EC5D8E7EB2D5 /* Pods-XKPhotoScrollView_Tests-dummy.m */,
-				1E987CE6D05BDB30A2B69A22 /* Pods-XKPhotoScrollView_Tests-environment.h */,
-				41DAFB93AAF57960D40C9742 /* Pods-XKPhotoScrollView_Tests-frameworks.sh */,
-				D9695D2232D07B66E15FC4D6 /* Pods-XKPhotoScrollView_Tests-resources.sh */,
-				60F9F051D62884DBA8148844 /* Pods-XKPhotoScrollView_Tests-umbrella.h */,
-				F7AC3829CC0FC0F41625AE12 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */,
-				CDB60964CC428CFFCC64026C /* Pods-XKPhotoScrollView_Tests.release.xcconfig */,
+				46225B067D06ECA88620C5E3 /* Pod */,
+				1BD8927CA892376DAA64E027 /* Support Files */,
+			);
+			name = XKPhotoScrollView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		8C95B37A08E8B59B8B686713 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A1E0299F144325769F55DF7 /* XKPhotoScrollView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A117437AC7969D3661DB5BCF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3CE5CCF1372F860C01FB5561 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		AE3FB10D90C6D31E0D62F326 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88FF23FD459493A78973AABD /* Pods_XKPhotoScrollView_Example.framework */,
+				F782A12808DBE36A3FDB0481 /* Pods_XKPhotoScrollView_Tests.framework */,
+				5FD7A0245A2CBF4B4F370622 /* XKPhotoScrollView.bundle */,
+				EA6A04BA867962733C75E2EE /* XKPhotoScrollView.bundle */,
+				AC6CDCD5FEF6A2245E8B0AA3 /* XKPhotoScrollView.framework */,
+				C2AD4CD003F47F4F73733694 /* XKPhotoScrollView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA49F5A79B3ED8E5416EA1FA = {
+			isa = PBXGroup;
+			children = (
+				B49F2AD27E279120CB69E19D /* Podfile */,
+				8C95B37A08E8B59B8B686713 /* Development Pods */,
+				3C231FEFFE62F8B164214B30 /* Frameworks */,
+				AE3FB10D90C6D31E0D62F326 /* Products */,
+				3749B677CBE3E231D6DB2DE9 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CE204C465641D331414C8767 /* Pods-XKPhotoScrollView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2AF3594DD17FECCE28CCF2D4 /* Info.plist */,
+				2051EBC727EB81A358CA9E2B /* Pods-XKPhotoScrollView_Tests.modulemap */,
+				7A9D11DEE5A03EF6B4593756 /* Pods-XKPhotoScrollView_Tests-acknowledgements.markdown */,
+				1F8E7972EA5FD0749157B41C /* Pods-XKPhotoScrollView_Tests-acknowledgements.plist */,
+				E94B4C1B8495A8A830BB756D /* Pods-XKPhotoScrollView_Tests-dummy.m */,
+				6C4BEAE63280388BAE28A1CA /* Pods-XKPhotoScrollView_Tests-environment.h */,
+				D0129565E9405875AF2DA5DE /* Pods-XKPhotoScrollView_Tests-frameworks.sh */,
+				FE9DC88E44D34075481892C8 /* Pods-XKPhotoScrollView_Tests-resources.sh */,
+				329F290E154C3D22209FB153 /* Pods-XKPhotoScrollView_Tests-umbrella.h */,
+				6C45F9F1FA3ED36355CFFD92 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */,
+				B78655BCF585EF351538DF9B /* Pods-XKPhotoScrollView_Tests.release.xcconfig */,
 			);
 			name = "Pods-XKPhotoScrollView_Tests";
 			path = "Target Support Files/Pods-XKPhotoScrollView_Tests";
 			sourceTree = "<group>";
 		};
-		B1F2D289A29EDA28BBEC9F06 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C1F5C7367086B6F689A409F7 /* XKCAUtils.h */,
-				2EC04112C73410FC72C86F40 /* XKCAUtils.m */,
-				42768CBCB176309D7A105C99 /* XKCGUtils.h */,
-				332443C5002C9F348404CE51 /* XKCGUtils.m */,
-				F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */,
-				D01535FED02A5DCC0C37C605 /* XKPhotoScrollView.m */,
-				677A29BA45B6A69169396051 /* XKUIUtils.h */,
-				4DC124CE62BA2C4A687FC018 /* XKUIUtils.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		E1A80239707ACD276346989E = {
-			isa = PBXGroup;
-			children = (
-				E2E8F2C8E035538681689BB9 /* Podfile */,
-				E987793B5840B43EC3DECA26 /* Development Pods */,
-				75D4F4F79A096BC53E41D60A /* Frameworks */,
-				75B6F43BCDF84392E9BE023D /* Products */,
-				1ACF00E84D69D789FAE0F2C3 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		E987793B5840B43EC3DECA26 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3B04B635E173AF336CCD1135 /* XKPhotoScrollView */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		FEE1E6AC47A591CF5488DDD0 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		30B854E96088C5AAFB1E4B36 /* Headers */ = {
+		0CDF304485C7D02167A20033 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0376666DD4975F61334C5B0 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h in Headers */,
-				762AC0F8DB6A21C5CFDB9D60 /* XKCAUtils.h in Headers */,
-				0ECB1657F5F80F6D77C95925 /* XKCGUtils.h in Headers */,
-				8C048BB0B09026119C054898 /* XKPhotoScrollView.h in Headers */,
-				EB15D49C18AC97ED1664E37B /* XKUIUtils.h in Headers */,
+				C3C942896D22DB4582D6BEBB /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h in Headers */,
+				E9E2E7E27B74B1683DBE6FEB /* XKCGUtils.h in Headers */,
+				DC31095D579C4F80226D4CA3 /* XKPhotoScrollView.h in Headers */,
+				307B2FA378B386D73087458B /* XKUIUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4E0AB4DAD28B4E1AD8A94E6 /* Headers */ = {
+		5F9EC740DB77067C269B3769 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E973081745FA0A87A6BA5BA3 /* Pods-XKPhotoScrollView_Example-umbrella.h in Headers */,
+				BC1A318384990AF628922166 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h in Headers */,
+				6C360803AA0CA135479C9AF2 /* XKCGUtils.h in Headers */,
+				7787D95FBB64EC9EC084186F /* XKPhotoScrollView.h in Headers */,
+				138E04490A3A52904BEC5820 /* XKUIUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF3DE2646B21DD0ABAC17D30 /* Headers */ = {
+		E32E25706DFB5BD8BF87BC2A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A6D9FFCA85B08C93BB43B3 /* Pods-XKPhotoScrollView_Tests-umbrella.h in Headers */,
+				C790644615049A3C01FC3DAB /* Pods-XKPhotoScrollView_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA723499567A0137EFF8A1E4 /* Headers */ = {
+		FF3CF27816116E5BFECB9C22 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54E3A1B65D9A00A3060BC06 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h in Headers */,
-				54DD1E8B1CD98DCE50D9FABD /* XKCAUtils.h in Headers */,
-				62BC9B14F283BE3B35872F92 /* XKCGUtils.h in Headers */,
-				DA40901C6FE880987E5150F3 /* XKPhotoScrollView.h in Headers */,
-				0E3E2889A58803DBA4DF500E /* XKUIUtils.h in Headers */,
+				E143C7729D33C200A88B7CBF /* Pods-XKPhotoScrollView_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1D0F9B51D54D0601C754F634 /* Pods-XKPhotoScrollView_Example */ = {
+		21708A806D2C5364DE0600E4 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE2B9001507DA17CB6676FDE /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example" */;
+			buildConfigurationList = 8C1630E7D86299BF43E434B4 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView" */;
 			buildPhases = (
-				33C66885368BDD2C108112A7 /* Sources */,
-				80F45E9A8C1839687041D881 /* Frameworks */,
-				A4E0AB4DAD28B4E1AD8A94E6 /* Headers */,
+				566281880B4DD237E2C1B439 /* Sources */,
+				1BA71E955C7EA873F4CAD672 /* Frameworks */,
+				ABBEBB079622B93DD63ED8B3 /* Resources */,
+				5F9EC740DB77067C269B3769 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				772C3AC3BA0A304DD893381D /* PBXTargetDependency */,
+				509C279089EAA7D3FB9846A8 /* PBXTargetDependency */,
 			);
-			name = "Pods-XKPhotoScrollView_Example";
-			productName = "Pods-XKPhotoScrollView_Example";
-			productReference = C927CC4E3C8D0E7E589275CA /* Pods_XKPhotoScrollView_Example.framework */;
+			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
+			productName = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
+			productReference = C2AD4CD003F47F4F73733694 /* XKPhotoScrollView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		22495F1D88BA095625DFCD5E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */ = {
+		4881C94FE3F45AF38B18E885 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A62B5A2AB020027FA26EFD6 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView" */;
+			buildConfigurationList = 09D6D823FBAADADA767CEE92 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView" */;
 			buildPhases = (
-				2FF6F27F677393F7FC0019C0 /* Sources */,
-				B970E1FB6F4972391911B55E /* Frameworks */,
-				1196FA63610A8CE884EC4AFC /* Resources */,
+				224965961368F657E04EC9E4 /* Sources */,
+				2A2C73F15F0AE17AD6718C51 /* Frameworks */,
+				E6D8A9B4177D79D53B1D95BE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -403,54 +394,34 @@
 			);
 			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView";
 			productName = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView";
-			productReference = C23592A4F7A9D7F8FBDAB6F0 /* XKPhotoScrollView.bundle */;
+			productReference = 5FD7A0245A2CBF4B4F370622 /* XKPhotoScrollView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		897302083F21AECC8B63584D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */ = {
+		50B3F090575E1A6DDB41A1B4 /* Pods-XKPhotoScrollView_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C875B20A80BD9B872855DD9 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView" */;
+			buildConfigurationList = 642F362F45AB3CC4D8DAE89E /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example" */;
 			buildPhases = (
-				87F4485C8A46351562B78DCD /* Sources */,
-				73497BC47AF7046810648B46 /* Frameworks */,
-				2D8510EE78996C72FAA32B09 /* Resources */,
-				FA723499567A0137EFF8A1E4 /* Headers */,
+				D7E30B03E8F7DEA520650234 /* Sources */,
+				5E05E96FC1FF97727A47B1C5 /* Frameworks */,
+				E32E25706DFB5BD8BF87BC2A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				80D3299CDFD543B9FE6B1ADA /* PBXTargetDependency */,
+				59258C7CAE70A6070100A19E /* PBXTargetDependency */,
 			);
-			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
-			productName = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
-			productReference = 734C8847613B0C4287559164 /* XKPhotoScrollView.framework */;
+			name = "Pods-XKPhotoScrollView_Example";
+			productName = "Pods-XKPhotoScrollView_Example";
+			productReference = 88FF23FD459493A78973AABD /* Pods_XKPhotoScrollView_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BF041E04EC72CB1BAE9B5AC8 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */ = {
+		9471CB15122D0BC9A4BB772F /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15D3CA1BEE96DFBC59B387E3 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView" */;
+			buildConfigurationList = 2B88E1C7D31EF11D89926F41 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView" */;
 			buildPhases = (
-				95D0340C5E8B1198782DA742 /* Sources */,
-				37D563F7AF4BFD589FBF5816 /* Frameworks */,
-				C9D68DB94DD6FBC15BE08C26 /* Resources */,
-				30B854E96088C5AAFB1E4B36 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3C5182EDADC276191FD3119E /* PBXTargetDependency */,
-			);
-			name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
-			productName = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
-			productReference = C04E6A51517E6CEE599606DF /* XKPhotoScrollView.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E0D05E5E90C0E1CE7FFC7E15 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F7F0DD0B485A527D094DA084 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView" */;
-			buildPhases = (
-				922F7CA2FBD03EC7BBF2511B /* Sources */,
-				0DCD863229788F4DC5137202 /* Frameworks */,
-				555641286E8D99E71B891BCC /* Resources */,
+				652C59A79F96C92B868F38AA /* Sources */,
+				E3DBB26415787B1B20FD921A /* Frameworks */,
+				D5E528DDC7563D109F8CA4C2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -458,202 +429,195 @@
 			);
 			name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView";
 			productName = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView";
-			productReference = A24D91735534F2B75B8B174D /* XKPhotoScrollView.bundle */;
+			productReference = EA6A04BA867962733C75E2EE /* XKPhotoScrollView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		ECFD1635E78F1F991D5C18CF /* Pods-XKPhotoScrollView_Tests */ = {
+		B61418A96A08E0A914D0301C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2543C04F10413C3E8196EC7 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests" */;
+			buildConfigurationList = 8F0681AE243C3D37C3C31342 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView" */;
 			buildPhases = (
-				CAD0894A479E95E76C88D914 /* Sources */,
-				B51DBF244C134B85C4D1896B /* Frameworks */,
-				BF3DE2646B21DD0ABAC17D30 /* Headers */,
+				B59A56E8FA9F19A7F6DB5CB7 /* Sources */,
+				C1AEDDB6DCE62AA33F1C6A67 /* Frameworks */,
+				E02D4BA0F4314FCBC08E9AEA /* Resources */,
+				0CDF304485C7D02167A20033 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0272F19965CDACE102324B3 /* PBXTargetDependency */,
+				23D7499900074AA06F736212 /* PBXTargetDependency */,
+			);
+			name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
+			productName = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
+			productReference = AC6CDCD5FEF6A2245E8B0AA3 /* XKPhotoScrollView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC83382220C1878EBA7B5C0A /* Pods-XKPhotoScrollView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD39CC22ABD9DADB9BFBA86 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests" */;
+			buildPhases = (
+				44482BD73C23F85A95702BF3 /* Sources */,
+				8DE132805ADBFBD79153C77D /* Frameworks */,
+				FF3CF27816116E5BFECB9C22 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6A038D2A26C62E2C104DE16 /* PBXTargetDependency */,
 			);
 			name = "Pods-XKPhotoScrollView_Tests";
 			productName = "Pods-XKPhotoScrollView_Tests";
-			productReference = 9D59F1A5D898F619F7522282 /* Pods_XKPhotoScrollView_Tests.framework */;
+			productReference = F782A12808DBE36A3FDB0481 /* Pods_XKPhotoScrollView_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7573EB7E1571D06516032BF2 /* Project object */ = {
+		67C0692CE7C9D33817A9EA46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = CAEC9B29C323F760A209485E /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 8C762E83B32CCFDDFE67EB2E /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E1A80239707ACD276346989E;
-			productRefGroup = 75B6F43BCDF84392E9BE023D /* Products */;
+			mainGroup = BA49F5A79B3ED8E5416EA1FA;
+			productRefGroup = AE3FB10D90C6D31E0D62F326 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D0F9B51D54D0601C754F634 /* Pods-XKPhotoScrollView_Example */,
-				897302083F21AECC8B63584D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */,
-				22495F1D88BA095625DFCD5E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */,
-				ECFD1635E78F1F991D5C18CF /* Pods-XKPhotoScrollView_Tests */,
-				BF041E04EC72CB1BAE9B5AC8 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */,
-				E0D05E5E90C0E1CE7FFC7E15 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */,
+				50B3F090575E1A6DDB41A1B4 /* Pods-XKPhotoScrollView_Example */,
+				21708A806D2C5364DE0600E4 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */,
+				4881C94FE3F45AF38B18E885 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */,
+				DC83382220C1878EBA7B5C0A /* Pods-XKPhotoScrollView_Tests */,
+				B61418A96A08E0A914D0301C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */,
+				9471CB15122D0BC9A4BB772F /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1196FA63610A8CE884EC4AFC /* Resources */ = {
+		ABBEBB079622B93DD63ED8B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				240EC85B426FB23817DDA960 /* XKPhotoScrollView.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5E528DDC7563D109F8CA4C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D8510EE78996C72FAA32B09 /* Resources */ = {
+		E02D4BA0F4314FCBC08E9AEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F5140C7AE259163A10963DD /* XKPhotoScrollView.bundle in Resources */,
+				DB9016F4CFE6F686B1DBBC99 /* XKPhotoScrollView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		555641286E8D99E71B891BCC /* Resources */ = {
+		E6D8A9B4177D79D53B1D95BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9D68DB94DD6FBC15BE08C26 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A82821D960DBE6BD193C090 /* XKPhotoScrollView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2FF6F27F677393F7FC0019C0 /* Sources */ = {
+		224965961368F657E04EC9E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		33C66885368BDD2C108112A7 /* Sources */ = {
+		44482BD73C23F85A95702BF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				644F7F0FC442E0B72D2F6797 /* Pods-XKPhotoScrollView_Example-dummy.m in Sources */,
+				1694E03872592E6BCE075CE0 /* Pods-XKPhotoScrollView_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87F4485C8A46351562B78DCD /* Sources */ = {
+		566281880B4DD237E2C1B439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ACED1EA35229ADAAD31F68A /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m in Sources */,
-				27AED100840EF575A1062C6D /* XKCAUtils.m in Sources */,
-				68FD04B9498911192D66056E /* XKCGUtils.m in Sources */,
-				A692DDE3D0014EE77EFB403F /* XKPhotoScrollView.m in Sources */,
-				CE272CE565F6C2F85173961B /* XKUIUtils.m in Sources */,
+				D09A63DFA6E07BF349E07DC9 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m in Sources */,
+				DD196FC394C23DCCAB0F7CDF /* XKCGUtils.m in Sources */,
+				19855F32645C074306A29D3F /* XKPhotoScrollView.m in Sources */,
+				1A4B99732DC46DF54185EAB5 /* XKUIUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		922F7CA2FBD03EC7BBF2511B /* Sources */ = {
+		652C59A79F96C92B868F38AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95D0340C5E8B1198782DA742 /* Sources */ = {
+		B59A56E8FA9F19A7F6DB5CB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8B4EDF7BB160DBA1515E135 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m in Sources */,
-				081DBD51B626B62BA9E8A047 /* XKCAUtils.m in Sources */,
-				7D750FE8A4AE65F0EC534903 /* XKCGUtils.m in Sources */,
-				EFCFFE806899589332643FD1 /* XKPhotoScrollView.m in Sources */,
-				14341A01B8F1A164EDB0F5A2 /* XKUIUtils.m in Sources */,
+				96574FF49A25639D53F71098 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m in Sources */,
+				546E562DC4888D993337BA2F /* XKCGUtils.m in Sources */,
+				FB9081D9E0B47F788BEAE28F /* XKPhotoScrollView.m in Sources */,
+				20BE5E39DF4FF34934D8A447 /* XKUIUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CAD0894A479E95E76C88D914 /* Sources */ = {
+		D7E30B03E8F7DEA520650234 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE79A9586EF9D96570E59DD /* Pods-XKPhotoScrollView_Tests-dummy.m in Sources */,
+				C9FEB1BE28FAAD22453BFD0F /* Pods-XKPhotoScrollView_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3C5182EDADC276191FD3119E /* PBXTargetDependency */ = {
+		23D7499900074AA06F736212 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView";
-			target = E0D05E5E90C0E1CE7FFC7E15 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */;
-			targetProxy = 258DBACB96C70D69E5A083B0 /* PBXContainerItemProxy */;
+			target = 9471CB15122D0BC9A4BB772F /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView */;
+			targetProxy = 62A15F17A2A2E772D02071EC /* PBXContainerItemProxy */;
 		};
-		772C3AC3BA0A304DD893381D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
-			target = 897302083F21AECC8B63584D /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */;
-			targetProxy = 0B08FDF7E1AA67A693F10723 /* PBXContainerItemProxy */;
-		};
-		80D3299CDFD543B9FE6B1ADA /* PBXTargetDependency */ = {
+		509C279089EAA7D3FB9846A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView";
-			target = 22495F1D88BA095625DFCD5E /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */;
-			targetProxy = 71BEDCC323527B9DAD89E0C4 /* PBXContainerItemProxy */;
+			target = 4881C94FE3F45AF38B18E885 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView */;
+			targetProxy = 5AD24310548A0D39643020EC /* PBXContainerItemProxy */;
 		};
-		B0272F19965CDACE102324B3 /* PBXTargetDependency */ = {
+		59258C7CAE70A6070100A19E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView";
+			target = 21708A806D2C5364DE0600E4 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView */;
+			targetProxy = FDDF97280EC420D83AA430DA /* PBXContainerItemProxy */;
+		};
+		D6A038D2A26C62E2C104DE16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView";
-			target = BF041E04EC72CB1BAE9B5AC8 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */;
-			targetProxy = F9ED0E73F6DE7CAA2DDB4936 /* PBXContainerItemProxy */;
+			target = B61418A96A08E0A914D0301C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView */;
+			targetProxy = E4AA7326A2FAD394A25FCB0C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0A2C860DCAD650B107FEF80A /* Release */ = {
+		101B34846571B3013DD17E76 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Tests";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = XKPhotoScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		18E76D1DAF750B6F378EB3CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Example";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = XKPhotoScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		32516262F9DDD7AAF8612052 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58FDB3BD00316BD403F6AAD6 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
+			baseConfigurationReference = C56BD4056087F04C5EC313F3 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -662,14 +626,16 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = XKPhotoScrollView;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_XKPhotoScrollView_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -678,9 +644,107 @@
 			};
 			name = Debug;
 		};
-		45020B798EE4A0604F63AA7A /* Debug */ = {
+		39B250430ECA34F3542A0F63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74E8FC92F518A9C47700F62 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
+			baseConfigurationReference = 38BAD777790F737C312CDA39 /* Pods-XKPhotoScrollView_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_XKPhotoScrollView_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4214883FB5DD06AAA04056B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C45F9F1FA3ED36355CFFD92 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests/Pods-XKPhotoScrollView_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_XKPhotoScrollView_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		64C166251DDC261764BA4CB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6AC20F0286E4DEA81A173620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Example";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		7850B3676C50C0A2CB2AEE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -705,9 +769,49 @@
 			};
 			name = Debug;
 		};
-		4DEF62AD12E2ECF65D5E7209 /* Release */ = {
+		86FDA35DABCF216C359E398C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDB60964CC428CFFCC64026C /* Pods-XKPhotoScrollView_Tests.release.xcconfig */;
+			baseConfigurationReference = 84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Example";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		9105634BB93FEB9FDFF23816 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D706EEA34D132BAA61D24251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B78655BCF585EF351538DF9B /* Pods-XKPhotoScrollView_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -734,9 +838,69 @@
 			};
 			name = Release;
 		};
-		8524CFF62AB2DED3B418E68D /* Release */ = {
+		D8B09423EC2E44F23F70198A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74E8FC92F518A9C47700F62 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
+			baseConfigurationReference = 68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Tests";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D8D99EB83D51B14870F075C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68506AD5BB2828F87966924C /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Tests";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = XKPhotoScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E297DE17FF7BCF5D26ED6136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E62DC69E4475BA06C9A977BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D19333DF43C0BA587B69FE /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -745,13 +909,13 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = XKPhotoScrollView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -759,9 +923,9 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		A0A5CB7D7B3D844E61BA20C2 /* Debug */ = {
+		EF2F6CAEDEB03502B2600828 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -800,245 +964,73 @@
 			};
 			name = Debug;
 		};
-		A921113757CDD30876870112 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Example";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = XKPhotoScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		BEA4D85B0118E05113514B9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C0738090C27CBE7FA847B1D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-XKPhotoScrollView_Tests";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = XKPhotoScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		C0EC850006BFA5793B567302 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B1021B352804DF9E25A266D /* Pods-XKPhotoScrollView_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_XKPhotoScrollView_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E27BCD97471FD17FA90AA656 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58FDB3BD00316BD403F6AAD6 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example-XKPhotoScrollView/Pods-XKPhotoScrollView_Example-XKPhotoScrollView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = XKPhotoScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E2E8ACC4C216EEBF360792BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 522718558EF1005801437BF0 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_XKPhotoScrollView_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F02E0A529A6EE6945A56AB33 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7AC3829CC0FC0F41625AE12 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-XKPhotoScrollView_Tests/Pods-XKPhotoScrollView_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_XKPhotoScrollView_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A62B5A2AB020027FA26EFD6 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView" */ = {
+		09D6D823FBAADADA767CEE92 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-XKPhotoScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18E76D1DAF750B6F378EB3CE /* Debug */,
-				A921113757CDD30876870112 /* Release */,
+				86FDA35DABCF216C359E398C /* Debug */,
+				6AC20F0286E4DEA81A173620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15D3CA1BEE96DFBC59B387E3 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView" */ = {
+		2B88E1C7D31EF11D89926F41 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				45020B798EE4A0604F63AA7A /* Debug */,
-				8524CFF62AB2DED3B418E68D /* Release */,
+				D8D99EB83D51B14870F075C3 /* Debug */,
+				D8B09423EC2E44F23F70198A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C875B20A80BD9B872855DD9 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView" */ = {
+		642F362F45AB3CC4D8DAE89E /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32516262F9DDD7AAF8612052 /* Debug */,
-				E27BCD97471FD17FA90AA656 /* Release */,
+				101B34846571B3013DD17E76 /* Debug */,
+				39B250430ECA34F3542A0F63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAEC9B29C323F760A209485E /* Build configuration list for PBXProject "Pods" */ = {
+		8C1630E7D86299BF43E434B4 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example-XKPhotoScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0A5CB7D7B3D844E61BA20C2 /* Debug */,
-				BEA4D85B0118E05113514B9A /* Release */,
+				E62DC69E4475BA06C9A977BB /* Debug */,
+				9105634BB93FEB9FDFF23816 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE2B9001507DA17CB6676FDE /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Example" */ = {
+		8C762E83B32CCFDDFE67EB2E /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2E8ACC4C216EEBF360792BF /* Debug */,
-				C0EC850006BFA5793B567302 /* Release */,
+				EF2F6CAEDEB03502B2600828 /* Debug */,
+				E297DE17FF7BCF5D26ED6136 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2543C04F10413C3E8196EC7 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests" */ = {
+		8F0681AE243C3D37C3C31342 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F02E0A529A6EE6945A56AB33 /* Debug */,
-				4DEF62AD12E2ECF65D5E7209 /* Release */,
+				7850B3676C50C0A2CB2AEE0A /* Debug */,
+				64C166251DDC261764BA4CB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7F0DD0B485A527D094DA084 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-XKPhotoScrollView" */ = {
+		FFD39CC22ABD9DADB9BFBA86 /* Build configuration list for PBXNativeTarget "Pods-XKPhotoScrollView_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C0738090C27CBE7FA847B1D8 /* Debug */,
-				0A2C860DCAD650B107FEF80A /* Release */,
+				4214883FB5DD06AAA04056B7 /* Debug */,
+				D706EEA34D132BAA61D24251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7573EB7E1571D06516032BF2 /* Project object */;
+	rootObject = 67C0692CE7C9D33817A9EA46 /* Project object */;
 }
