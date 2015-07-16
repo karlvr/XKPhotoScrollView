@@ -304,7 +304,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
         
         if (!CGSizeEqualToSize(previousSize, CGSizeZero)) {
             if (_currentViewState.view) {
-                _currentViewState.view.center = CGPointFromProportional(CGPointMakeProportional(_currentViewState.view.center, previousSize), bounds.size);
+                CGPoint center = CGPointFromProportional(CGPointMakeProportional(_currentViewState.view.center, previousSize), bounds.size);
+                if (isnan(center.x) || isnan(center.y)) {
+                    center = CGPointFromProportional(CGPointMake(0.5, 0.5), bounds.size);
+                }
+                _currentViewState.view.center = center;
                 
                 [self stabiliseCurrentView:YES];
             }
