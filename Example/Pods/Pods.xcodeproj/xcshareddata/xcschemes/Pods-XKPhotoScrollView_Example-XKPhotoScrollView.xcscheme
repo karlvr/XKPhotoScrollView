@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC0B3D9DD913517F1EB73797"
+               BlueprintIdentifier = "C74038223C2A83AE9CF951A9"
                BuildableName = "XKPhotoScrollView.framework"
                BlueprintName = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView"
                ReferencedContainer = "container:Pods.xcodeproj">
