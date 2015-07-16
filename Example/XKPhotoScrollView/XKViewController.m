@@ -46,14 +46,14 @@
 
 #pragma mark XKPhotoScrollViewDataSource
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(NSUInteger)row col:(NSUInteger)col
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *view = _views[col];
+    UIView *view = _views[indexPath.col];
     
-    [photoScrollView setView:view atRow:0 col:col placeholder:NO];
+    [photoScrollView setView:view atIndexPath:indexPath placeholder:NO];
 }
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
