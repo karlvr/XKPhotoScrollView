@@ -466,7 +466,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 			if ([_delegate respondsToSelector:@selector(photoScrollView:didSetCurrentView:withState:)])
 				[_delegate photoScrollView:self didSetCurrentView:_currentViewState.view withState:_currentViewState];
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-			NSLog(@"SET CURRENT VIEW %@ @ %ix%i REVEAL %@ @ %ix%i (mainThread=%i)", _currentViewState.view, _currentViewState.col, _currentViewState.row, _revealViewState.view, _revealViewState.col, _revealViewState.row, [NSThread isMainThread]);
+			NSLog(@"SET CURRENT VIEW %@ @ %@ REVEAL %@ @ %@ (mainThread=%i)", _currentViewState.view, _currentViewState.indexPath, _revealViewState.view, _revealViewState.indexPath, [NSThread isMainThread]);
 #endif
 		}
 	} else if ([indexPath isEqual:_revealViewState.indexPath]) {
@@ -481,7 +481,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 			[tmp removeFromSuperview];
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-			NSLog(@"SET REVEAL VIEW %@ @ %ix%i CURRENT %@ @ %ix%i (mainThread=%i)", _revealViewState.view, _revealViewState.col, _revealViewState.row, _currentViewState.view, _currentViewState.col, _currentViewState.row, [NSThread isMainThread]);
+			NSLog(@"SET REVEAL VIEW %@ @ %@ CURRENT %@ @ %@ (mainThread=%i)", _revealViewState.view, _revealViewState.indexPath, _currentViewState.view, _currentViewState.indexPath, [NSThread isMainThread]);
 #endif
 		}
 	}
@@ -826,7 +826,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	}
 
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-	NSLog(@"Switched to reveal at %ix%i", _currentViewState.col, _currentViewState.row);
+	NSLog(@"Switched to reveal at %@", _currentViewState.indexPath);
 #endif
 }
 
