@@ -237,15 +237,16 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 #pragma mark Layout
 
-- (void)setBounds:(CGRect)bounds
+- (void)layoutSubviews
 {
-    [super setBounds:bounds];
+    [super layoutSubviews];
     
+    const CGRect bounds = self.bounds;
     if (!CGSizeEqualToSize(bounds.size, _initialSize)) {
         const CGSize previousSize = _initialSize;
-		_initialSize = bounds.size;
+        _initialSize = bounds.size;
         
-		[self configureView:_currentViewState andInitialise:NO];
+        [self configureView:_currentViewState andInitialise:NO];
         [self configureView:_revealViewState andInitialise:NO];
         
         if (!CGSizeEqualToSize(previousSize, CGSizeZero)) {
@@ -258,7 +259,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
                 _revealViewState.view.center = CGPointFromProportional(CGPointMakeProportional(_revealViewState.view.center, previousSize), bounds.size);
             }
         }
-	}
+    }
 }
 
 #pragma mark Getters / Setters
