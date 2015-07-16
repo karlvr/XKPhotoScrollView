@@ -36,11 +36,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	XKPhotoScrollViewRevealModeLeft
 };
 
-static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoint pt) {
-    frame.origin = CGPointAdd(pt, CGPointMake(-frame.size.width / 2, -frame.size.height / 2));
-    return frame;
-}
-
 #define kRevealGutter  40
 
 @interface XKPhotoScrollView ()
@@ -232,8 +227,7 @@ static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoin
         /* Change the centre of the view to the centre of the viewport and ensure we're on a whole pixel. This
          * must be done in one step as we may be inside an animation block.
          */
-        viewState.view.frame = SetCentreOfFrameWithOriginRoundedToWholePixel(viewState.view.frame, CGPointMake(viewportSize.width / 2, viewportSize.height / 2));
-        
+        viewState.view.center = CGPointMake(viewportSize.width / 2, viewportSize.height / 2);
 		viewState.scale = 1.0;
 		viewState.placeholder = YES;
 	}
@@ -437,8 +431,8 @@ static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoin
 			_currentViewState.view = view;
 			_currentViewState.placeholder = placeholder;
 			[self configureView:_currentViewState andInitialise:NO];
-            _currentViewState.view.frame = SetCentreOfFrameWithOriginRoundedToWholePixel(_currentViewState.view.frame, tmp.center);
-			[self addSubview:_currentViewState.view];
+            _currentViewState.view.center = tmp.center;
+            [self addSubview:_currentViewState.view];
 
 			[tmp removeFromSuperview];
 
@@ -455,8 +449,8 @@ static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoin
 			_revealViewState.view = view;
 			_revealViewState.placeholder = placeholder;
 			[self configureView:_revealViewState andInitialise:NO];
-            _revealViewState.view.frame = SetCentreOfFrameWithOriginRoundedToWholePixel(_revealViewState.view.frame, tmp.center);
-			[self addSubview:_revealViewState.view];
+            _revealViewState.view.center = tmp.center;
+            [self addSubview:_revealViewState.view];
 
 			[tmp removeFromSuperview];
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
