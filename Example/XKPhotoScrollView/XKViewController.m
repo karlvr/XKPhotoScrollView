@@ -23,11 +23,11 @@
     self = [super initWithCoder:coder];
     if (self) {
         NSMutableArray *views = [NSMutableArray array];
-        [views addObject:[self viewForImageNamed:@"photo1.jpg"]];
-        [views addObject:[self viewForImageNamed:@"photo2.jpg"]];
-        [views addObject:[self viewForImageNamed:@"photo3.jpg"]];
-        [views addObject:[self viewForImageNamed:@"photo4.jpg"]];
-        [views addObject:[self viewForImageNamed:@"photo5.jpg"]];
+        [views addObject:[UIImage imageNamed:@"photo1.jpg"]];
+        [views addObject:[UIImage imageNamed:@"photo2.jpg"]];
+        [views addObject:[UIImage imageNamed:@"photo3.jpg"]];
+        [views addObject:[UIImage imageNamed:@"photo4.jpg"]];
+        [views addObject:[UIImage imageNamed:@"photo5.jpg"]];
         _views = [NSArray arrayWithArray:views];
     }
     return self;
@@ -42,22 +42,14 @@
 //    _photoScrollView.bouncesZoom = NO;
 }
 
-#pragma mark - Private
-
-- (UIView *)viewForImageNamed:(NSString *)imageName
-{
-    UIImage *image = [UIImage imageNamed:imageName];
-    UIImageView *view = [[UIImageView alloc] initWithImage:image];
-    return view;
-}
-
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDataSource
 
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *view = _views[indexPath.col];
+    UIImage *image = _views[(indexPath.row + indexPath.col) % _views.count];
+    UIImageView *view = [[UIImageView alloc] initWithImage:image];
     
     [photoScrollView setView:view atIndexPath:indexPath placeholder:NO];
 }
