@@ -207,7 +207,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 /**
  * Scale the given view so that it is appropriately sized for display in this view.
  */
-- (void)configureView:(XKPhotoScrollViewViewState *)viewState andInitialise:(BOOL)andInitialise {
+- (void)configureView:(XKPhotoScrollViewViewState *)viewState andInitialise:(BOOL)initialise {
 	if (!viewState.view)
 		return;
 
@@ -217,17 +217,26 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	float baseScaleWidth = (viewportSize.width - _baseInsets.left - _baseInsets.right) / viewSize.width;
 	float baseScaleHeight = (viewportSize.height - _baseInsets.top - _baseInsets.bottom) / viewSize.height;
 	float baseScale = baseScaleWidth < baseScaleHeight ? baseScaleWidth : baseScaleHeight;
-	if (baseScale > self.maximumBaseScale)
+    if (baseScale > self.maximumBaseScale) {
 		baseScale = self.maximumBaseScale;
+    }
 
+    BOOL initialiseCentre = initialise;
+    if (viewState.baseScale == 0) {
+        /* If the old baseScale was invalid, then we re-centre the view - such as if the view was positioned when the photo scroll view had zero size */
+        initialiseCentre = YES;
+    }
+    
 	viewState.baseScale = baseScale;
 	// viewState.view.userInteractionEnabled = NO;
 
-	if (andInitialise) {
+    if (initialiseCentre) {
         /* Change the centre of the view to the centre of the viewport and ensure we're on a whole pixel. This
          * must be done in one step as we may be inside an animation block.
          */
         viewState.view.center = CGPointMake(viewportSize.width / 2, viewportSize.height / 2);
+    }
+	if (initialise) {
 		viewState.scale = 1.0;
 		viewState.placeholder = YES;
 	}
