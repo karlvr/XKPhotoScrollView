@@ -88,12 +88,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     XKPhotoScrollViewViewState *_revealViewState;
     XKPhotoScrollViewRevealMode _revealMode;
     
-    unsigned int _cols, _rows;
+    NSUInteger _cols, _rows;
     
     CGPoint _animationStartCenter;
     CGPoint _animationTargetCenter;
-    float _animationStartScale;
-    float _animationTargetScale;
+    CGFloat _animationStartScale;
+    CGFloat _animationTargetScale;
     NSTimeInterval _animationStartTime;
     NSTimeInterval _animationDuration;
     BOOL _decelerating;
@@ -106,12 +106,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     CGPoint _zoomTouchStart;
     CGPoint _zoomCurrentViewStart;
-    float _zoomRadiusStart;
+    CGFloat _zoomRadiusStart;
     CGAffineTransform _zoomTransformStart;
-    float _zoomScaleStart;
-    float _zoomScaleTarget;
-    float _zoomMaxScale;
-    float _zoomMinScale;
+    CGFloat _zoomScaleStart;
+    CGFloat _zoomScaleTarget;
+    CGFloat _zoomMaxScale;
+    CGFloat _zoomMinScale;
     
     CGPoint _dragTouchStart;
     CGPoint _dragTouchLast;
@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     UIView *_placeholderCurrentView;
     UIView *_placeholderRevealView;
     
-    int _request1Row, _request1Col, _request2Row, _request2Col;
+    NSUInteger _request1Row, _request1Col, _request2Row, _request2Col;
     
     BOOL _cancelledForeignTouches;
     BOOL _owningTouch;
@@ -160,8 +160,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     _currentViewState = [[XKPhotoScrollViewViewState alloc] init];
     _revealViewState = [[XKPhotoScrollViewViewState alloc] init];
     _currentViewState.row = _currentViewState.col = 0;
-    _revealViewState.row = _revealViewState.col = -1;
-    _request1Row = _request1Col = _request2Row = _request2Col = -1;
+    _revealViewState.row = _revealViewState.col = NSNotFound;
+    _request1Row = _request1Col = _request2Row = _request2Col = NSNotFound;
     
     self.multipleTouchEnabled = YES;
     
@@ -198,8 +198,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 #pragma mark Configure views
 
 - (void)updateTransformation:(XKPhotoScrollViewViewState *)viewState {
-	float baseScale = viewState.baseScale;
-	float scale = viewState.scale;
+	CGFloat baseScale = viewState.baseScale;
+	CGFloat scale = viewState.scale;
 
 	/* Be careful about scaling by 1.0 as it raises an error message on the device */
 	if (scale == 1.0)
@@ -228,9 +228,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	CGSize viewportSize = [self viewportSize];
 	CGSize viewSize = viewState.view.bounds.size;
 
-	float baseScaleWidth = (viewportSize.width - _baseInsets.left - _baseInsets.right) / viewSize.width;
-	float baseScaleHeight = (viewportSize.height - _baseInsets.top - _baseInsets.bottom) / viewSize.height;
-	float baseScale = baseScaleWidth < baseScaleHeight ? baseScaleWidth : baseScaleHeight;
+	CGFloat baseScaleWidth = (viewportSize.width - _baseInsets.left - _baseInsets.right) / viewSize.width;
+	CGFloat baseScaleHeight = (viewportSize.height - _baseInsets.top - _baseInsets.bottom) / viewSize.height;
+	CGFloat baseScale = baseScaleWidth < baseScaleHeight ? baseScaleWidth : baseScaleHeight;
     if (baseScale > self.maximumBaseScale) {
 		baseScale = self.maximumBaseScale;
     }
@@ -295,15 +295,15 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	return _currentViewState.view;
 }
 
-- (float)baseScale {
+- (CGFloat)baseScale {
 	return _currentViewState.baseScale;
 }
 
-- (float)viewScale {
+- (CGFloat)viewScale {
 	return _currentViewState.scale;
 }
 
-- (void)setViewScale:(float)scale {
+- (void)setViewScale:(CGFloat)scale {
 	_currentViewState.scale = scale;
 	[self updateTransformation:_currentViewState];
 }
@@ -375,11 +375,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 #pragma mark DataSource
 
-- (void)requestViewAtRow:(unsigned int)row col:(unsigned int)col {
-	if (_request1Row == -1) {
+- (void)requestViewAtRow:(NSUInteger)row col:(NSUInteger)col {
+	if (_request1Row == NSNotFound) {
 		_request1Row = row;
 		_request1Col = col;
-	} else if (_request2Row == -1) {
+	} else if (_request2Row == NSNotFound) {
 		_request2Row = row;
 		_request2Col = col;
 	} else if ((_request1Row != _currentViewState.row || _request1Col != _currentViewState.col) && (_request1Row != _revealViewState.row || _request1Col != _revealViewState.col)) {
@@ -394,12 +394,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	[_dataSource photoScrollView:self requestViewAtRow:row col:col];
 }
 
-- (void)cancelRequestAtRow:(unsigned int)row col:(unsigned int)col {
+- (void)cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col {
 	if (_request1Row == row && _request1Col == col) {
-		_request1Row = _request1Col = -1;
+		_request1Row = _request1Col = NSNotFound;
 		[_dataSource photoScrollView:self cancelRequestAtRow:row col:col];
 	} else if (_request2Row == row && _request2Col == col) {
-		_request2Row = _request2Col = -1;
+		_request2Row = _request2Col = NSNotFound;
 		[_dataSource photoScrollView:self cancelRequestAtRow:row col:col];
 	}
 }
@@ -408,7 +408,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	[_currentViewState.view removeFromSuperview];
 	[_revealViewState.view removeFromSuperview];
     
-    _request1Row = _request1Col = _request2Row = _request2Col = -1;
+    _request1Row = _request1Col = _request2Row = _request2Col = NSNotFound;
 
 	_revealViewState.view = nil;
 	_revealMode = XKPhotoScrollViewRevealModeNone;
@@ -433,16 +433,16 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	[self reloadData:NO];
 }
 
-- (void)setView:(UIView *)view atRow:(unsigned int)aRow col:(unsigned int)aCol placeholder:(BOOL)placeholder {
+- (void)setView:(UIView *)view atRow:(NSUInteger)aRow col:(NSUInteger)aCol placeholder:(BOOL)placeholder {
 	if (![NSThread isMainThread]) {
 		[NSException raise:@"XKPhotoScrollView.setView called not on main thread" format:@""];
 	}
 
 	if (!placeholder) {
 		if (aRow == _request1Row && aCol == _request1Col)
-			_request1Row = _request1Col = -1;
+			_request1Row = _request1Col = NSNotFound;
 		if (aRow == _request2Row && aCol == _request2Col)
-			_request2Row = _request2Col = -1;
+			_request2Row = _request2Col = NSNotFound;
 	}
 
 	if (aRow == _currentViewState.row && aCol == _currentViewState.col) {
@@ -484,7 +484,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	}
 }
 
-- (BOOL)wantsViewAtRow:(unsigned int)aRow col:(unsigned int)aCol {
+- (BOOL)wantsViewAtRow:(NSUInteger)aRow col:(NSUInteger)aCol {
     if (aRow == _currentViewState.row && aCol == _currentViewState.col) {
         return YES;
     } else if (_revealMode != XKPhotoScrollViewRevealModeNone && aRow == _revealViewState.row && aCol == _revealViewState.col) {
@@ -499,18 +499,18 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	  placeholder:[dict[@"placeholder"] boolValue]];
 }
 
-- (void)setViewOnMainThread:(UIView *)view atRow:(unsigned int)aRow col:(unsigned int)aCol placeholder:(BOOL)placeholder {
+- (void)setViewOnMainThread:(UIView *)view atRow:(NSUInteger)aRow col:(NSUInteger)aCol placeholder:(BOOL)placeholder {
 	NSDictionary *dict = @{@"view": view, @"row": @(aRow),
 						  @"col": @(aCol), @"placeholder": @(placeholder)};
 
 	[self performSelectorOnMainThread:@selector(setViewWithDictionary:) withObject:dict waitUntilDone:NO];
 }
 
-- (void)setCurrentRow:(unsigned int)aRow col:(unsigned int)aCol {
+- (void)setCurrentRow:(NSUInteger)aRow col:(NSUInteger)aCol {
 	[self setCurrentRow:aRow col:aCol animated:NO];
 }
 
-- (void)setCurrentRow:(unsigned int)aRow col:(unsigned int)aCol animated:(BOOL)animated {
+- (void)setCurrentRow:(NSUInteger)aRow col:(NSUInteger)aCol animated:(BOOL)animated {
 	if (_currentViewState.row != aRow || _currentViewState.col != aCol) {
 		XKPhotoScrollViewViewState *saveCurrentView = [_currentViewState copy];
 		_currentViewState.row = aRow;
@@ -542,8 +542,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 #pragma mark Move current view
 
 - (CGSize)halfSizeForReveal:(XKPhotoScrollViewViewState *)viewState {
-	float currentHalfWidth = viewState.view.frame.size.width / 2;
-	float currentHalfHeight = viewState.view.frame.size.height / 2;
+	CGFloat currentHalfWidth = viewState.view.frame.size.width / 2;
+	CGFloat currentHalfHeight = viewState.view.frame.size.height / 2;
 	CGSize viewportSize = [self viewportSize];
 
 	if (currentHalfWidth / viewState.scale < viewportSize.width / 2)
@@ -662,8 +662,8 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 			[self cancelRequestAtRow:_revealViewState.row col:_revealViewState.col];
 
 			/* So that setImage doesn't mistakenly set a reveal view, as it is in a different thread */
-			_revealViewState.row = -1;
-			_revealViewState.col = -1;
+			_revealViewState.row = NSNotFound;
+			_revealViewState.col = NSNotFound;
 
 			[_revealViewState.view removeFromSuperview];
 			_revealViewState.view = nil;
@@ -692,12 +692,12 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 		/* Work out where the zoom operation would have finished - as we may have had drags since our last zoom so
 		 * the current center is not necessarily where the zoom finished.
 		 */
-		float scaledRatio = _currentViewState.scale / _zoomScaleStart;
+		CGFloat scaledRatio = _currentViewState.scale / _zoomScaleStart;
 		CGPoint scaledCenter = CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, scaledRatio - 1));
 		CGPoint currentDiff = CGPointAdd(_animationTargetCenter, CGPointNegate(scaledCenter));
 
 		/* Work out where we'd like to end up after correcting the scale */
-		float targetRatio = _animationTargetScale / _zoomScaleStart;
+		CGFloat targetRatio = _animationTargetScale / _zoomScaleStart;
 		CGPoint targetCenter = CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, targetRatio - 1));
 
 		/* New target is our target centre adjusted for whatever drag movements have occurred since the zoom */
@@ -717,7 +717,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	if (currentSize.width <= viewportSize.width) {
 		stable.x = viewportSize.width / 2;
 	} else {
-		float currentHalfWidth = currentSize.width / 2;
+		CGFloat currentHalfWidth = currentSize.width / 2;
 		if (center.x - currentHalfWidth > 0) {
 			stable.x = currentHalfWidth + _insets.left;
 		} else if (center.x + currentHalfWidth < viewportSize.width) {
@@ -729,7 +729,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	if (currentSize.height <= viewportSize.height) {
 		stable.y = viewportSize.height / 2;
 	} else {
-		float currentHalfHeight = currentSize.height / 2;
+		CGFloat currentHalfHeight = currentSize.height / 2;
 		if (center.y - currentHalfHeight > 0) {
 			stable.y = currentHalfHeight + _insets.top;
 		} else if (center.y + currentHalfHeight < viewportSize.height) {
@@ -755,7 +755,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	CGSize revealHalfSize = [self halfSizeForReveal:_revealViewState];
 	CGSize viewportSize = [self viewportSize];
 
-	float revealed = 0;
+	CGFloat revealed = 0;
 	switch (_revealMode) {
 		case XKPhotoScrollViewRevealModeUp:
 			revealed = revealCenter.y + revealHalfSize.height;
@@ -777,7 +777,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
             break;
 	}
 
-	float revealThreshold = 0;
+	CGFloat revealThreshold = 0;
 	switch (_revealMode) {
 		case XKPhotoScrollViewRevealModeUp:
 		case XKPhotoScrollViewRevealModeDown:
@@ -893,8 +893,8 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 - (void)_reduceDragLastVector {
 	/* Reduce vectors on boundaries */
 	CGPoint center = _currentViewState.view.center;
-	float currentHalfWidth = _currentViewState.view.frame.size.width / 2;
-	float currentHalfHeight = _currentViewState.view.frame.size.height / 2;
+	CGFloat currentHalfWidth = _currentViewState.view.frame.size.width / 2;
+	CGFloat currentHalfHeight = _currentViewState.view.frame.size.height / 2;
 	CGSize viewportSize = [self viewportSize];
 
 	if ((_currentViewState.col == 0 && _dragLastVector.x > 0 && center.x > currentHalfWidth) ||
@@ -909,7 +909,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 
 #pragma mark Animation
 
-static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* change */, NSTimeInterval d /* duration */) {
+static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat c /* change */, NSTimeInterval d /* duration */) {
 	return c * t / d + b;
 }
 
@@ -919,7 +919,7 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
 	if (t > _animationDuration)
 		t = _animationDuration;
 
-    float m = linear_easeNone(t, 1, -1, _animationDuration);
+    CGFloat m = linear_easeNone(t, 1, -1, _animationDuration);
     [self _reduceDragLastVector];
     CGPoint p = CGPointAdd(_currentViewState.view.center, CGPointMul(_dragLastVector, m));
     [self moveCurrentView:p];
@@ -952,7 +952,7 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
 
 	/* Animate scale */
 	if (_animationStartScale != _animationTargetScale) {
-		float scale = linear_easeNone(t, _animationStartScale, _animationTargetScale - _animationStartScale, _animationDuration);
+		CGFloat scale = linear_easeNone(t, _animationStartScale, _animationTargetScale - _animationStartScale, _animationDuration);
 		_currentViewState.scale = scale;
 		[self updateTransformation:_currentViewState];
 	}
@@ -1066,8 +1066,8 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
 	CGPoint pA = [a locationInView:self];
 	CGPoint pB = [b locationInView:self];
 
-	float radiusNow = CGPointDist(pA, pB) / 2;
-	float ratio = radiusNow / _zoomRadiusStart;
+	CGFloat radiusNow = CGPointDist(pA, pB) / 2;
+	CGFloat ratio = radiusNow / _zoomRadiusStart;
 
 	if (!_owningTouch && fabs(radiusNow - _zoomRadiusStart) > _minimumDrag) {
 		_owningTouch = YES;
@@ -1078,7 +1078,7 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
         return NO;
     }
 
-	float newScale = _zoomScaleStart * ratio;
+	CGFloat newScale = _zoomScaleStart * ratio;
 	if (!_bouncesZoom) {
 		if (newScale < _minimumZoomScale)
 			newScale = _minimumZoomScale;
@@ -1362,11 +1362,11 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
 
 #pragma mark Properties
 
-- (unsigned int)col {
+- (NSUInteger)col {
 	return _currentViewState.col;
 }
 
-- (unsigned int)row {
+- (NSUInteger)row {
 	return _currentViewState.row;
 }
 
