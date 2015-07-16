@@ -1397,20 +1397,6 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 @end
 
-@implementation XKPhotoScrollViewViewState
-
-- (id)copyWithZone:(NSZone *)zone {
-    XKPhotoScrollViewViewState *copy = [[XKPhotoScrollViewViewState allocWithZone:zone] init];
-    copy.view = self.view;
-    copy.scale = self.scale;
-    copy.baseScale = self.baseScale;
-    copy.indexPath = self.indexPath;
-    copy.placeholder = self.placeholder;
-    return copy;
-}
-
-@end
-
 @implementation NSIndexPath (XKPhotoScrollView)
 
 + (NSIndexPath *)indexPathForRow:(NSInteger)row inColumn:(NSInteger)column
