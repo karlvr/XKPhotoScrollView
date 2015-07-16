@@ -15,20 +15,20 @@
 @end
 
 @implementation XKSimpleExampleViewController {
-    NSArray *_views;
+    NSArray *_images;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
-        NSMutableArray *views = [NSMutableArray array];
-        [views addObject:[UIImage imageNamed:@"photo1.jpg"]];
-        [views addObject:[UIImage imageNamed:@"photo2.jpg"]];
-        [views addObject:[UIImage imageNamed:@"photo3.jpg"]];
-        [views addObject:[UIImage imageNamed:@"photo4.jpg"]];
-        [views addObject:[UIImage imageNamed:@"photo5.jpg"]];
-        _views = [NSArray arrayWithArray:views];
+        NSMutableArray *images = [NSMutableArray array];
+        [images addObject:[UIImage imageNamed:@"photo1.jpg"]];
+        [images addObject:[UIImage imageNamed:@"photo2.jpg"]];
+        [images addObject:[UIImage imageNamed:@"photo3.jpg"]];
+        [images addObject:[UIImage imageNamed:@"photo4.jpg"]];
+        [images addObject:[UIImage imageNamed:@"photo5.jpg"]];
+        _images = [NSArray arrayWithArray:images];
     }
     return self;
 }
@@ -48,7 +48,7 @@
 
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIImage *image = _views[(indexPath.row + indexPath.col) % _views.count];
+    UIImage *image = _images[indexPath.col];
     UIImageView *view = [[UIImageView alloc] initWithImage:image];
     
     [photoScrollView setView:view atIndexPath:indexPath placeholder:NO];
@@ -61,12 +61,12 @@
 
 - (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView
 {
-    return 3;
+    return 1;
 }
 
 - (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView
 {
-    return _views.count;
+    return _images.count;
 }
 
 #pragma mark XKPhotoScrollViewDelegate
