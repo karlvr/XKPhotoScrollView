@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+@class XKPhotoScrollView;
+
 @interface XKViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet XKPhotoScrollView *photoScrollView;
 
 @end

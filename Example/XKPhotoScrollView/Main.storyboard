@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHk-Iz-aO9" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="whP-gf-Uak" id="2W8-10-e8r"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sHk-Iz-aO9" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="C20-FD-Hhh"/>
+                            <constraint firstAttribute="trailing" secondItem="sHk-Iz-aO9" secondAttribute="trailing" id="E0I-aA-wAJ"/>
+                            <constraint firstItem="sHk-Iz-aO9" firstAttribute="top" secondItem="TpU-gO-2f1" secondAttribute="top" id="Ml7-cS-v4Q"/>
+                            <constraint firstItem="sHk-Iz-aO9" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="Rok-rZ-riZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sHk-Iz-aO9" secondAttribute="trailing" id="SDe-09-2GW"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="sHk-Iz-aO9" secondAttribute="bottom" id="hI0-hz-sHq"/>
+                            <constraint firstItem="sHk-Iz-aO9" firstAttribute="top" secondItem="TpU-gO-2f1" secondAttribute="topMargin" id="vtl-ds-lrA"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="sHk-Iz-aO9" secondAttribute="bottom" id="xW8-a2-QXf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rok-rZ-riZ"/>
+                                <exclude reference="SDe-09-2GW"/>
+                                <exclude reference="vtl-ds-lrA"/>
+                                <exclude reference="hI0-hz-sHq"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="sHk-Iz-aO9" id="kvU-RK-RRc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

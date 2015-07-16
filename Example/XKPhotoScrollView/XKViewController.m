@@ -18,25 +18,19 @@
     NSArray *_views;
 }
 
-- (void)viewDidLoad
+- (instancetype)initWithCoder:(NSCoder *)coder
 {
-    [super viewDidLoad];
-    
-    NSMutableArray *views = [NSMutableArray array];
-    [views addObject:[self viewForImageNamed:@"photo1.jpg"]];
-    [views addObject:[self viewForImageNamed:@"photo2.jpg"]];
-    [views addObject:[self viewForImageNamed:@"photo3.jpg"]];
-    [views addObject:[self viewForImageNamed:@"photo4.jpg"]];
-    [views addObject:[self viewForImageNamed:@"photo5.jpg"]];
-    _views = [NSArray arrayWithArray:views];
-    
-    XKPhotoScrollView *photoScrollView = [XKPhotoScrollView new];
-    photoScrollView.dataSource = self;
-    
-    photoScrollView.frame = self.view.bounds;
-    photoScrollView.backgroundColor = [UIColor blackColor];
-    
-    [self.view addSubview:photoScrollView];
+    self = [super initWithCoder:coder];
+    if (self) {
+        NSMutableArray *views = [NSMutableArray array];
+        [views addObject:[self viewForImageNamed:@"photo1.jpg"]];
+        [views addObject:[self viewForImageNamed:@"photo2.jpg"]];
+        [views addObject:[self viewForImageNamed:@"photo3.jpg"]];
+        [views addObject:[self viewForImageNamed:@"photo4.jpg"]];
+        [views addObject:[self viewForImageNamed:@"photo5.jpg"]];
+        _views = [NSArray arrayWithArray:views];
+    }
+    return self;
 }
 
 #pragma mark - Private
