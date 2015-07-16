@@ -1,20 +1,20 @@
 //
-//  XKViewController.m
+//  XKSimpleExampleViewController.m
 //  XKPhotoScrollView
 //
-//  Created by Karl von Randow on 07/16/2015.
+//  Created by Karl von Randow on 17/07/15.
 //  Copyright (c) 2015 Karl von Randow. All rights reserved.
 //
 
-#import "XKViewController.h"
+#import "XKSimpleExampleViewController.h"
 
 #import <XKPhotoScrollView/XKPhotoScrollView.h>
 
-@interface XKViewController () <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate>
+@interface XKSimpleExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate>
 
 @end
 
-@implementation XKViewController {
+@implementation XKSimpleExampleViewController {
     NSArray *_views;
 }
 
@@ -38,8 +38,8 @@
     [super viewDidLoad];
     
     /* Example - no zooming */
-//    _photoScrollView.maximumZoomScale = _photoScrollView.minimumZoomScale;
-//    _photoScrollView.bouncesZoom = NO;
+    //    _photoScrollView.maximumZoomScale = _photoScrollView.minimumZoomScale;
+    //    _photoScrollView.bouncesZoom = NO;
 }
 
 #pragma mark - XKPhotoScrollView
@@ -70,7 +70,5 @@
 }
 
 #pragma mark XKPhotoScrollViewDelegate
-
-
 
 @end

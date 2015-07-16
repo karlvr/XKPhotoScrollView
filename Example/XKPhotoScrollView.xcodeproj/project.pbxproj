@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XKAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* XKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* XKViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,6 +21,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		8469E94C2E96BDA32F573E71 /* Pods_XKPhotoScrollView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4647021A0EC134845422B66C /* Pods_XKPhotoScrollView_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */; };
+		B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6841B58337E00A60288 /* XKRootViewController.m */; };
 		BA194EB971FC72112F5EE4DA /* Pods_XKPhotoScrollView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60A8E2E0799E7F7974CCD6D /* Pods_XKPhotoScrollView_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -49,8 +50,6 @@
 		6003F59B195388D20070C39A /* XKPhotoScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XKPhotoScrollView-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* XKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XKAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* XKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XKAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* XKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XKViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* XKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XKViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* XKPhotoScrollView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XKPhotoScrollView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -62,6 +61,10 @@
 		9FDC5F35FEBA156079392F2D /* Pods-XKPhotoScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A60A8E2E0799E7F7974CCD6D /* Pods_XKPhotoScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26B785E91A1D2913434D647 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B89AA6801B5830C200A60288 /* XKSimpleExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKSimpleExampleViewController.h; sourceTree = "<group>"; };
+		B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKSimpleExampleViewController.m; sourceTree = "<group>"; };
+		B89AA6831B58337E00A60288 /* XKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRootViewController.h; sourceTree = "<group>"; };
+		B89AA6841B58337E00A60288 /* XKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRootViewController.m; sourceTree = "<group>"; };
 		C1DD14E4F86B7FE5A9B5B17B /* XKPhotoScrollView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XKPhotoScrollView.podspec; path = ../XKPhotoScrollView.podspec; sourceTree = "<group>"; };
 		DD657CC0AB86B79D98FA345D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F179BCFE6BA6774732F07D33 /* Pods-XKPhotoScrollView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Tests/Pods-XKPhotoScrollView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,10 +147,12 @@
 				6003F59C195388D20070C39A /* XKAppDelegate.h */,
 				6003F59D195388D20070C39A /* XKAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* XKViewController.h */,
-				6003F5A6195388D20070C39A /* XKViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				B89AA6801B5830C200A60288 /* XKSimpleExampleViewController.h */,
+				B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */,
+				B89AA6831B58337E00A60288 /* XKRootViewController.h */,
+				B89AA6841B58337E00A60288 /* XKRootViewController.m */,
 			);
 			name = "Example for XKPhotoScrollView";
 			path = XKPhotoScrollView;
@@ -390,8 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XKAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* XKViewController.m in Sources */,
+				B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
