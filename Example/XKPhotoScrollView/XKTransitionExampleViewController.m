@@ -10,14 +10,26 @@
 
 #import <XKPhotoScrollView/XKPhotoScrollView.h>
 
-@interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate>
+@protocol XKHasPhotoScrollView <NSObject>
+
+- (XKPhotoScrollView *)photoScrollView;
+
+@end
+
+@interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate, XKHasPhotoScrollView>
 
 @property (strong, nonatomic) id<XKPhotoScrollViewDataSource> dataSource;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
+@property (weak, nonatomic) XKPhotoScrollView *photoScrollView;
+
 @end
 
-@interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate>
+@interface XKTransitionFullScreenAnimatedTransition : NSObject <UIViewControllerAnimatedTransitioning>
+
+@end
+
+@interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, XKHasPhotoScrollView, UIViewControllerTransitioningDelegate>
 
 /** Note that the constraints must be strong so we can deactivate and reactivate */
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *nonFullScreenConstraint;
@@ -86,7 +98,21 @@
     manual.dataSource = self;
     manual.indexPath = self.photoScrollView.currentIndexPath;
     
-    [self presentViewController:manual animated:NO completion:NULL];
+    manual.modalPresentationStyle = UIModalPresentationCustom;
+    manual.transitioningDelegate = self;
+    [self presentViewController:manual animated:YES completion:NULL];
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    return [XKTransitionFullScreenAnimatedTransition new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [XKTransitionFullScreenAnimatedTransition new];
 }
 
 @end
@@ -100,6 +126,8 @@
     photoScrollView.dataSource = self.dataSource;
     photoScrollView.delegate = self;
     photoScrollView.backgroundColor = [UIColor blackColor];
+
+    self.photoScrollView = photoScrollView;
     self.view = photoScrollView;
 }
 
@@ -115,7 +143,76 @@
 
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath
 {
-    [self dismissViewControllerAnimated:NO completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+@end
+
+@implementation XKTransitionFullScreenAnimatedTransition
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    UIViewController * const to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController * const from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
+    UIView *toView = to.view;
+    toView.alpha = 0.0;
+    toView.frame = [transitionContext finalFrameForViewController:to];
+    [transitionContext.containerView addSubview:toView];
+    [toView layoutIfNeeded]; /* Force layout so views are positioned correctly for animation calculations below */
+    
+    XKPhotoScrollView * const toPhotoScrollView = [self photoScrollViewForViewController:to];
+    XKPhotoScrollView * const fromPhotoScrollView = [self photoScrollViewForViewController:from];
+    
+    UIImageView * const sourceView = (UIImageView *)fromPhotoScrollView.currentView;
+    sourceView.alpha = 0.0;
+    
+    UIImageView * const animatingView = [[UIImageView alloc] initWithImage:sourceView.image];
+    animatingView.bounds = sourceView.bounds;
+    animatingView.center = [transitionContext.containerView convertPoint:sourceView.center fromView:sourceView.superview];
+    animatingView.transform = sourceView.transform;
+    
+    [transitionContext.containerView addSubview:animatingView];
+    
+    UIView * const destView = toPhotoScrollView.currentView;
+    destView.alpha = 0.0;
+    
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        CGPoint animationDestination = [transitionContext.containerView convertPoint:destView.center fromView:destView.superview];
+        animatingView.center = animationDestination;
+        animatingView.bounds = destView.bounds;
+        animatingView.transform = destView.transform;
+        
+        toView.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        sourceView.alpha = 1.0;
+        destView.alpha = 1.0;
+        [animatingView removeFromSuperview];
+        
+        [transitionContext completeTransition:finished];
+    }];
+}
+
+- (void)animationEnded:(BOOL)transitionCompleted
+{
+    
+}
+
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    return 0.5;
+}
+
+- (XKPhotoScrollView *)photoScrollViewForViewController:(UIViewController *)viewController
+{
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        return [self photoScrollViewForViewController:((UINavigationController *)viewController).topViewController];
+    } else if ([viewController conformsToProtocol:@protocol(XKHasPhotoScrollView)]) {
+        return ((UIViewController<XKHasPhotoScrollView> *)viewController).photoScrollView;
+    } else {
+        NSLog(@"Can't find photoScrollView from %@", viewController);
+        abort();
+    }
 }
 
 @end
