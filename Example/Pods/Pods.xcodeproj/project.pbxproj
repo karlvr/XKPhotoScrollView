@@ -10,13 +10,10 @@
 		081DBD51B626B62BA9E8A047 /* XKCAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC04112C73410FC72C86F40 /* XKCAUtils.m */; };
 		0E3E2889A58803DBA4DF500E /* XKUIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 677A29BA45B6A69169396051 /* XKUIUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0ECB1657F5F80F6D77C95925 /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 42768CBCB176309D7A105C99 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B1B3BF9220ACC57DAE000F /* XKDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 777D6F6B1B53810813A234D8 /* XKDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14341A01B8F1A164EDB0F5A2 /* XKUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC124CE62BA2C4A687FC018 /* XKUIUtils.m */; };
 		205A77F741EE2E332D303939 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
 		20A6D9FFCA85B08C93BB43B3 /* Pods-XKPhotoScrollView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F9F051D62884DBA8148844 /* Pods-XKPhotoScrollView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27AED100840EF575A1062C6D /* XKCAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC04112C73410FC72C86F40 /* XKCAUtils.m */; };
-		4740FC2FC3A9E10C32C8014F /* XKDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 777D6F6B1B53810813A234D8 /* XKDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F07C52A7F2B1E7EAC3A95BE /* XKDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE6FB00CF3CDDF2F3A24EEE /* XKDebug.m */; };
 		54DD1E8B1CD98DCE50D9FABD /* XKCAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C1F5C7367086B6F689A409F7 /* XKCAUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CE79A9586EF9D96570E59DD /* Pods-XKPhotoScrollView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0264DAC03368EC5D8E7EB2D5 /* Pods-XKPhotoScrollView_Tests-dummy.m */; };
 		62BC9B14F283BE3B35872F92 /* XKCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 42768CBCB176309D7A105C99 /* XKCGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,7 +23,6 @@
 		6E5DEC466DE4401C1CA22316 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
 		762AC0F8DB6A21C5CFDB9D60 /* XKCAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C1F5C7367086B6F689A409F7 /* XKCAUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D750FE8A4AE65F0EC534903 /* XKCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 332443C5002C9F348404CE51 /* XKCGUtils.m */; };
-		8101F9337508078A2FDCC8ED /* XKDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE6FB00CF3CDDF2F3A24EEE /* XKDebug.m */; };
 		88691A87D11ADD0590F5099C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9FD17B1D23355F7FA0CD6 /* Foundation.framework */; };
 		8A82821D960DBE6BD193C090 /* XKPhotoScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A24D91735534F2B75B8B174D /* XKPhotoScrollView.bundle */; };
 		8C048BB0B09026119C054898 /* XKPhotoScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,7 +97,6 @@
 		679A52889CDBE09DE99E9CCA /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XKPhotoScrollView_Example-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
 		6A4B24B85092A92887B00698 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-prefix.pch"; sourceTree = "<group>"; };
 		734C8847613B0C4287559164 /* XKPhotoScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKPhotoScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		777D6F6B1B53810813A234D8 /* XKDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKDebug.h; sourceTree = "<group>"; };
 		7838220C161E5DE7AA52A24D /* Pods-XKPhotoScrollView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XKPhotoScrollView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D99AB06D7C56BE4DDBF8A85 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; path = "../Pods-XKPhotoScrollView_Tests-XKPhotoScrollView/Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m"; sourceTree = "<group>"; };
 		863CDE680360AE00BCFB99BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,7 +123,6 @@
 		E2E8F2C8E035538681689BB9 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XKPhotoScrollView.h; sourceTree = "<group>"; };
 		F7AC3829CC0FC0F41625AE12 /* Pods-XKPhotoScrollView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XKPhotoScrollView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FFE6FB00CF3CDDF2F3A24EEE /* XKDebug.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XKDebug.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,8 +290,6 @@
 				2EC04112C73410FC72C86F40 /* XKCAUtils.m */,
 				42768CBCB176309D7A105C99 /* XKCGUtils.h */,
 				332443C5002C9F348404CE51 /* XKCGUtils.m */,
-				777D6F6B1B53810813A234D8 /* XKDebug.h */,
-				FFE6FB00CF3CDDF2F3A24EEE /* XKDebug.m */,
 				F1BF567CD43B9CE0A2597CD0 /* XKPhotoScrollView.h */,
 				D01535FED02A5DCC0C37C605 /* XKPhotoScrollView.m */,
 				677A29BA45B6A69169396051 /* XKUIUtils.h */,
@@ -343,7 +335,6 @@
 				B0376666DD4975F61334C5B0 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h in Headers */,
 				762AC0F8DB6A21C5CFDB9D60 /* XKCAUtils.h in Headers */,
 				0ECB1657F5F80F6D77C95925 /* XKCGUtils.h in Headers */,
-				10B1B3BF9220ACC57DAE000F /* XKDebug.h in Headers */,
 				8C048BB0B09026119C054898 /* XKPhotoScrollView.h in Headers */,
 				EB15D49C18AC97ED1664E37B /* XKUIUtils.h in Headers */,
 			);
@@ -372,7 +363,6 @@
 				D54E3A1B65D9A00A3060BC06 /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-umbrella.h in Headers */,
 				54DD1E8B1CD98DCE50D9FABD /* XKCAUtils.h in Headers */,
 				62BC9B14F283BE3B35872F92 /* XKCGUtils.h in Headers */,
-				4740FC2FC3A9E10C32C8014F /* XKDebug.h in Headers */,
 				DA40901C6FE880987E5150F3 /* XKPhotoScrollView.h in Headers */,
 				0E3E2889A58803DBA4DF500E /* XKUIUtils.h in Headers */,
 			);
@@ -575,7 +565,6 @@
 				6ACED1EA35229ADAAD31F68A /* Pods-XKPhotoScrollView_Example-XKPhotoScrollView-dummy.m in Sources */,
 				27AED100840EF575A1062C6D /* XKCAUtils.m in Sources */,
 				68FD04B9498911192D66056E /* XKCGUtils.m in Sources */,
-				8101F9337508078A2FDCC8ED /* XKDebug.m in Sources */,
 				A692DDE3D0014EE77EFB403F /* XKPhotoScrollView.m in Sources */,
 				CE272CE565F6C2F85173961B /* XKUIUtils.m in Sources */,
 			);
@@ -595,7 +584,6 @@
 				C8B4EDF7BB160DBA1515E135 /* Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-dummy.m in Sources */,
 				081DBD51B626B62BA9E8A047 /* XKCAUtils.m in Sources */,
 				7D750FE8A4AE65F0EC534903 /* XKCGUtils.m in Sources */,
-				4F07C52A7F2B1E7EAC3A95BE /* XKDebug.m in Sources */,
 				EFCFFE806899589332643FD1 /* XKPhotoScrollView.m in Sources */,
 				14341A01B8F1A164EDB0F5A2 /* XKUIUtils.m in Sources */,
 			);
