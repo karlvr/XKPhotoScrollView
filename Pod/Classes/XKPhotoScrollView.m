@@ -10,8 +10,7 @@
 
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
-#define DEBUG_PHOTO_SCROLL_VIEW
-#undef DEBUG_PHOTO_SCROLL_VIEW
+#define DEBUG_PHOTO_SCROLL_VIEW 0
 
 static inline CGPoint CGPointNegate(CGPoint p) {
     return CGPointMake(-p.x, -p.y);
@@ -219,11 +218,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 }
 
 - (void)dealloc {
-    if (_delegate) {
-		NSLog(@"*** WARNING: delegate not nil in dealloc. Please set delegate to nil when releasing.");
-	}
-
-	_currentViewState.view = nil;
+    _currentViewState.view = nil;
 	_revealViewState.view = nil;
 
 	[_displayLink invalidate];
@@ -500,7 +495,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 			if ([_delegate respondsToSelector:@selector(photoScrollView:didSetCurrentView:withState:)])
 				[_delegate photoScrollView:self didSetCurrentView:_currentViewState.view withState:_currentViewState];
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
 			NSLog(@"SET CURRENT VIEW %@ @ %@ REVEAL %@ @ %@ (mainThread=%i)", _currentViewState.view, _currentViewState.indexPath, _revealViewState.view, _revealViewState.indexPath, [NSThread isMainThread]);
 #endif
 		}
@@ -515,7 +510,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
             [self addSubview:_revealViewState.view];
 
 			[tmp removeFromSuperview];
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
 			NSLog(@"SET REVEAL VIEW %@ @ %@ CURRENT %@ @ %@ (mainThread=%i)", _revealViewState.view, _revealViewState.indexPath, _currentViewState.view, _currentViewState.indexPath, [NSThread isMainThread]);
 #endif
 		}
@@ -817,7 +812,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
             break;
 	}
 
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
 	NSLog(@"REVEALED %f vs %f", revealed, revealThreshold);
 #endif
 
@@ -860,7 +855,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
         [_delegate photoScrollView:self didChangeToIndexPath:_currentViewState.indexPath];
 	}
 
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
 	NSLog(@"Switched to reveal at %@", _currentViewState.indexPath);
 #endif
 }
@@ -1047,7 +1042,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 	/* Reduce vectors on boundaries */
 	[self _reduceDragLastVector];
     
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
     NSLog(@"DRAG %@ currentViewScale = %f, dragAxis = %li, draggedSomeDistance = %i", NSStringFromCGPoint(_dragLastVector), _currentViewState.scale, (long) _dragAxis, _draggedSomeDistance);
 #endif
 
@@ -1338,7 +1333,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 			break;
 	}
 
-#ifdef DEBUG_PHOTO_SCROLL_VIEW
+#if DEBUG_PHOTO_SCROLL_VIEW
 	NSLog(@"newRotation=%i", newRotation);
 #endif
 
