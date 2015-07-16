@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "XKPhotoScrollViewViewState.h"
+#import "XKPhotoScrollViewDataSource.h"
+#import "XKPhotoScrollViewDelegate.h"
 
 typedef NS_ENUM(NSInteger, XKPhotoScrollViewViewType) {
 	XKPhotoScrollViewViewTypeMain = 1,
@@ -20,36 +22,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeSlide
 };
 
-@class XKPhotoScrollView;
 
-@protocol XKPhotoScrollViewDataSource
-
-/** Called when the photo scroll view wants the data source to provide a view for the given index path. */
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtIndexPath:(NSIndexPath *)indexPath;
-- (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView;
-- (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView;
-
-@end
-
-@protocol XKPhotoScrollViewDelegate <NSObject>
-
-@optional
-
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didLongPressView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTouchView:(UIView *)view withTouches:(NSSet *)touches atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didDragView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didUpdateTransformationForView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didZoomView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didPinchDismissView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didRotateTo:(CGFloat)rotation;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didChangeToIndexPath:(NSIndexPath *)indexPath;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didSetCurrentView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView isStabilizing:(UIView *)view;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didStabilizeView:(UIView *)view;
-
-@end
 
 @interface XKPhotoScrollView : UIView
 
