@@ -33,6 +33,15 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    /* Example - no zooming */
+//    _photoScrollView.maximumZoomScale = _photoScrollView.minimumZoomScale;
+//    _photoScrollView.bouncesZoom = NO;
+}
+
 #pragma mark - Private
 
 - (UIView *)viewForImageNamed:(NSString *)imageName
