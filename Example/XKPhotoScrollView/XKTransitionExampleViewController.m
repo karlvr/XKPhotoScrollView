@@ -10,6 +10,13 @@
 
 #import <XKPhotoScrollView/XKPhotoScrollView.h>
 
+@interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate>
+
+@property (strong, nonatomic) id<XKPhotoScrollViewDataSource> dataSource;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
+@end
+
 @interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate>
 
 /** Note that the constraints must be strong so we can deactivate and reactivate */
@@ -20,7 +27,6 @@
 
 @implementation XKTransitionExampleViewController {
     NSArray *_images;
-    BOOL _fullScreen;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -69,28 +75,47 @@
 
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath
 {
-    [self toggleFullScreen];
+    [self goFullScreen];
 }
 
 #pragma mark - Private
 
-- (void)toggleFullScreen
+- (void)goFullScreen
 {
-    _fullScreen = !_fullScreen;
+    XKTransitionFullScreenViewController *manual = [XKTransitionFullScreenViewController new];
+    manual.dataSource = self;
+    manual.indexPath = self.photoScrollView.currentIndexPath;
     
-    [self.navigationController setNavigationBarHidden:_fullScreen animated:YES];
-    
-    if (_fullScreen) {
-        _nonFullScreenConstraint.active = NO;
-        _fullScreenConstraint.active = YES;
-    } else {
-        _fullScreenConstraint.active = NO;
-        _nonFullScreenConstraint.active = YES;
-    }
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        [self.view layoutIfNeeded];
-    }];
+    [self presentViewController:manual animated:NO completion:NULL];
+}
+
+@end
+
+@implementation XKTransitionFullScreenViewController
+
+- (void)loadView
+{
+    XKPhotoScrollView *photoScrollView = [XKPhotoScrollView new];
+    photoScrollView.currentIndexPath = self.indexPath;
+    photoScrollView.dataSource = self.dataSource;
+    photoScrollView.delegate = self;
+    photoScrollView.backgroundColor = [UIColor blackColor];
+    self.view = photoScrollView;
+}
+
+/** Allow the app to rotate upside down */
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+#pragma mark - XKPhotoScrollView
+
+#pragma mark XKPhotoScrollViewDelegate
+
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath
+{
+    [self dismissViewControllerAnimated:NO completion:NULL];
 }
 
 @end
