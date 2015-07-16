@@ -9,7 +9,6 @@
 #import "XKPhotoScrollView.h"
 
 #import "XKCGUtils.h"
-#import "XKDebug.h"
 
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
@@ -151,8 +150,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 - (void)setup
 {
-    COUNT_ALLOC(self);
-    
     _initialSize = self.bounds.size;
     
     _animationType = XKPhotoScrollViewAnimationTypeFade;
@@ -182,10 +179,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 }
 
 - (void)dealloc {
-	COUNT_DEALLOC(self);
-    
     if (_delegate) {
-		NSLOG(@"*** WARNING: delegate not nil in dealloc. Please set delegate to nil when releasing.");
+		NSLog(@"*** WARNING: delegate not nil in dealloc. Please set delegate to nil when releasing.");
 	}
 
 	_currentViewState.view = nil;
