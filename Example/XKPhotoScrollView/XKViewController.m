@@ -61,7 +61,7 @@
 
 - (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView
 {
-    return 1;
+    return 3;
 }
 
 - (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView
