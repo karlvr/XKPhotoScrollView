@@ -189,7 +189,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 	/* Be careful about scaling by 1.0 as it raises an error message on the device */
 	if (scale == 1.0)
-		if (baseScale == 1.0)
+		if (baseScale == 1.0 || baseScale == 0.0)
 			viewState.view.transform = CGAffineTransformIdentity;
 		else
 			viewState.view.transform = CGAffineTransformMakeScale(baseScale, baseScale);
