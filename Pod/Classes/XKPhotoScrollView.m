@@ -133,38 +133,52 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     XKPhotoScrollViewGestureRecognizer *_gestureRecognizer;
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame]) != nil) {
-		COUNT_ALLOC(self);
-
-		_initialSize = frame.size;
-
-		_animationType = XKPhotoScrollViewAnimationTypeFade;
-
-        _currentViewState = [[XKPhotoScrollViewViewState alloc] init];
-        _revealViewState = [[XKPhotoScrollViewViewState alloc] init];
-		_currentViewState.row = _currentViewState.col = 0;
-		_revealViewState.row = _revealViewState.col = -1;
-		_request1Row = _request1Col = _request2Row = _request2Col = -1;
-
-		self.multipleTouchEnabled = YES;
-
-		self.bouncesZoom = YES;
-		self.alwaysBounceScroll = NO;
-		self.maximumZoomScale = 3;
-		self.minimumZoomScale = 1;
-		self.maximumBaseScale = 1;
-		self.minimumLongPressDuration = 0.4;
-		_minimumDrag = 5;
-
-		_placeholderCurrentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-		_placeholderRevealView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        
-        _gestureRecognizer = [XKPhotoScrollViewGestureRecognizer new];
-        _gestureRecognizer.photoScrollView = self;
-        [self addGestureRecognizer:_gestureRecognizer];
+		[self setup];
 	}
 	return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    COUNT_ALLOC(self);
+    
+    _initialSize = self.bounds.size;
+    
+    _animationType = XKPhotoScrollViewAnimationTypeFade;
+    
+    _currentViewState = [[XKPhotoScrollViewViewState alloc] init];
+    _revealViewState = [[XKPhotoScrollViewViewState alloc] init];
+    _currentViewState.row = _currentViewState.col = 0;
+    _revealViewState.row = _revealViewState.col = -1;
+    _request1Row = _request1Col = _request2Row = _request2Col = -1;
+    
+    self.multipleTouchEnabled = YES;
+    
+    self.bouncesZoom = YES;
+    self.alwaysBounceScroll = NO;
+    self.maximumZoomScale = 3;
+    self.minimumZoomScale = 1;
+    self.maximumBaseScale = 1;
+    self.minimumLongPressDuration = 0.4;
+    _minimumDrag = 5;
+    
+    _placeholderCurrentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    _placeholderRevealView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    
+    _gestureRecognizer = [XKPhotoScrollViewGestureRecognizer new];
+    _gestureRecognizer.photoScrollView = self;
+    [self addGestureRecognizer:_gestureRecognizer];
 }
 
 - (void)dealloc {
