@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Simple-->
@@ -76,6 +77,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xts-48-sDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="433"/>
+        </scene>
+        <!--Transition-->
+        <scene sceneID="Ywe-lr-guV">
+            <objects>
+                <viewController storyboardIdentifier="transition" title="Transition" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XgL-Fu-fuM" customClass="XKTransitionExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DeH-EQ-aB5"/>
+                        <viewControllerLayoutGuide type="bottom" id="NYH-lZ-Zrd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RjE-9o-s4v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moN-5x-m0b" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6vU-Rl-Xm8"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="XgL-Fu-fuM" id="Ump-A0-wn6"/>
+                                    <outlet property="delegate" destination="XgL-Fu-fuM" id="KmN-dd-Tdh"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="RjE-9o-s4v" secondAttribute="topMargin" id="Gey-Qd-T4W"/>
+                            <constraint firstAttribute="trailing" secondItem="moN-5x-m0b" secondAttribute="trailing" id="Jfb-dr-lsO"/>
+                            <constraint firstItem="NYH-lZ-Zrd" firstAttribute="top" secondItem="moN-5x-m0b" secondAttribute="bottom" id="PrQ-IN-NaC"/>
+                            <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="DeH-EQ-aB5" secondAttribute="bottom" id="SNj-DM-2ce"/>
+                            <constraint firstItem="NYH-lZ-Zrd" firstAttribute="top" secondItem="moN-5x-m0b" secondAttribute="bottom" id="cE9-Fh-vem"/>
+                            <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="RjE-9o-s4v" secondAttribute="top" id="jwg-Co-MI7"/>
+                            <constraint firstItem="moN-5x-m0b" firstAttribute="leading" secondItem="RjE-9o-s4v" secondAttribute="leading" id="k6e-ZS-fCa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gey-Qd-T4W"/>
+                                <exclude reference="jwg-Co-MI7"/>
+                                <exclude reference="PrQ-IN-NaC"/>
+                                <exclude reference="cE9-Fh-vem"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="fullScreenConstraint" destination="PrQ-IN-NaC" id="LTI-Ui-V7H"/>
+                        <outlet property="nonFullScreenConstraint" destination="6vU-Rl-Xm8" id="Pk1-Ap-fga"/>
+                        <outlet property="photoScrollView" destination="moN-5x-m0b" id="dmQ-V2-ba8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3i-Iy-V1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2416" y="517"/>
         </scene>
         <!--Examples-->
         <scene sceneID="nbc-wg-dZl">
