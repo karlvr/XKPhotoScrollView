@@ -12,17 +12,10 @@
 #import "XKPhotoScrollViewDataSource.h"
 #import "XKPhotoScrollViewDelegate.h"
 
-typedef NS_ENUM(NSInteger, XKPhotoScrollViewViewType) {
-	XKPhotoScrollViewViewTypeMain = 1,
-	XKPhotoScrollViewViewTypeReveal,
-};
-
 typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeFade,
 	XKPhotoScrollViewAnimationTypeSlide
 };
-
-
 
 @interface XKPhotoScrollView : UIView
 
