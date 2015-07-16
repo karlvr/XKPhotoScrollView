@@ -46,25 +46,24 @@
 
 #pragma mark XKPhotoScrollViewDataSource
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(unsigned int)row col:(unsigned int)col
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(NSUInteger)row col:(NSUInteger)col
 {
     UIView *view = _views[col];
-    NSLog(@"VIEW %@", view);
     
     [photoScrollView setView:view atRow:0 col:col placeholder:NO];
 }
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(unsigned int)row col:(unsigned int)col
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col
 {
     
 }
 
-- (unsigned int)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView
+- (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView
 {
     return 1;
 }
 
-- (unsigned int)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView
+- (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView
 {
     return _views.count;
 }
