@@ -23,15 +23,24 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @interface XKPhotoScrollViewViewState : NSObject <NSCopying>
 
 @property (nonatomic, strong) UIView *view;
+
+/** The current scale of the view, relative to the baseScale. This applies when the view is zoomed by the user. */
 @property (nonatomic, assign) CGFloat scale;
+
+/** The baseScale of the view is the scale applied to the view in order to fit it to the photo scroll view. It is governed by the photo scroll view's maximumBaseScale. */
 @property (nonatomic, assign) CGFloat baseScale;
+
+/** The row and column that this view state represents */
 @property (nonatomic, assign) NSUInteger row, col;
+
+/** Whether this view is a placeholder, that is expected to be replaced by the real view later. */
 @property (nonatomic, assign) BOOL placeholder;
 
 @end
 
 @protocol XKPhotoScrollViewDataSource
 
+/** Called when the photo scroll view wants the data source to provide a view for the given index path. */
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(NSUInteger)row col:(NSUInteger)col;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col;
 - (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView;
@@ -73,9 +82,16 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDelegate> delegate;
 @property (assign, nonatomic) BOOL bouncesZoom;
 @property (assign, nonatomic) BOOL alwaysBounceScroll;
+
+/** The maximum scale factor to apply when zooming, relative to the base scale of the view. Default 3.0, meaning the user can zoom the view up to 3x of the base scale */
 @property (assign, nonatomic) CGFloat maximumZoomScale;
+
+/** The minimum scale factor to apply when zooming, relative to the base scale of the view. Default 1.0, meaning the user cannot shrink the view. */
 @property (assign, nonatomic) CGFloat minimumZoomScale;
+
+/** The maximum scale factor to apply to views in order to make them fit the available bounds. Default 1.0, meaning don't enlarge a view to make it fit. */
 @property (assign, nonatomic) CGFloat maximumBaseScale;
+
 @property (assign, nonatomic) CGFloat minimumDrag;
 @property (readonly, nonatomic) NSUInteger col;
 @property (readonly, nonatomic) NSUInteger row;
