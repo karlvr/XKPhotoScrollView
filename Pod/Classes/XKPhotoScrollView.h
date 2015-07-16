@@ -69,8 +69,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 - (void)setCurrentRow:(unsigned int)aRow col:(unsigned int)aCol animated:(BOOL)animated;
 - (void)notifyDeviceOrientationDidChange:(UIDeviceOrientation)orientation animated:(BOOL)animated;
 
-@property (weak, nonatomic) id<XKPhotoScrollViewDataSource> dataSource;
-@property (weak, nonatomic) id<XKPhotoScrollViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDataSource> dataSource;
+@property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDelegate> delegate;
 @property (assign, nonatomic) BOOL bouncesZoom;
 @property (assign, nonatomic) BOOL alwaysBounceScroll;
 @property (assign, nonatomic) float maximumZoomScale;
