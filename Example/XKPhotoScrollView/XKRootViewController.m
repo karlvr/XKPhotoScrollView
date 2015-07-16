@@ -30,6 +30,7 @@
 {
     NSMutableArray *viewControllers = [NSMutableArray array];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"simple"]];
+    [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"multirow"]];
     _viewControllers = [NSArray arrayWithArray:viewControllers];
 }
 
