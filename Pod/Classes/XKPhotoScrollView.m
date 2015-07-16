@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     UIView *_placeholderCurrentView;
     UIView *_placeholderRevealView;
     
-    NSUInteger _request1Row, _request1Col, _request2Row, _request2Col;
+    NSIndexPath *_request1IndexPath, *_request2IndexPath;
     
     BOOL _cancelledForeignTouches;
     BOOL _owningTouch;
@@ -159,9 +159,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     _currentViewState = [[XKPhotoScrollViewViewState alloc] init];
     _revealViewState = [[XKPhotoScrollViewViewState alloc] init];
-    _currentViewState.row = _currentViewState.col = 0;
-    _revealViewState.row = _revealViewState.col = NSNotFound;
-    _request1Row = _request1Col = _request2Row = _request2Col = NSNotFound;
+    _currentViewState.indexPath = [NSIndexPath indexPathForRow:0 inColumn:0];
+    _revealViewState.indexPath = nil;
+    _request1IndexPath = _request2IndexPath = nil;
     
     self.multipleTouchEnabled = YES;
     
@@ -330,8 +330,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 #pragma mark Animation
 
 - (void)slideAnimateFrom:(XKPhotoScrollViewViewState *)fromState to:(XKPhotoScrollViewViewState *)toState {
-	int dirx = toState.col == fromState.col ? 0 : toState.col > fromState.col ? -1 : 1;
-	int diry = toState.row == fromState.row ? 0 : toState.row > fromState.row ? -1 : 1;
+    NSIndexPath *fromIndexPath = fromState.indexPath;
+    NSIndexPath *toIndexPath = toState.indexPath;
+    
+	int dirx = toIndexPath.col == fromIndexPath.col ? 0 : toIndexPath.col > fromIndexPath.col ? -1 : 1;
+	int diry = toIndexPath.row == fromIndexPath.row ? 0 : toIndexPath.row > fromIndexPath.row ? -1 : 1;
 
 	CGFloat deltax = dirx * (_initialSize.width + kRevealGutter);
 	CGFloat deltay = diry * (_initialSize.height + kRevealGutter);
@@ -375,32 +378,29 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 #pragma mark DataSource
 
-- (void)requestViewAtRow:(NSUInteger)row col:(NSUInteger)col {
-	if (_request1Row == NSNotFound) {
-		_request1Row = row;
-		_request1Col = col;
-	} else if (_request2Row == NSNotFound) {
-		_request2Row = row;
-		_request2Col = col;
-	} else if ((_request1Row != _currentViewState.row || _request1Col != _currentViewState.col) && (_request1Row != _revealViewState.row || _request1Col != _revealViewState.col)) {
-		[_dataSource photoScrollView:self cancelRequestAtRow:_request1Row col:_request1Col];
-		_request1Row = row;
-		_request1Col = col;
-	} else if ((_request2Row != _currentViewState.row || _request2Col != _currentViewState.col) && (_request2Row != _revealViewState.row || _request2Col != _revealViewState.col)) {
-		[_dataSource photoScrollView:self cancelRequestAtRow:_request2Row col:_request2Col];
-		_request2Row = row;
-		_request2Col = col;
+- (void)requestViewAtIndexPath:(NSIndexPath *)indexPath {
+	if (!_request1IndexPath) {
+        _request1IndexPath = indexPath;
+	} else if (!_request2IndexPath) {
+        _request2IndexPath = indexPath;
+    } else if (![_request1IndexPath isEqual:_currentViewState.indexPath] && ![_request1IndexPath isEqual:_revealViewState.indexPath]) {
+        [_dataSource photoScrollView:self cancelRequestAtIndexPath:_request1IndexPath];
+        _request1IndexPath = indexPath;
+	} else if (![_request2IndexPath isEqual:_currentViewState.indexPath] && ![_request2IndexPath isEqual:_revealViewState.indexPath]) {
+		[_dataSource photoScrollView:self cancelRequestAtIndexPath:_request2IndexPath];
+        _request2IndexPath = indexPath;
 	}
-	[_dataSource photoScrollView:self requestViewAtRow:row col:col];
+    
+	[_dataSource photoScrollView:self requestViewAtIndexPath:indexPath];
 }
 
-- (void)cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col {
-	if (_request1Row == row && _request1Col == col) {
-		_request1Row = _request1Col = NSNotFound;
-		[_dataSource photoScrollView:self cancelRequestAtRow:row col:col];
-	} else if (_request2Row == row && _request2Col == col) {
-		_request2Row = _request2Col = NSNotFound;
-		[_dataSource photoScrollView:self cancelRequestAtRow:row col:col];
+- (void)cancelRequestAtIndexPath:(NSIndexPath *)indexPath {
+    if ([_request1IndexPath isEqual:indexPath]) {
+        _request1IndexPath = nil;
+		[_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
+	} else if ([_request2IndexPath isEqual:indexPath]) {
+        _request2IndexPath = nil;
+		[_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
 	}
 }
 
@@ -408,8 +408,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	[_currentViewState.view removeFromSuperview];
 	[_revealViewState.view removeFromSuperview];
     
-    _request1Row = _request1Col = _request2Row = _request2Col = NSNotFound;
-
+    _request1IndexPath = nil;
+    _request2IndexPath = nil;
+    
 	_revealViewState.view = nil;
 	_revealMode = XKPhotoScrollViewRevealModeNone;
 
@@ -421,31 +422,33 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	_rows = [_dataSource photoScrollViewRows:self];
 
 	if (!animated) {
-		if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToRow:col:)]) {
-			[_delegate photoScrollView:self didChangeToRow:_currentViewState.row col:_currentViewState.col];
+		if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToIndexPath:)]) {
+            [_delegate photoScrollView:self didChangeToIndexPath:_currentViewState.indexPath];
 		}
 	}
 
-	[self requestViewAtRow:_currentViewState.row col:_currentViewState.col];
+    [self requestViewAtIndexPath:_currentViewState.indexPath];
 }
 
 - (void)reloadData {
 	[self reloadData:NO];
 }
 
-- (void)setView:(UIView *)view atRow:(NSUInteger)aRow col:(NSUInteger)aCol placeholder:(BOOL)placeholder {
+- (void)setView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath placeholder:(BOOL)placeholder {
 	if (![NSThread isMainThread]) {
 		[NSException raise:@"XKPhotoScrollView.setView called not on main thread" format:@""];
 	}
 
 	if (!placeholder) {
-		if (aRow == _request1Row && aCol == _request1Col)
-			_request1Row = _request1Col = NSNotFound;
-		if (aRow == _request2Row && aCol == _request2Col)
-			_request2Row = _request2Col = NSNotFound;
+        if ([indexPath isEqual:_request1IndexPath]) {
+            _request1IndexPath = nil;
+        }
+        if ([indexPath isEqual:_request2IndexPath]) {
+            _request2IndexPath = nil;
+        }
 	}
 
-	if (aRow == _currentViewState.row && aCol == _currentViewState.col) {
+    if ([indexPath isEqual:_currentViewState.indexPath]) {
 		/* Only set the view if it's not already set to this one, and only set a placeholder
 		 * image if what we already have is a placeholder too.
 		 */
@@ -466,7 +469,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 			NSLog(@"SET CURRENT VIEW %@ @ %ix%i REVEAL %@ @ %ix%i (mainThread=%i)", _currentViewState.view, _currentViewState.col, _currentViewState.row, _revealViewState.view, _revealViewState.col, _revealViewState.row, [NSThread isMainThread]);
 #endif
 		}
-	} else if (aRow == _revealViewState.row && aCol == _revealViewState.col) {
+	} else if ([indexPath isEqual:_revealViewState.indexPath]) {
 		if (_revealViewState.view != view && (!placeholder || _revealViewState.placeholder)) {
 			UIView *tmp = _revealViewState.view;
 
@@ -484,39 +487,28 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	}
 }
 
-- (BOOL)wantsViewAtRow:(NSUInteger)aRow col:(NSUInteger)aCol {
-    if (aRow == _currentViewState.row && aCol == _currentViewState.col) {
+- (BOOL)wantsViewAtIndexPath:(NSIndexPath *)indexPath {
+    if ([indexPath isEqual:_currentViewState.indexPath]) {
         return YES;
-    } else if (_revealMode != XKPhotoScrollViewRevealModeNone && aRow == _revealViewState.row && aCol == _revealViewState.col) {
+    } else if (_revealMode != XKPhotoScrollViewRevealModeNone && [indexPath isEqual:_revealViewState.indexPath]) {
         return YES;
     } else {
         return NO;
     }
 }
 
-- (void)setViewWithDictionary:(NSDictionary *)dict {
-	[self setView:dict[@"view"] atRow:[dict[@"row"] unsignedIntValue] col:[dict[@"col"] unsignedIntValue]
-	  placeholder:[dict[@"placeholder"] boolValue]];
+- (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath
+{
+    [self setCurrentIndexPath:currentIndexPath animated:NO];
 }
 
-- (void)setViewOnMainThread:(UIView *)view atRow:(NSUInteger)aRow col:(NSUInteger)aCol placeholder:(BOOL)placeholder {
-	NSDictionary *dict = @{@"view": view, @"row": @(aRow),
-						  @"col": @(aCol), @"placeholder": @(placeholder)};
-
-	[self performSelectorOnMainThread:@selector(setViewWithDictionary:) withObject:dict waitUntilDone:NO];
-}
-
-- (void)setCurrentRow:(NSUInteger)aRow col:(NSUInteger)aCol {
-	[self setCurrentRow:aRow col:aCol animated:NO];
-}
-
-- (void)setCurrentRow:(NSUInteger)aRow col:(NSUInteger)aCol animated:(BOOL)animated {
-	if (_currentViewState.row != aRow || _currentViewState.col != aCol) {
+- (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath animated:(BOOL)animated
+{
+    if (![currentIndexPath isEqual:_currentViewState.indexPath]) {
 		XKPhotoScrollViewViewState *saveCurrentView = [_currentViewState copy];
-		_currentViewState.row = aRow;
-		_currentViewState.col = aCol;
+		_currentViewState.indexPath = currentIndexPath;
 		if (animated) {
-			_currentViewState.view = nil;             // prevent the view from being removed by reloadData
+			_currentViewState.view = nil; /* prevent the view from being removed by reloadData */
 			[self reloadData:YES];
 
 			[self animateFrom:saveCurrentView to:_currentViewState];
@@ -529,8 +521,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 - (void)setCurrentRowAnimationStoppedForView:(UIView *)saveCurrentView {
 	[saveCurrentView removeFromSuperview];
 
-	if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToRow:col:)]) {
-		[_delegate photoScrollView:self didChangeToRow:_currentViewState.row col:_currentViewState.col];
+	if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToIndexPath:)]) {
+		[_delegate photoScrollView:self didChangeToIndexPath:_currentViewState.indexPath];
 	}
 }
 
@@ -562,13 +554,13 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	CGSize currentHalfSize = [self halfSizeForReveal:_currentViewState];
 	CGSize viewportSize = [self viewportSize];
 
-	if (center.x + currentHalfSize.width + kRevealGutter < viewportSize.width && _currentViewState.col < _cols - 1) {
+	if (center.x + currentHalfSize.width + kRevealGutter < viewportSize.width && _currentViewState.indexPath.col < _cols - 1) {
 		return XKPhotoScrollViewRevealModeRight;
-	} else if (center.x - currentHalfSize.width - kRevealGutter > 0 && _currentViewState.col > 0) {
+	} else if (center.x - currentHalfSize.width - kRevealGutter > 0 && _currentViewState.indexPath.col > 0) {
 		return XKPhotoScrollViewRevealModeLeft;
-	} else if (center.y - currentHalfSize.height - kRevealGutter > 0 && _currentViewState.row > 0) {
+	} else if (center.y - currentHalfSize.height - kRevealGutter > 0 && _currentViewState.indexPath.row > 0) {
 		return XKPhotoScrollViewRevealModeUp;
-	} else if (center.y + currentHalfSize.height + kRevealGutter < viewportSize.height && _currentViewState.row < _rows - 1) {
+	} else if (center.y + currentHalfSize.height + kRevealGutter < viewportSize.height && _currentViewState.indexPath.row < _rows - 1) {
 		return XKPhotoScrollViewRevealModeDown;
 	} else {
 		return XKPhotoScrollViewRevealModeNone;
@@ -591,25 +583,23 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	if (_revealMode == XKPhotoScrollViewRevealModeNone) {
 		_revealMode = [self shouldReveal];
 
+        NSIndexPath * const currentIndexPath = _currentViewState.indexPath;
+        
 		switch (_revealMode) {
 			case XKPhotoScrollViewRevealModeRight:
-				_revealViewState.row = _currentViewState.row;
-				_revealViewState.col = _currentViewState.col + 1;
+                _revealViewState.indexPath = [NSIndexPath indexPathForRow:currentIndexPath.row inColumn:currentIndexPath.col + 1];
 				break;
 
 			case XKPhotoScrollViewRevealModeLeft:
-				_revealViewState.row = _currentViewState.row;
-				_revealViewState.col  = _currentViewState.col - 1;
+                _revealViewState.indexPath = [NSIndexPath indexPathForRow:currentIndexPath.row inColumn:currentIndexPath.col - 1];
 				break;
 
 			case XKPhotoScrollViewRevealModeUp:
-				_revealViewState.row = _currentViewState.row - 1;
-				_revealViewState.col  = _currentViewState.col;
+                _revealViewState.indexPath = [NSIndexPath indexPathForRow:currentIndexPath.row - 1 inColumn:currentIndexPath.col];
 				break;
 
-			case XKPhotoScrollViewRevealModeDown:
-				_revealViewState.row = _currentViewState.row + 1;
-				_revealViewState.col  = _currentViewState.col;
+            case XKPhotoScrollViewRevealModeDown:
+                _revealViewState.indexPath = [NSIndexPath indexPathForRow:currentIndexPath.row + 1 inColumn:currentIndexPath.col];
 				break;
                 
             case XKPhotoScrollViewRevealModeNone:
@@ -619,8 +609,8 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 		if (_revealMode != XKPhotoScrollViewRevealModeNone) {
 			_revealViewState.view = _placeholderRevealView;
 			[self configureView:_revealViewState andInitialise:YES];
-			[self requestViewAtRow:_revealViewState.row col:_revealViewState.col];
-		}
+            [self requestViewAtIndexPath:_revealViewState.indexPath];
+        }
 	}
 
 	/* Update the reveal */
@@ -659,11 +649,10 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 
 		/* Check for the end of the reveal */
 		if ([self shouldReveal] == XKPhotoScrollViewRevealModeNone) {
-			[self cancelRequestAtRow:_revealViewState.row col:_revealViewState.col];
+            [self cancelRequestAtIndexPath:_revealViewState.indexPath];
 
 			/* So that setImage doesn't mistakenly set a reveal view, as it is in a different thread */
-			_revealViewState.row = NSNotFound;
-			_revealViewState.col = NSNotFound;
+            _revealViewState.indexPath = nil;
 
 			[_revealViewState.view removeFromSuperview];
 			_revealViewState.view = nil;
@@ -832,8 +821,8 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
     if ([_delegate respondsToSelector:@selector(photoScrollView:didSetCurrentView:withState:)])
         [_delegate photoScrollView:self didSetCurrentView:_currentViewState.view withState:[_currentViewState copy]];
     
-	if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToRow:col:)]) {
-		[_delegate photoScrollView:self didChangeToRow:_currentViewState.row col:_currentViewState.col];
+	if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToIndexPath:)]) {
+        [_delegate photoScrollView:self didChangeToIndexPath:_currentViewState.indexPath];
 	}
 
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
@@ -897,12 +886,14 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	CGFloat currentHalfHeight = _currentViewState.view.frame.size.height / 2;
 	CGSize viewportSize = [self viewportSize];
 
-	if ((_currentViewState.col == 0 && _dragLastVector.x > 0 && center.x > currentHalfWidth) ||
-		(_currentViewState.col == _cols - 1 && _dragLastVector.x < 0 && center.x + currentHalfWidth < viewportSize.width)) {
+    NSIndexPath * const currentIndexPath = _currentViewState.indexPath;
+    
+	if ((currentIndexPath.col == 0 && _dragLastVector.x > 0 && center.x > currentHalfWidth) ||
+		(currentIndexPath.col == _cols - 1 && _dragLastVector.x < 0 && center.x + currentHalfWidth < viewportSize.width)) {
 		_dragLastVector.x /= 2;
 	}
-	if ((_currentViewState.row == 0 && _dragLastVector.y > 0 && center.y > currentHalfHeight) ||
-		(_currentViewState.row == _rows - 1 && _dragLastVector.y < 0 && center.y + currentHalfHeight < viewportSize.height)) {
+	if ((currentIndexPath.row == 0 && _dragLastVector.y > 0 && center.y > currentHalfHeight) ||
+		(currentIndexPath.row == _rows - 1 && _dragLastVector.y < 0 && center.y + currentHalfHeight < viewportSize.height)) {
 		_dragLastVector.y /= 2;
 	}
 }
@@ -1030,8 +1021,8 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 	CGPoint contentNow = CGPointAdd(center, _dragLastVector);
 	[self moveCurrentView:contentNow];
     
-    if ([_delegate respondsToSelector:@selector(photoScrollView:didDragView:atRow:atCol:)])
-        [_delegate photoScrollView:self didDragView:_currentViewState.view atRow:_currentViewState.row atCol:_currentViewState.col];
+    if ([_delegate respondsToSelector:@selector(photoScrollView:didDragView:atIndexPath:)])
+        [_delegate photoScrollView:self didDragView:_currentViewState.view atIndexPath:_currentViewState.indexPath];
     
     return !CGPointEqualToPoint(_dragLastVector, CGPointZero);
 }
@@ -1134,16 +1125,16 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 - (void)singleTap {
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(singleTap) object:nil];
 
-	if ([_delegate respondsToSelector:@selector(photoScrollView:didTapView:atPoint:atRow:atCol:)])
-		[_delegate photoScrollView:self didTapView:_currentViewState.view atPoint:_singleTapLocationInView atRow:_currentViewState.row atCol:_currentViewState.col];
+	if ([_delegate respondsToSelector:@selector(photoScrollView:didTapView:atPoint:atIndexPath:)])
+		[_delegate photoScrollView:self didTapView:_currentViewState.view atPoint:_singleTapLocationInView atIndexPath:_currentViewState.indexPath];
 
 	_touchMode = _lastTouchMode = XKPhotoScrollViewTouchModeNone;
 	[self decelerateCurrentView];
 }
 
 - (void)longPress {
-	if ([_delegate respondsToSelector:@selector(photoScrollView:didLongPressView:atPoint:atRow:atCol:)])
-		[_delegate photoScrollView:self didLongPressView:_currentViewState.view atPoint:_longPressLocationInView atRow:_currentViewState.row atCol:_currentViewState.col];
+	if ([_delegate respondsToSelector:@selector(photoScrollView:didLongPressView:atPoint:atIndexPath:)])
+		[_delegate photoScrollView:self didLongPressView:_currentViewState.view atPoint:_longPressLocationInView atIndexPath:_currentViewState.indexPath];
 
 	_touchMode = _lastTouchMode = XKPhotoScrollViewTouchModeNone;
 	[self decelerateCurrentView];
@@ -1176,8 +1167,8 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 		[self startZoom:allTouches];
 	}
 
-	if ([_delegate respondsToSelector:@selector(photoScrollView:didTouchView:withTouches:atRow:atCol:)])
-		[_delegate photoScrollView:self didTouchView:_currentViewState.view withTouches:touches atRow:_currentViewState.row atCol:_currentViewState.col];
+	if ([_delegate respondsToSelector:@selector(photoScrollView:didTouchView:withTouches:atIndexPath:)])
+		[_delegate photoScrollView:self didTouchView:_currentViewState.view withTouches:touches atIndexPath:_currentViewState.indexPath];
     
     return YES;
 }
@@ -1255,25 +1246,23 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 				}
 			}
 		} else {
-			if ([_delegate respondsToSelector:@selector(photoScrollView:didDragView:atRow:atCol:)])
-				[_delegate photoScrollView:self didDragView:_currentViewState.view atRow:_currentViewState.row atCol:_currentViewState.col];
+			if ([_delegate respondsToSelector:@selector(photoScrollView:didDragView:atIndexPath:)])
+				[_delegate photoScrollView:self didDragView:_currentViewState.view atIndexPath:_currentViewState.indexPath];
 		}
 	} else if (_touchMode == XKPhotoScrollViewTouchModeZooming) {
-		if ([_delegate respondsToSelector:@selector(photoScrollView:didZoomView:atRow:atCol:)])
+		if ([_delegate respondsToSelector:@selector(photoScrollView:didZoomView:atIndexPath:)])
 			[_delegate photoScrollView:self
 						  didZoomView:_currentViewState.view
-								atRow:_currentViewState.row
-								atCol:_currentViewState.col];
+								atIndexPath:_currentViewState.indexPath];
         
         if (_currentViewState.scale < 0.90 && _zoomMaxScale <= _zoomScaleStart * 1.05) {
             /* If the user pinches the view by more than 10% below its base scale, and they didn't
                zoom it more than 5% above the initial scale, then it's a pinch dismiss gesture.
              */
-            if ([_delegate respondsToSelector:@selector(photoScrollView:didPinchDismissView:atRow:atCol:)])
+            if ([_delegate respondsToSelector:@selector(photoScrollView:didPinchDismissView:atIndexPath:)])
                 [_delegate photoScrollView:self
                       didPinchDismissView:_currentViewState.view
-                                    atRow:_currentViewState.row
-                                    atCol:_currentViewState.col];
+                                    atIndexPath:_currentViewState.indexPath];
         }
 	}
 
@@ -1362,12 +1351,9 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 #pragma mark Properties
 
-- (NSUInteger)col {
-	return _currentViewState.col;
-}
-
-- (NSUInteger)row {
-	return _currentViewState.row;
+- (NSIndexPath *)currentIndexPath
+{
+    return _currentViewState.indexPath;
 }
 
 - (BOOL)touching {
@@ -1383,10 +1369,23 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
     copy.view = self.view;
     copy.scale = self.scale;
     copy.baseScale = self.baseScale;
-    copy.row = self.row;
-    copy.col = self.col;
+    copy.indexPath = self.indexPath;
     copy.placeholder = self.placeholder;
     return copy;
+}
+
+@end
+
+@implementation NSIndexPath (XKPhotoScrollView)
+
++ (NSIndexPath *)indexPathForRow:(NSInteger)row inColumn:(NSInteger)column
+{
+    return [NSIndexPath indexPathForRow:row inSection:column];
+}
+
+- (NSInteger)col
+{
+    return self.section;
 }
 
 @end

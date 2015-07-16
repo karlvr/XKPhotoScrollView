@@ -30,8 +30,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 /** The baseScale of the view is the scale applied to the view in order to fit it to the photo scroll view. It is governed by the photo scroll view's maximumBaseScale. */
 @property (nonatomic, assign) CGFloat baseScale;
 
-/** The row and column that this view state represents */
-@property (nonatomic, assign) NSUInteger row, col;
+/** The indexPath that this view state represents */
+@property (nonatomic, assign) NSIndexPath *indexPath;
 
 /** Whether this view is a placeholder, that is expected to be replaced by the real view later. */
 @property (nonatomic, assign) BOOL placeholder;
@@ -41,8 +41,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @protocol XKPhotoScrollViewDataSource
 
 /** Called when the photo scroll view wants the data source to provide a view for the given index path. */
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtRow:(NSUInteger)row col:(NSUInteger)col;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtRow:(NSUInteger)row col:(NSUInteger)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView requestViewAtIndexPath:(NSIndexPath *)indexPath;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtIndexPath:(NSIndexPath *)indexPath;
 - (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView;
 - (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView;
 
@@ -52,15 +52,15 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 @optional
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atRow:(NSUInteger)row atCol:(NSUInteger)col;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didLongPressView:(UIView *)view atPoint:(CGPoint)pt atRow:(NSUInteger)row atCol:(NSUInteger)col;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTouchView:(UIView *)view withTouches:(NSSet *)touches atRow:(NSUInteger)row atCol:(NSUInteger)col;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didDragView:(UIView *)view atRow:(NSUInteger)row atCol:(NSUInteger)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didLongPressView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTouchView:(UIView *)view withTouches:(NSSet *)touches atIndexPath:(NSIndexPath *)indexPath;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didDragView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didUpdateTransformationForView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didZoomView:(UIView *)view atRow:(NSUInteger)row atCol:(NSUInteger)col;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didPinchDismissView:(UIView *)view atRow:(NSUInteger)row atCol:(NSUInteger)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didZoomView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didPinchDismissView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didRotateTo:(CGFloat)rotation;
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didChangeToRow:(NSUInteger)row col:(NSUInteger)col;
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didChangeToIndexPath:(NSIndexPath *)indexPath;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didSetCurrentView:(UIView *)view withState:(XKPhotoScrollViewViewState *)state;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView isStabilizing:(UIView *)view;
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didStabilizeView:(UIView *)view;
@@ -70,12 +70,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @interface XKPhotoScrollView : UIView
 
 - (void)reloadData;
-- (void)setView:(UIView *)view atRow:(NSUInteger)row col:(NSUInteger)col placeholder:(BOOL)placeholder;
-- (void)setViewOnMainThread:(UIView *)view atRow:(NSUInteger)row col:(NSUInteger)col placeholder:(BOOL)placeholder;
-- (BOOL)wantsViewAtRow:(NSUInteger)row col:(NSUInteger)col;
+- (void)setView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath placeholder:(BOOL)placeholder;
+- (BOOL)wantsViewAtIndexPath:(NSIndexPath *)indexPath;
 - (void)setViewScale:(CGFloat)scale;
-- (void)setCurrentRow:(NSUInteger)row col:(NSUInteger)col;
-- (void)setCurrentRow:(NSUInteger)aRow col:(NSUInteger)aCol animated:(BOOL)animated;
 - (void)notifyDeviceOrientationDidChange:(UIDeviceOrientation)orientation animated:(BOOL)animated;
 
 @property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDataSource> dataSource;
@@ -93,8 +90,10 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @property (assign, nonatomic) CGFloat maximumBaseScale;
 
 @property (assign, nonatomic) CGFloat minimumDrag;
-@property (readonly, nonatomic) NSUInteger col;
-@property (readonly, nonatomic) NSUInteger row;
+
+@property (strong, nonatomic) NSIndexPath *currentIndexPath;
+- (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath animated:(BOOL)animated;
+
 @property (readonly, nonatomic) int rotation;
 @property (readonly, nonatomic) BOOL touching;
 @property (assign, nonatomic) CGFloat viewScale;
@@ -118,5 +117,13 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @interface XKPhotoScrollViewGestureRecognizer : UIGestureRecognizer
 
 @property (weak, nonatomic) XKPhotoScrollView *photoScrollView;
+
+@end
+
+@interface NSIndexPath (XKPhotoScrollView)
+
++ (NSIndexPath *)indexPathForRow:(NSInteger)row inColumn:(NSInteger)column;
+
+- (NSInteger)col;
 
 @end
