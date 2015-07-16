@@ -56,6 +56,34 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"WILL APPEAR %i", animated);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"WILL DISAPPEAR %i", animated);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"DID DISAPPEAR %i", animated);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"DID APPEAR %i", animated);
+}
+
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDataSource
@@ -137,6 +165,34 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"FULL WILL APPEAR %i", animated);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"FULL WILL DISAPPEAR %i", animated);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"FULL DID DISAPPEAR %i", animated);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"FULL DID APPEAR %i", animated);
+}
+
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDelegate
@@ -155,7 +211,11 @@
     UIViewController * const to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController * const from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    UIView *toView = to.view;
+    UIView * const fromView = from.view;
+    fromView.frame = [transitionContext initialFrameForViewController:from];
+    [transitionContext.containerView addSubview:fromView];
+    
+    UIView * const toView = to.view;
     toView.alpha = 0.0;
     toView.frame = [transitionContext finalFrameForViewController:to];
     [transitionContext.containerView addSubview:toView];
@@ -185,6 +245,8 @@
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
+        [fromView removeFromSuperview];
+        
         sourceView.alpha = 1.0;
         destView.alpha = 1.0;
         [animatingView removeFromSuperview];
