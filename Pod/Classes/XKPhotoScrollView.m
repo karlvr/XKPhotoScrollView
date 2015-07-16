@@ -445,7 +445,7 @@ static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoin
 			if ([_delegate respondsToSelector:@selector(photoScrollView:didSetCurrentView:withState:)])
 				[_delegate photoScrollView:self didSetCurrentView:_currentViewState.view withState:_currentViewState];
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-			NSLog(@"SET CURRENT VIEW %@ @ %ix%i REVEAL %@ @ %ix%i (mainThread=%i)", currentView.view, currentView.col, currentView.row, revealView.view, revealView.col, revealView.row, [NSThread isMainThread]);
+			NSLog(@"SET CURRENT VIEW %@ @ %ix%i REVEAL %@ @ %ix%i (mainThread=%i)", _currentViewState.view, _currentViewState.col, _currentViewState.row, _revealViewState.view, _revealViewState.col, _revealViewState.row, [NSThread isMainThread]);
 #endif
 		}
 	} else if (aRow == _revealViewState.row && aCol == _revealViewState.col) {
@@ -460,7 +460,7 @@ static CGRect SetCentreOfFrameWithOriginRoundedToWholePixel(CGRect frame, CGPoin
 
 			[tmp removeFromSuperview];
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-			NSLog(@"SET REVEAL VIEW %@ @ %ix%i CURRENT %@ @ %ix%i (mainThread=%i)", revealView.view, revealView.col, revealView.row, currentView.view, currentView.col, currentView.row, [NSThread isMainThread]);
+			NSLog(@"SET REVEAL VIEW %@ @ %ix%i CURRENT %@ @ %ix%i (mainThread=%i)", _revealViewState.view, _revealViewState.col, _revealViewState.row, _currentViewState.view, _currentViewState.col, _currentViewState.row, [NSThread isMainThread]);
 #endif
 		}
 	}
@@ -819,7 +819,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
 	}
 
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-	NSLog(@"Switched to reveal at %ix%i", currentView.col, currentView.row);
+	NSLog(@"Switched to reveal at %ix%i", _currentViewState.col, _currentViewState.row);
 #endif
 }
 
@@ -1004,7 +1004,7 @@ static float linear_easeNone(NSTimeInterval t, float b /* begin */, float c /* c
 	[self _reduceDragLastVector];
     
 #ifdef DEBUG_PHOTO_SCROLL_VIEW
-    NSLog(@"DRAG %@ currentViewScale = %f, dragAxis = %i, draggedSomeDistance = %i", NSStringFromCGPoint(_dragLastVector), _currentViewState.scale, _dragAxis, _draggedSomeDistance);
+    NSLog(@"DRAG %@ currentViewScale = %f, dragAxis = %li, draggedSomeDistance = %i", NSStringFromCGPoint(_dragLastVector), _currentViewState.scale, (long) _dragAxis, _draggedSomeDistance);
 #endif
 
 	/* Calculate new centre */
