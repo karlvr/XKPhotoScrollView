@@ -86,10 +86,15 @@
     [self goFullScreen];
 }
 
-#pragma mark - Private
+#pragma mark - Internal
 
 - (void)goFullScreen
 {
+    if (self.presentingViewController) {
+        /* Prevent multiple simultaneous presentations */
+        return;
+    }
+    
     XKTransitionFullScreenViewController *manual = [XKTransitionFullScreenViewController new];
     manual.dataSource = self;
     manual.indexPath = self.photoScrollView.currentIndexPath;

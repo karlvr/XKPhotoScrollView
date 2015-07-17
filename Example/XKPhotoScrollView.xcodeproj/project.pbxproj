@@ -22,6 +22,7 @@
 		8469E94C2E96BDA32F573E71 /* Pods_XKPhotoScrollView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4647021A0EC134845422B66C /* Pods_XKPhotoScrollView_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B85C08341B589CBF00C7313E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85C08331B589CBF00C7313E /* Launch Screen.xib */; };
+		B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */; };
 		B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */; };
 		B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6841B58337E00A60288 /* XKRootViewController.m */; };
 		B89AA6881B58369C00A60288 /* XKMultiRowExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6871B58369C00A60288 /* XKMultiRowExampleViewController.m */; };
@@ -67,6 +68,9 @@
 		A60A8E2E0799E7F7974CCD6D /* Pods_XKPhotoScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26B785E91A1D2913434D647 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B85C08331B589CBF00C7313E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		B85C08351B589D9F00C7313E /* XKRotateTransitionExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRotateTransitionExampleViewController.h; sourceTree = "<group>"; };
+		B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRotateTransitionExampleViewController.m; sourceTree = "<group>"; };
+		B85C08381B589DC000C7313E /* XKTransitionExampleViewController_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKTransitionExampleViewController_Internal.h; sourceTree = "<group>"; };
 		B89AA6801B5830C200A60288 /* XKSimpleExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKSimpleExampleViewController.h; sourceTree = "<group>"; };
 		B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKSimpleExampleViewController.m; sourceTree = "<group>"; };
 		B89AA6831B58337E00A60288 /* XKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRootViewController.h; sourceTree = "<group>"; };
@@ -427,6 +431,7 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				B89AA6881B58369C00A60288 /* XKMultiRowExampleViewController.m in Sources */,
 				B89AA68B1B58383D00A60288 /* XKTransitionExampleViewController.m in Sources */,
+				B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

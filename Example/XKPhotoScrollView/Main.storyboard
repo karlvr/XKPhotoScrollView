@@ -116,6 +116,45 @@
             </objects>
             <point key="canvasLocation" x="2422" y="433"/>
         </scene>
+        <!--Rotate-->
+        <scene sceneID="SNc-3E-abt">
+            <objects>
+                <viewController storyboardIdentifier="rotate" title="Rotate" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RlT-tF-ap5" customClass="XKRotateTransitionExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f4f-gV-Esf"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZX-4t-g4W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yQ4-QE-ak8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1R-3n-Pti" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="DzM-Xs-cUe"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="RlT-tF-ap5" id="v56-cA-JEj"/>
+                                    <outlet property="delegate" destination="RlT-tF-ap5" id="OzW-T7-ZYq"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V1R-3n-Pti" secondAttribute="trailing" id="7VI-TY-Ngr"/>
+                            <constraint firstItem="V1R-3n-Pti" firstAttribute="leading" secondItem="yQ4-QE-ak8" secondAttribute="leading" id="SWy-VS-U3b"/>
+                            <constraint firstItem="V1R-3n-Pti" firstAttribute="top" secondItem="f4f-gV-Esf" secondAttribute="bottom" id="wSz-oH-Gh6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="V1R-3n-Pti" id="IqN-nb-w3u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8O-vd-MPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2422" y="1114"/>
+        </scene>
         <!--Manual-->
         <scene sceneID="7MJ-xt-tRu">
             <objects>
