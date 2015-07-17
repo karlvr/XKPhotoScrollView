@@ -189,6 +189,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 - (void)setup
 {
+    /* By default this view autoresizes to take up all available width and height in its superview */
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     _initialSize = self.bounds.size;
     
     _animationType = XKPhotoScrollViewAnimationTypeFade;
