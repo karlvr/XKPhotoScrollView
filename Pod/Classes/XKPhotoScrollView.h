@@ -45,8 +45,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 @property (nonatomic) UIDeviceOrientation orientation;
 - (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated;
-@property (nonatomic) CGFloat rotation;
-- (void)setRotation:(CGFloat)rotation animated:(BOOL)animated;
 
 @property (readonly, nonatomic) BOOL touching;
 @property (assign, nonatomic) CGFloat viewScale;

@@ -1325,24 +1325,44 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 #pragma mark Orientation
 
-- (void)setRotation:(CGFloat)rotation
+- (void)setOrientation:(UIDeviceOrientation)orientation
 {
-    [self setRotation:rotation animated:YES];
+    [self setOrientation:orientation animated:YES];
 }
 
-- (void)setRotation:(CGFloat)rotation animated:(BOOL)animated
+- (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated
 {
-    if (rotation != _rotation) {
-        const CGFloat oldRotation = _rotation;
-        _rotation = rotation;
+    if (orientation != _orientation) {
+        CGFloat rotation;
+        switch (orientation) {
+            case UIDeviceOrientationPortrait:
+                rotation = XKPhotoScrollViewRotationUp;
+                break;
+
+            case UIDeviceOrientationPortraitUpsideDown:
+                rotation = XKPhotoScrollViewRotationDown;
+                break;
+
+            case UIDeviceOrientationLandscapeLeft:
+                rotation = XKPhotoScrollViewRotationRight;
+                break;
+
+            case UIDeviceOrientationLandscapeRight:
+                rotation = XKPhotoScrollViewRotationLeft;
+                break;
+
+            default:
+                /* Unsupported orientation, don't register a change */
+                return;
+        }
+        
+        const UIDeviceOrientation oldOrientation = _orientation;
+        _orientation = orientation;
         
         if (_currentViewState.view) {
             CGRect bounds = self.bounds;
             
-            const BOOL oldRotationIsLandscape = oldRotation == XKPhotoScrollViewRotationLeft || oldRotation == XKPhotoScrollViewRotationRight;
-            const BOOL newRotationIsLandscape = rotation == XKPhotoScrollViewRotationLeft || rotation == XKPhotoScrollViewRotationRight;
-            
-            if (oldRotationIsLandscape != newRotationIsLandscape) {
+            if (UIDeviceOrientationIsLandscape(orientation) != UIDeviceOrientationIsLandscape(oldOrientation)) {
                 bounds.size = CGSizeInvert(_initialSize);
             } else {
                 bounds.size = _initialSize;
@@ -1364,40 +1384,9 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
                 [UIView commitAnimations];
         }
         
-        if ([self.delegate respondsToSelector:@selector(photoScrollView:didRotateTo:)])
-            [self.delegate photoScrollView:self didRotateTo:rotation];
+        if ([self.delegate respondsToSelector:@selector(photoScrollView:orientationDidChangeTo:)])
+            [self.delegate photoScrollView:self orientationDidChangeTo:orientation];
     }
-}
-
-- (void)setOrientation:(UIDeviceOrientation)orientation
-{
-    [self setOrientation:orientation animated:YES];
-}
-
-- (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated
-{
-    _orientation = orientation;
-    
-    switch (orientation) {
-		case UIDeviceOrientationPortrait:
-			self.rotation = XKPhotoScrollViewRotationUp;
-			break;
-
-		case UIDeviceOrientationPortraitUpsideDown:
-			self.rotation = XKPhotoScrollViewRotationDown;
-			break;
-
-		case UIDeviceOrientationLandscapeLeft:
-			self.rotation = XKPhotoScrollViewRotationRight;
-			break;
-
-		case UIDeviceOrientationLandscapeRight:
-			self.rotation = XKPhotoScrollViewRotationLeft;
-			break;
-
-		default:
-			break;
-	}
 }
 
 #pragma mark Properties
