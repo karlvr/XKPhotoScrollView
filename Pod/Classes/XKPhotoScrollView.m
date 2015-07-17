@@ -133,6 +133,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     NSUInteger _cols, _rows;
     
+    BOOL _dataSourceSupportsCancelRequest;
+    
     CGPoint _animationStartCenter;
     CGPoint _animationTargetCenter;
     CGFloat _animationStartScale;
@@ -431,10 +433,16 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	} else if (!_request2IndexPath) {
         _request2IndexPath = indexPath;
     } else if (![_request1IndexPath isEqual:_currentViewState.indexPath] && ![_request1IndexPath isEqual:_revealViewState.indexPath]) {
-        [_dataSource photoScrollView:self cancelRequestAtIndexPath:_request1IndexPath];
+        if (_dataSourceSupportsCancelRequest) {
+            [_dataSource photoScrollView:self cancelRequestAtIndexPath:_request1IndexPath];
+        }
+        
         _request1IndexPath = indexPath;
 	} else if (![_request2IndexPath isEqual:_currentViewState.indexPath] && ![_request2IndexPath isEqual:_revealViewState.indexPath]) {
-		[_dataSource photoScrollView:self cancelRequestAtIndexPath:_request2IndexPath];
+        if (_dataSourceSupportsCancelRequest) {
+            [_dataSource photoScrollView:self cancelRequestAtIndexPath:_request2IndexPath];
+        }
+        
         _request2IndexPath = indexPath;
 	}
     
@@ -444,10 +452,16 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 - (void)cancelRequestAtIndexPath:(NSIndexPath *)indexPath {
     if ([_request1IndexPath isEqual:indexPath]) {
         _request1IndexPath = nil;
-		[_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
+        
+        if (_dataSourceSupportsCancelRequest) {
+            [_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
+        }
 	} else if ([_request2IndexPath isEqual:indexPath]) {
         _request2IndexPath = nil;
-		[_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
+        
+        if (_dataSourceSupportsCancelRequest) {
+            [_dataSource photoScrollView:self cancelRequestAtIndexPath:indexPath];
+        }
 	}
 }
 
@@ -466,7 +480,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	[self addSubview:_currentViewState.view];
 
 	_cols = [_dataSource photoScrollViewCols:self];
-	_rows = [_dataSource photoScrollViewRows:self];
+    if ([_dataSource respondsToSelector:@selector(photoScrollViewRows:)]) {
+        _rows = [_dataSource photoScrollViewRows:self];
+    } else {
+        _rows = 1;
+    }
 
 	if (!animated) {
 		if ([_delegate respondsToSelector:@selector(photoScrollView:didChangeToIndexPath:)]) {
@@ -575,6 +593,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 - (void)setDataSource:(id<XKPhotoScrollViewDataSource>)aDataSource {
 	_dataSource = aDataSource;
+    _dataSourceSupportsCancelRequest = [aDataSource respondsToSelector:@selector(photoScrollView:cancelRequestAtIndexPath:)];
 	[self reloadData];
 }
 
