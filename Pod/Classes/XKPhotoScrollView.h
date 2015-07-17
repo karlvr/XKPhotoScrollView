@@ -23,7 +23,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 - (void)setView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath placeholder:(BOOL)placeholder;
 - (BOOL)wantsViewAtIndexPath:(NSIndexPath *)indexPath;
 - (void)setViewScale:(CGFloat)scale;
-- (void)notifyDeviceOrientationDidChange:(UIDeviceOrientation)orientation animated:(BOOL)animated;
 
 @property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDataSource> dataSource;
 @property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDelegate> delegate;
@@ -44,7 +43,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @property (strong, nonatomic) NSIndexPath *currentIndexPath;
 - (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath animated:(BOOL)animated;
 
-@property (readonly, nonatomic) int rotation;
+@property (nonatomic) UIDeviceOrientation orientation;
+- (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated;
+@property (nonatomic) CGFloat rotation;
+- (void)setRotation:(CGFloat)rotation animated:(BOOL)animated;
+
 @property (readonly, nonatomic) BOOL touching;
 @property (assign, nonatomic) CGFloat viewScale;
 @property (readonly, nonatomic) CGFloat baseScale;

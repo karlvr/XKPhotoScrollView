@@ -12,6 +12,11 @@
 
 #define DEBUG_PHOTO_SCROLL_VIEW 0
 
+static CGFloat XKPhotoScrollViewRotationUp = 0;
+static CGFloat XKPhotoScrollViewRotationRight = M_PI_2;
+static CGFloat XKPhotoScrollViewRotationDown = M_PI;
+static CGFloat XKPhotoScrollViewRotationLeft = M_PI + M_PI_2;
+
 static inline CGPoint CGPointNegate(CGPoint p) {
     return CGPointMake(-p.x, -p.y);
 }
@@ -139,7 +144,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     XKPhotoScrollViewTouchMode _touchMode;
     XKPhotoScrollViewTouchMode _lastTouchMode;
     
-    int _rotation;
     CGSize _initialSize;
     
     CGPoint _zoomTouchStart;
@@ -311,12 +315,18 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
                 if (isnan(center.x) || isnan(center.y)) {
                     center = CGPointFromProportional(CGPointMake(0.5, 0.5), bounds.size);
                 }
+                
                 _currentViewState.view.center = center;
                 
                 [self stabiliseCurrentView:YES];
             }
             if (_revealViewState.view) {
-                _revealViewState.view.center = CGPointFromProportional(CGPointMakeProportional(_revealViewState.view.center, previousSize), bounds.size);
+                CGPoint center = CGPointFromProportional(CGPointMakeProportional(_revealViewState.view.center, previousSize), bounds.size);
+                if (isnan(center.x) || isnan(center.y)) {
+                    center = CGPointFromProportional(CGPointMake(0.5, 0.5), bounds.size);
+                }
+                
+                _revealViewState.view.center = center;
             }
         }
     }
@@ -1315,74 +1325,78 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 #pragma mark Orientation
 
-- (void)notifyDeviceOrientationDidChange:(UIDeviceOrientation)orientation animated:(BOOL)animated {
-	int newRotation;
+- (void)setRotation:(CGFloat)rotation
+{
+    [self setRotation:rotation animated:YES];
+}
 
-	switch (orientation) {
-		case UIDeviceOrientationPortrait:
-			newRotation = 0;
-			break;
-
-		case UIDeviceOrientationPortraitUpsideDown:
-			newRotation = 180;
-			break;
-
-		case UIDeviceOrientationLandscapeLeft:
-			newRotation = 90;
-			break;
-
-		case UIDeviceOrientationLandscapeRight:
-			newRotation = 270;
-			break;
-
-		default:
-			newRotation = _rotation;
-			break;
-	}
-
-#if DEBUG_PHOTO_SCROLL_VIEW
-	NSLog(@"newRotation=%i", newRotation);
-#endif
-
-	if (_rotation != newRotation) {
-        int oldRotation = _rotation;
-		_rotation = newRotation;
-
+- (void)setRotation:(CGFloat)rotation animated:(BOOL)animated
+{
+    if (rotation != _rotation) {
+        const CGFloat oldRotation = _rotation;
+        _rotation = rotation;
+        
         if (_currentViewState.view) {
-            if (animated) {
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:0.25];
-            }
             CGRect bounds = self.bounds;
-            CGPoint center = CGPointMakeProportional(_currentViewState.view.center, bounds.size);
-            CGPoint revealCenter = CGPointMakeProportional(_revealViewState.view.center, bounds.size);
             
-            bool oldRotationIsLandscape = oldRotation % 180 == 90;
-            bool newRotationIsLandscape = newRotation % 180 == 90;
+            const BOOL oldRotationIsLandscape = oldRotation == XKPhotoScrollViewRotationLeft || oldRotation == XKPhotoScrollViewRotationRight;
+            const BOOL newRotationIsLandscape = rotation == XKPhotoScrollViewRotationLeft || rotation == XKPhotoScrollViewRotationRight;
             
             if (oldRotationIsLandscape != newRotationIsLandscape) {
                 bounds.size = CGSizeInvert(_initialSize);
             } else {
                 bounds.size = _initialSize;
             }
-
+            
             self.bounds = bounds;
-            _currentViewState.view.center = CGPointFromProportional(center, bounds.size);
-            _revealViewState.view.center = CGPointFromProportional(revealCenter, bounds.size);
-
+            
+            if (animated) {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.25];
+            }
+            
             [self configureView:_currentViewState andInitialise:NO];
             [self configureView:_revealViewState andInitialise:NO];
-
-            self.transform = CGAffineTransformMakeRotation(_rotation * M_PI / 180);
-
+            
+            self.transform = CGAffineTransformMakeRotation(rotation);
+            
             if (animated)
                 [UIView commitAnimations];
-
-            [self stabiliseCurrentView:animated];
         }
+        
+        if ([self.delegate respondsToSelector:@selector(photoScrollView:didRotateTo:)])
+            [self.delegate photoScrollView:self didRotateTo:rotation];
+    }
+}
 
-		if ([self.delegate respondsToSelector:@selector(photoScrollView:didRotateTo:)])
-			[self.delegate photoScrollView:self didRotateTo:_rotation];
+- (void)setOrientation:(UIDeviceOrientation)orientation
+{
+    [self setOrientation:orientation animated:YES];
+}
+
+- (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated
+{
+    _orientation = orientation;
+    
+    switch (orientation) {
+		case UIDeviceOrientationPortrait:
+			self.rotation = XKPhotoScrollViewRotationUp;
+			break;
+
+		case UIDeviceOrientationPortraitUpsideDown:
+			self.rotation = XKPhotoScrollViewRotationDown;
+			break;
+
+		case UIDeviceOrientationLandscapeLeft:
+			self.rotation = XKPhotoScrollViewRotationRight;
+			break;
+
+		case UIDeviceOrientationLandscapeRight:
+			self.rotation = XKPhotoScrollViewRotationLeft;
+			break;
+
+		default:
+			break;
 	}
 }
 
