@@ -82,7 +82,11 @@
 {
     const UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
     
-    [self.photoScrollView setOrientation:orientation animated:YES];
+    if (_dismissOnPortrait && UIDeviceOrientationIsPortrait(orientation)) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } else {
+        [self.photoScrollView setOrientation:orientation animated:YES];
+    }
 }
 
 #pragma mark - XKPhotoScrollView

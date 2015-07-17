@@ -251,6 +251,36 @@
             </objects>
             <point key="canvasLocation" x="955" y="2648"/>
         </scene>
+        <!--Rotate Modal-->
+        <scene sceneID="fQa-OE-TWQ">
+            <objects>
+                <viewController storyboardIdentifier="rotatemodal" title="Rotate Modal" id="kLQ-pt-X5g" customClass="XKRotateModalExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b08-uN-aVS"/>
+                        <viewControllerLayoutGuide type="bottom" id="PLo-NC-eAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Di0-kP-Vqo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-AB-2gD">
+                                <rect key="frame" x="260" y="290" width="80" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="dw8-AB-2gD" secondAttribute="centerX" id="TXO-so-Jb3"/>
+                            <constraint firstAttribute="centerY" secondItem="dw8-AB-2gD" secondAttribute="centerY" id="ihf-fd-9BX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTl-FI-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="2648"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zWX-01-fdy">
             <objects>

@@ -1,5 +1,5 @@
 //
-//  XKDeviceRotationExampleViewController.h
+//  XKRotateModalExampleViewController.h
 //  XKPhotoScrollView
 //
 //  Created by Karl von Randow on 17/07/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XKDeviceRotationExampleViewController : UIViewController
-
-@property (nonatomic) BOOL dismissOnPortrait;
+@interface XKRotateModalExampleViewController : UIViewController
 
 @end
