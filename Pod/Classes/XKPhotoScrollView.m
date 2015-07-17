@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     XKPhotoScrollViewTouchMode _touchMode;
     XKPhotoScrollViewTouchMode _lastTouchMode;
     
-    CGSize _initialSize;
+    CGSize _currentSize;
     
     CGPoint _zoomTouchStart;
     CGPoint _zoomCurrentViewStart;
@@ -196,7 +196,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     /* By default this view autoresizes to take up all available width and height in its superview */
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    _initialSize = self.bounds.size;
+    _currentSize = self.bounds.size;
     
     _animationType = XKPhotoScrollViewAnimationTypeFade;
     
@@ -302,9 +302,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     [super layoutSubviews];
     
     const CGRect bounds = self.bounds;
-    if (!CGSizeEqualToSize(bounds.size, _initialSize)) {
-        const CGSize previousSize = _initialSize;
-        _initialSize = bounds.size;
+    if (!CGSizeEqualToSize(bounds.size, _currentSize)) {
+        const CGSize previousSize = _currentSize;
+        _currentSize = bounds.size;
         
         [self configureView:_currentViewState andInitialise:NO];
         [self configureView:_revealViewState andInitialise:NO];
@@ -383,8 +383,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 	int dirx = toIndexPath.col == fromIndexPath.col ? 0 : toIndexPath.col > fromIndexPath.col ? -1 : 1;
 	int diry = toIndexPath.row == fromIndexPath.row ? 0 : toIndexPath.row > fromIndexPath.row ? -1 : 1;
 
-	CGFloat deltax = dirx * (_initialSize.width + kRevealGutter);
-	CGFloat deltay = diry * (_initialSize.height + kRevealGutter);
+	CGFloat deltax = dirx * (_currentSize.width + kRevealGutter);
+	CGFloat deltay = diry * (_currentSize.height + kRevealGutter);
 
 	CGPoint saveToStateCenter = toState.view.center;
 
@@ -1363,9 +1363,9 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
             CGRect bounds = self.bounds;
             
             if (UIDeviceOrientationIsLandscape(orientation) != UIDeviceOrientationIsLandscape(oldOrientation)) {
-                bounds.size = CGSizeInvert(_initialSize);
+                bounds.size = CGSizeInvert(_currentSize);
             } else {
-                bounds.size = _initialSize;
+                bounds.size = _currentSize;
             }
             
             self.bounds = bounds;
