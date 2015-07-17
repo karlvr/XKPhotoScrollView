@@ -187,7 +187,14 @@
     UIImageView * const animatingView = [[UIImageView alloc] initWithImage:sourceView.image];
     animatingView.bounds = sourceView.bounds;
     animatingView.center = [transitionContext.containerView convertPoint:sourceView.center fromView:sourceView.superview];
-    animatingView.transform = sourceView.transform;
+    
+    /* Calculate initial transform (rotation) on the animating image view */
+    CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
+    CGAffineTransform fromViewTransform = fromView.transform;
+    CGAffineTransform result = fromViewTransform;
+    result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
+    result = CGAffineTransformConcat(result, sourceView.transform);
+    animatingView.transform = result;
     
     [transitionContext.containerView addSubview:animatingView];
     
