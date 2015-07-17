@@ -28,6 +28,8 @@
     XKPhotoScrollView * const toPhotoScrollView = [self photoScrollViewForViewController:to];
     XKPhotoScrollView * const fromPhotoScrollView = [self photoScrollViewForViewController:from];
     
+    toPhotoScrollView.currentIndexPath = fromPhotoScrollView.currentIndexPath;
+    
     UIImageView * const fromImageView = (UIImageView *)fromPhotoScrollView.currentView;
     fromImageView.alpha = 0.0;
     
