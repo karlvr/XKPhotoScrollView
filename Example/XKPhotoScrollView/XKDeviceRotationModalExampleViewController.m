@@ -8,11 +8,12 @@
 
 #import "XKDeviceRotationModalExampleViewController.h"
 
-#import "XKDeviceRotationPhotoScrollViewController.h"
-
 #import <XKPhotoScrollView/XKPhotoScrollView.h>
 
-@interface XKDeviceRotationModalExampleViewController () <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate>
+#import "XKDeviceRotationPhotoScrollViewController.h"
+#import "XKPhotoScrollViewAnimatedTransitioning.h"
+
+@interface XKDeviceRotationModalExampleViewController () <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet XKPhotoScrollView *photoScrollView;
 
@@ -74,9 +75,30 @@
         viewController.indexPath = self.photoScrollView.currentIndexPath;
         viewController.dataSource = self;
         viewController.delegate = self;
-        viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        viewController.dismissOnPortrait = YES;
+        
+        /* Use UIModalPresentationFullScreen modal presentation style so we don't need to use a UIPresentationController to remove
+           the UINavigationController (and view controllers) from the window. We can't use this in XKTransitionExampleViewController
+           as it causes the status bar to hide awkwardly if you are in landscape and presenting a view that supports landscape while
+           the presenting view doesn't.
+         */
+        viewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        
+        viewController.transitioningDelegate = self;
         [self presentViewController:viewController animated:YES completion:NULL];
     }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    return [XKPhotoScrollViewAnimatedTransitioning new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [XKPhotoScrollViewAnimatedTransitioning new];
 }
 
 #pragma mark - XKPhotoScrollView
