@@ -8,10 +8,9 @@
 
 #import "XKDeviceRotationModalExampleViewController.h"
 
-#import <XKPhotoScrollView/XKPhotoScrollView.h>
+@import XKPhotoScrollView;
 
 #import "XKDeviceRotationPhotoScrollViewController.h"
-#import "XKPhotoScrollViewAnimatedTransitioning.h"
 
 @interface XKDeviceRotationModalExampleViewController () <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, UIViewControllerTransitioningDelegate>
 

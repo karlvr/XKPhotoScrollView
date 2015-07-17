@@ -8,7 +8,7 @@
 
 #import "XKPhotoScrollViewAnimatedTransitioning.h"
 
-@import XKPhotoScrollView;
+#import "XKPhotoScrollView.h"
 
 @implementation XKPhotoScrollViewAnimatedTransitioning
 
@@ -80,10 +80,10 @@
 
 - (XKPhotoScrollView *)photoScrollViewForViewController:(UIViewController *)viewController
 {
-    if ([viewController isKindOfClass:[UINavigationController class]]) {
-        return [self photoScrollViewForViewController:((UINavigationController *)viewController).topViewController];
-    } else if ([viewController respondsToSelector:@selector(photoScrollView)]) {
+    if ([viewController respondsToSelector:@selector(photoScrollView)]) {
         return (XKPhotoScrollView *) [viewController performSelector:@selector(photoScrollView)];
+    } else if ([viewController isKindOfClass:[UINavigationController class]]) {
+        return [self photoScrollViewForViewController:((UINavigationController *)viewController).topViewController];
     } else {
         NSLog(@"Can't find photoScrollView from %@", viewController);
         abort();

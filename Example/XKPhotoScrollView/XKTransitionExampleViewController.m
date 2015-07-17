@@ -8,9 +8,7 @@
 
 #import "XKTransitionExampleViewController.h"
 
-#import <XKPhotoScrollView/XKPhotoScrollView.h>
-
-#import "XKPhotoScrollViewAnimatedTransitioning.h"
+@import XKPhotoScrollView;
 
 @interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate>
 

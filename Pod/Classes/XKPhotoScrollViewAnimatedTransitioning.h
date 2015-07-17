@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class XKPhotoScrollView;
+
 @interface XKPhotoScrollViewAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
+
+- (XKPhotoScrollView *)photoScrollViewForViewController:(UIViewController *)viewController;
 
 @end
