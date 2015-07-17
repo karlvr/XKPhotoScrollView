@@ -80,7 +80,7 @@
 {
     const UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
     
-    self.photoScrollView.orientation = orientation;
+    [self.photoScrollView setOrientation:orientation animated:YES];
 }
 
 #pragma mark - XKPhotoScrollView
