@@ -10,15 +10,10 @@
 
 #import <XKPhotoScrollView/XKPhotoScrollView.h>
 
-@protocol XKHasPhotoScrollView <NSObject>
-
-- (XKPhotoScrollView *)photoScrollView;
-
-@end
-
-@interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate, XKHasPhotoScrollView>
+@interface XKTransitionFullScreenViewController : UIViewController <XKPhotoScrollViewDelegate>
 
 @property (strong, nonatomic) id<XKPhotoScrollViewDataSource> dataSource;
+@property (strong, nonatomic) id<XKPhotoScrollViewDelegate> delegate;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (weak, nonatomic) XKPhotoScrollView *photoScrollView;
@@ -29,7 +24,11 @@
 
 @end
 
-@interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, XKHasPhotoScrollView, UIViewControllerTransitioningDelegate>
+@interface XKTransitionPresentationController : UIPresentationController
+
+@end
+
+@interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -100,13 +99,14 @@
         return;
     }
     
-    XKTransitionFullScreenViewController *manual = [XKTransitionFullScreenViewController new];
-    manual.dataSource = self;
-    manual.indexPath = self.photoScrollView.currentIndexPath;
+    XKTransitionFullScreenViewController *fullScreen = [XKTransitionFullScreenViewController new];
+    fullScreen.dataSource = self;
+    fullScreen.delegate = fullScreen;
+    fullScreen.indexPath = self.photoScrollView.currentIndexPath;
     
-    manual.modalPresentationStyle = UIModalPresentationFullScreen; /* If set to UIModalPresentationCustom we don't get views for the UINavigationController */
-    manual.transitioningDelegate = self;
-    [self presentViewController:manual animated:YES completion:NULL];
+    fullScreen.modalPresentationStyle = UIModalPresentationCustom;
+    fullScreen.transitioningDelegate = self;
+    [self presentViewController:fullScreen animated:YES completion:NULL];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
@@ -121,6 +121,21 @@
     return [XKTransitionFullScreenAnimatedTransition new];
 }
 
+- (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
+{
+    return [[XKTransitionPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+}
+
+@end
+
+@implementation XKTransitionPresentationController
+
+- (BOOL)shouldRemovePresentersView
+{
+    /* We need to remove the presenter's view in order to take over control of the supported interface orientations */
+    return YES;
+}
+
 @end
 
 #pragma mark -
@@ -132,7 +147,7 @@
     XKPhotoScrollView *photoScrollView = [XKPhotoScrollView new];
     photoScrollView.currentIndexPath = self.indexPath;
     photoScrollView.dataSource = self.dataSource;
-    photoScrollView.delegate = self;
+    photoScrollView.delegate = self.delegate;
     photoScrollView.backgroundColor = [UIColor blackColor];
     
     self.photoScrollView = photoScrollView;
@@ -233,8 +248,8 @@
 {
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         return [self photoScrollViewForViewController:((UINavigationController *)viewController).topViewController];
-    } else if ([viewController conformsToProtocol:@protocol(XKHasPhotoScrollView)]) {
-        return ((UIViewController<XKHasPhotoScrollView> *)viewController).photoScrollView;
+    } else if ([viewController respondsToSelector:@selector(photoScrollView)]) {
+        return (XKPhotoScrollView *) [viewController performSelector:@selector(photoScrollView)];
     } else {
         NSLog(@"Can't find photoScrollView from %@", viewController);
         abort();
