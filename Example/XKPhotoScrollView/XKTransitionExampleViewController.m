@@ -211,10 +211,6 @@
     UIViewController * const to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController * const from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    UIView * const fromView = from.view;
-    fromView.frame = [transitionContext initialFrameForViewController:from];
-    [transitionContext.containerView addSubview:fromView];
-    
     UIView * const toView = to.view;
     toView.alpha = 0.0;
     toView.frame = [transitionContext finalFrameForViewController:to];
@@ -245,13 +241,18 @@
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
-        [fromView removeFromSuperview];
-        
         sourceView.alpha = 1.0;
         destView.alpha = 1.0;
         [animatingView removeFromSuperview];
         
+        UIView * const fixTarget = transitionContext.containerView.superview;
+        
         [transitionContext completeTransition:finished];
+        
+        /* Workaround iOS 8 bug where the navigation controller isn't replaced in the window https://joystate.wordpress.com/2014/09/02/ios8-and-custom-uiviewcontrollers-transitions/ */
+        if (!to.view.superview) {
+            [fixTarget addSubview:to.view];
+        }
     }];
 }
 
