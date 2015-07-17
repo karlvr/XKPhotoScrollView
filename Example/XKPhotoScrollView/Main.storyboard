@@ -213,7 +213,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-Nz-yXM">
-                                <rect key="frame" x="275" y="285" width="51" height="30"/>
+                                <rect key="frame" x="274" y="285" width="51" height="30"/>
                                 <state key="normal" title="Launch">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -232,6 +232,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxy-hZ-Ykc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955" y="1928"/>
+        </scene>
+        <!--Device Rotation-->
+        <scene sceneID="2Km-2b-rJd">
+            <objects>
+                <viewController storyboardIdentifier="devicerotation" title="Device Rotation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Sp-wO-ISJ" customClass="XKDeviceRotationExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZPo-2s-5Dr"/>
+                        <viewControllerLayoutGuide type="bottom" id="QCE-J6-QgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="89r-zn-yOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vW-93-KA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="2648"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zWX-01-fdy">
