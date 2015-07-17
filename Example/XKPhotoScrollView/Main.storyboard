@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tqr-68-xQR">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Simple-->
@@ -103,26 +103,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="RjE-9o-s4v" secondAttribute="topMargin" id="Gey-Qd-T4W"/>
                             <constraint firstAttribute="trailing" secondItem="moN-5x-m0b" secondAttribute="trailing" id="Jfb-dr-lsO"/>
-                            <constraint firstItem="NYH-lZ-Zrd" firstAttribute="top" secondItem="moN-5x-m0b" secondAttribute="bottom" id="PrQ-IN-NaC"/>
                             <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="DeH-EQ-aB5" secondAttribute="bottom" id="SNj-DM-2ce"/>
-                            <constraint firstItem="NYH-lZ-Zrd" firstAttribute="top" secondItem="moN-5x-m0b" secondAttribute="bottom" id="cE9-Fh-vem"/>
-                            <constraint firstItem="moN-5x-m0b" firstAttribute="top" secondItem="RjE-9o-s4v" secondAttribute="top" id="jwg-Co-MI7"/>
                             <constraint firstItem="moN-5x-m0b" firstAttribute="leading" secondItem="RjE-9o-s4v" secondAttribute="leading" id="k6e-ZS-fCa"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Gey-Qd-T4W"/>
-                                <exclude reference="jwg-Co-MI7"/>
-                                <exclude reference="PrQ-IN-NaC"/>
-                                <exclude reference="cE9-Fh-vem"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="fullScreenConstraint" destination="PrQ-IN-NaC" id="LTI-Ui-V7H"/>
-                        <outlet property="nonFullScreenConstraint" destination="6vU-Rl-Xm8" id="Pk1-Ap-fga"/>
                         <outlet property="photoScrollView" destination="moN-5x-m0b" id="dmQ-V2-ba8"/>
                     </connections>
                 </viewController>

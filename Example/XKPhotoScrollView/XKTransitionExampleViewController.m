@@ -31,10 +31,6 @@
 
 @interface XKTransitionExampleViewController() <XKPhotoScrollViewDataSource, XKPhotoScrollViewDelegate, XKHasPhotoScrollView, UIViewControllerTransitioningDelegate>
 
-/** Note that the constraints must be strong so we can deactivate and reactivate */
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *nonFullScreenConstraint;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *fullScreenConstraint;
-
 @end
 
 @implementation XKTransitionExampleViewController {
@@ -54,34 +50,6 @@
         _images = [NSArray arrayWithArray:images];
     }
     return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    NSLog(@"WILL APPEAR %i", animated);
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    NSLog(@"WILL DISAPPEAR %i", animated);
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    NSLog(@"DID DISAPPEAR %i", animated);
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    NSLog(@"DID APPEAR %i", animated);
 }
 
 #pragma mark - XKPhotoScrollView
@@ -145,6 +113,8 @@
 
 @end
 
+#pragma mark -
+
 @implementation XKTransitionFullScreenViewController
 
 - (void)loadView
@@ -154,43 +124,15 @@
     photoScrollView.dataSource = self.dataSource;
     photoScrollView.delegate = self;
     photoScrollView.backgroundColor = [UIColor blackColor];
-
+    
     self.photoScrollView = photoScrollView;
     self.view = photoScrollView;
 }
 
-/** Allow the app to rotate upside down */
+/** Allow the full-screen view to rotate upside down */
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    NSLog(@"FULL WILL APPEAR %i", animated);
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    NSLog(@"FULL WILL DISAPPEAR %i", animated);
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    NSLog(@"FULL DID DISAPPEAR %i", animated);
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    NSLog(@"FULL DID APPEAR %i", animated);
 }
 
 #pragma mark - XKPhotoScrollView
@@ -203,6 +145,8 @@
 }
 
 @end
+
+#pragma mark -
 
 @implementation XKTransitionFullScreenAnimatedTransition
 
