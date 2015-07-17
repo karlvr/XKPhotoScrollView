@@ -149,6 +149,11 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didPinchDismissView:(UIView *)view atIndexPath:(NSIndexPath *)indexPath
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 @end
 
 #pragma mark -
