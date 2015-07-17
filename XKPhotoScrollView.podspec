@@ -12,10 +12,8 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "A photo viewer to mimic the Photos app full-screen view."
   s.description      = <<-DESC
-                       An optional longer description of XKPhotoScrollView
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       A UIView sublcass that implements a swipeable, zoomable multi-photo viewer with lots of configuration
+                       and event hooks.
                        DESC
   s.homepage         = "https://github.com/karlvr/XKPhotoScrollView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
