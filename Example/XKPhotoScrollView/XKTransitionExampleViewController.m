@@ -219,7 +219,7 @@
         CGPoint animationDestination = [transitionContext.containerView convertPoint:toImageView.center fromView:toImageView.superview];
         animatingImageView.center = animationDestination;
         animatingImageView.bounds = toImageView.bounds;
-        animatingImageView.transform = toImageView.transform;
+        animatingImageView.transform = CGAffineTransformConcat(toImageView.transform, toPhotoScrollView.transform);
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
