@@ -56,6 +56,15 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    /* Don't allow zooming on the small photo scroll view */
+    _photoScrollView.maximumZoomScale = _photoScrollView.minimumZoomScale;
+    _photoScrollView.bouncesZoom = NO;
+}
+
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDataSource
