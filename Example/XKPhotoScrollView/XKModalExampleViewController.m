@@ -75,16 +75,6 @@
     [photoScrollView setView:view atIndexPath:indexPath placeholder:NO];
 }
 
-- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView cancelRequestAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView
-{
-    return 1;
-}
-
 - (NSUInteger)photoScrollViewCols:(XKPhotoScrollView *)photoScrollView
 {
     return _images.count;
