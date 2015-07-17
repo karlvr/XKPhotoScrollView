@@ -116,6 +116,44 @@
             </objects>
             <point key="canvasLocation" x="2422" y="433"/>
         </scene>
+        <!--Device Rotation Modal-->
+        <scene sceneID="xHB-lF-glk">
+            <objects>
+                <viewController storyboardIdentifier="devicerotationmodal" title="Device Rotation Modal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="In5-KJ-JVm" customClass="XKDeviceRotationModalExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cH8-CS-deO"/>
+                        <viewControllerLayoutGuide type="bottom" id="aNT-fm-kDs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QXz-yH-Lxj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3p-II-sYm" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="jnt-gl-QwA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="In5-KJ-JVm" id="5cd-9I-jc1"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W3p-II-sYm" firstAttribute="top" secondItem="cH8-CS-deO" secondAttribute="bottom" id="kiA-Bo-waj"/>
+                            <constraint firstAttribute="trailing" secondItem="W3p-II-sYm" secondAttribute="trailing" id="l8D-EU-7BW"/>
+                            <constraint firstItem="W3p-II-sYm" firstAttribute="leading" secondItem="QXz-yH-Lxj" secondAttribute="leading" id="rqb-HM-e71"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="W3p-II-sYm" id="1hK-gn-ZVG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="toB-mj-g4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460" y="1928"/>
+        </scene>
         <!--Rotate-->
         <scene sceneID="SNc-3E-abt">
             <objects>

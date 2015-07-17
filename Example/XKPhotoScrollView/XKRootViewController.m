@@ -37,6 +37,7 @@
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"manual"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotation"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"rotatemodal"]];
+    [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotationmodal"]];
     _viewControllers = [NSArray arrayWithArray:viewControllers];
 }
 

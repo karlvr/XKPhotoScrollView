@@ -32,6 +32,8 @@
 		B89AA6911B58406700A60288 /* XKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6901B58406700A60288 /* XKNavigationController.m */; };
 		B89AA6971B58F25500A60288 /* XKDeviceRotationExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6961B58F25500A60288 /* XKDeviceRotationExampleViewController.m */; };
 		B89AA69A1B590E4100A60288 /* XKRotateModalExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6991B590E4100A60288 /* XKRotateModalExampleViewController.m */; };
+		B89AA69D1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA69C1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m */; };
+		B89AA6A01B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA69F1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m */; };
 		BA194EB971FC72112F5EE4DA /* Pods_XKPhotoScrollView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60A8E2E0799E7F7974CCD6D /* Pods_XKPhotoScrollView_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,10 @@
 		B89AA6961B58F25500A60288 /* XKDeviceRotationExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKDeviceRotationExampleViewController.m; sourceTree = "<group>"; };
 		B89AA6981B590E4100A60288 /* XKRotateModalExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRotateModalExampleViewController.h; sourceTree = "<group>"; };
 		B89AA6991B590E4100A60288 /* XKRotateModalExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRotateModalExampleViewController.m; sourceTree = "<group>"; };
+		B89AA69B1B59111300A60288 /* XKDeviceRotationModalExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKDeviceRotationModalExampleViewController.h; sourceTree = "<group>"; };
+		B89AA69C1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKDeviceRotationModalExampleViewController.m; sourceTree = "<group>"; };
+		B89AA69E1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKDeviceRotationPhotoScrollViewController.h; sourceTree = "<group>"; };
+		B89AA69F1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKDeviceRotationPhotoScrollViewController.m; sourceTree = "<group>"; };
 		C1DD14E4F86B7FE5A9B5B17B /* XKPhotoScrollView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XKPhotoScrollView.podspec; path = ../XKPhotoScrollView.podspec; sourceTree = "<group>"; };
 		DD657CC0AB86B79D98FA345D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F179BCFE6BA6774732F07D33 /* Pods-XKPhotoScrollView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Tests/Pods-XKPhotoScrollView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +200,10 @@
 				B89AA6961B58F25500A60288 /* XKDeviceRotationExampleViewController.m */,
 				B89AA6981B590E4100A60288 /* XKRotateModalExampleViewController.h */,
 				B89AA6991B590E4100A60288 /* XKRotateModalExampleViewController.m */,
+				B89AA69B1B59111300A60288 /* XKDeviceRotationModalExampleViewController.h */,
+				B89AA69C1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m */,
+				B89AA69E1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.h */,
+				B89AA69F1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m */,
 				B89AA6831B58337E00A60288 /* XKRootViewController.h */,
 				B89AA6841B58337E00A60288 /* XKRootViewController.m */,
 				B89AA68F1B58406700A60288 /* XKNavigationController.h */,
@@ -446,11 +456,13 @@
 				B89AA68E1B583F1000A60288 /* XKManualExampleViewController.m in Sources */,
 				B89AA6911B58406700A60288 /* XKNavigationController.m in Sources */,
 				B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */,
+				B89AA69D1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XKAppDelegate.m in Sources */,
 				B89AA69A1B590E4100A60288 /* XKRotateModalExampleViewController.m in Sources */,
 				B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				B89AA6881B58369C00A60288 /* XKMultiRowExampleViewController.m in Sources */,
+				B89AA6A01B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m in Sources */,
 				B89AA68B1B58383D00A60288 /* XKTransitionExampleViewController.m in Sources */,
 				B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */,
 			);
