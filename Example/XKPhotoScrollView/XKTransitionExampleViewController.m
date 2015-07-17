@@ -95,7 +95,7 @@
 
 - (void)goFullScreen
 {
-    if (self.presentingViewController) {
+    if (self.presentedViewController) {
         /* Prevent multiple simultaneous presentations */
         return;
     }
