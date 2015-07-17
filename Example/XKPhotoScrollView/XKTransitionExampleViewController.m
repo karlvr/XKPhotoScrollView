@@ -104,7 +104,7 @@
     manual.dataSource = self;
     manual.indexPath = self.photoScrollView.currentIndexPath;
     
-    manual.modalPresentationStyle = UIModalPresentationCustom;
+    manual.modalPresentationStyle = UIModalPresentationFullScreen; /* If set to UIModalPresentationCustom we don't get views for the UINavigationController */
     manual.transitioningDelegate = self;
     [self presentViewController:manual animated:YES completion:NULL];
 }
@@ -170,7 +170,9 @@
     UIViewController * const to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController * const from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    UIView * const toView = to.view;
+    UIView * const fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    
+    UIView * const toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     toView.alpha = 0.0;
     toView.frame = [transitionContext finalFrameForViewController:to];
     [transitionContext.containerView addSubview:toView];
@@ -200,18 +202,13 @@
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
+        [fromView removeFromSuperview];
+        
         sourceView.alpha = 1.0;
         destView.alpha = 1.0;
         [animatingView removeFromSuperview];
         
-        UIView * const fixTarget = transitionContext.containerView.superview;
-        
         [transitionContext completeTransition:finished];
-        
-        /* Workaround iOS 8 bug where the navigation controller isn't replaced in the window https://joystate.wordpress.com/2014/09/02/ios8-and-custom-uiviewcontrollers-transitions/ */
-        if (!to.view.superview) {
-            [fixTarget addSubview:to.view];
-        }
     }];
 }
 
