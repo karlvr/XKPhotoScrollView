@@ -181,39 +181,39 @@
     XKPhotoScrollView * const toPhotoScrollView = [self photoScrollViewForViewController:to];
     XKPhotoScrollView * const fromPhotoScrollView = [self photoScrollViewForViewController:from];
     
-    UIImageView * const sourceView = (UIImageView *)fromPhotoScrollView.currentView;
-    sourceView.alpha = 0.0;
+    UIImageView * const fromImageView = (UIImageView *)fromPhotoScrollView.currentView;
+    fromImageView.alpha = 0.0;
     
-    UIImageView * const animatingView = [[UIImageView alloc] initWithImage:sourceView.image];
-    animatingView.bounds = sourceView.bounds;
-    animatingView.center = [transitionContext.containerView convertPoint:sourceView.center fromView:sourceView.superview];
+    UIImageView * const animatingImageView = [[UIImageView alloc] initWithImage:fromImageView.image];
+    animatingImageView.bounds = fromImageView.bounds;
+    animatingImageView.center = [transitionContext.containerView convertPoint:fromImageView.center fromView:fromImageView.superview];
     
     /* Calculate initial transform (rotation) on the animating image view */
     CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
     CGAffineTransform fromViewTransform = fromView.transform;
     CGAffineTransform result = fromViewTransform;
     result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
-    result = CGAffineTransformConcat(result, sourceView.transform);
-    animatingView.transform = result;
+    result = CGAffineTransformConcat(result, fromImageView.transform);
+    animatingImageView.transform = result;
     
-    [transitionContext.containerView addSubview:animatingView];
+    [transitionContext.containerView addSubview:animatingImageView];
     
-    UIView * const destView = toPhotoScrollView.currentView;
-    destView.alpha = 0.0;
+    UIView * const toImageView = toPhotoScrollView.currentView;
+    toImageView.alpha = 0.0;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        CGPoint animationDestination = [transitionContext.containerView convertPoint:destView.center fromView:destView.superview];
-        animatingView.center = animationDestination;
-        animatingView.bounds = destView.bounds;
-        animatingView.transform = destView.transform;
+        CGPoint animationDestination = [transitionContext.containerView convertPoint:toImageView.center fromView:toImageView.superview];
+        animatingImageView.center = animationDestination;
+        animatingImageView.bounds = toImageView.bounds;
+        animatingImageView.transform = toImageView.transform;
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
         [fromView removeFromSuperview];
         
-        sourceView.alpha = 1.0;
-        destView.alpha = 1.0;
-        [animatingView removeFromSuperview];
+        fromImageView.alpha = 1.0;
+        toImageView.alpha = 1.0;
+        [animatingImageView removeFromSuperview];
         
         [transitionContext completeTransition:finished];
     }];
