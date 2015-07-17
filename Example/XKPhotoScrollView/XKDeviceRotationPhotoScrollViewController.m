@@ -10,7 +10,9 @@
 
 @import XKPhotoScrollView;
 
-@implementation XKDeviceRotationPhotoScrollViewController
+@implementation XKDeviceRotationPhotoScrollViewController {
+    BOOL _appeared;
+}
 
 - (void)loadView
 {
@@ -29,6 +31,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    /* A hack to avoid awkward animations when the status bar is shown during our transition */
+    return _appeared;
+}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
@@ -44,9 +52,20 @@
     [self.photoScrollView setOrientation:[UIDevice currentDevice].orientation animated:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _appeared = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    _appeared = NO;
+    [self setNeedsStatusBarAppearanceUpdate];
     
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
