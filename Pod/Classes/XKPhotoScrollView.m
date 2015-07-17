@@ -1330,7 +1330,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
     [self setOrientation:orientation animated:YES];
 }
 
-- (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated
+- (void)setOrientation:(const UIDeviceOrientation)orientation animated:(BOOL)animated
 {
     if (orientation != _orientation) {
         CGFloat rotation;
@@ -1373,10 +1373,10 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
             if (animated) {
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:0.25];
+                
+                [self configureView:_currentViewState andInitialise:NO];
+                [self configureView:_revealViewState andInitialise:NO];
             }
-            
-            [self configureView:_currentViewState andInitialise:NO];
-            [self configureView:_revealViewState andInitialise:NO];
             
             self.transform = CGAffineTransformMakeRotation(rotation);
             
