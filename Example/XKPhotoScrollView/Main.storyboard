@@ -289,6 +289,43 @@
             </objects>
             <point key="canvasLocation" x="955" y="2648"/>
         </scene>
+        <!--Device Rotation Auto Layout-->
+        <scene sceneID="jcB-fF-hmX">
+            <objects>
+                <viewController storyboardIdentifier="devicerotationautolayout" title="Device Rotation Auto Layout" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wye-Fb-KIZ" customClass="XKDeviceRotationExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Ti-jW-Lol"/>
+                        <viewControllerLayoutGuide type="bottom" id="2X7-X0-CUF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XYD-vz-DFG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQM-7c-Dix" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wye-Fb-KIZ" id="CqV-cF-a2k"/>
+                                    <outlet property="delegate" destination="wye-Fb-KIZ" id="IR9-EX-do2"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IQM-7c-Dix" secondAttribute="trailing" id="H3G-JN-a1z"/>
+                            <constraint firstItem="IQM-7c-Dix" firstAttribute="leading" secondItem="XYD-vz-DFG" secondAttribute="leading" id="Iz2-Q6-QvY"/>
+                            <constraint firstItem="2X7-X0-CUF" firstAttribute="top" secondItem="IQM-7c-Dix" secondAttribute="bottom" id="NWC-dm-T5v"/>
+                            <constraint firstItem="IQM-7c-Dix" firstAttribute="top" secondItem="XYD-vz-DFG" secondAttribute="top" id="lkt-0r-2a3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="IQM-7c-Dix" id="LeI-Zu-2MF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpc-VL-0N0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="3361"/>
+        </scene>
         <!--Rotate Modal-->
         <scene sceneID="fQa-OE-TWQ">
             <objects>

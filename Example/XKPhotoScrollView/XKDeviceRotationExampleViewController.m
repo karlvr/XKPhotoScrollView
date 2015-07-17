@@ -49,13 +49,15 @@
 {
     [super loadView];
     
-    XKPhotoScrollView *photoScrollView = [[XKPhotoScrollView alloc] initWithFrame:self.view.bounds];
-    photoScrollView.backgroundColor = [UIColor blackColor];
-    photoScrollView.dataSource = self;
-    photoScrollView.delegate = self;
-    self.photoScrollView = photoScrollView;
+    if (!_photoScrollView) {
+        XKPhotoScrollView *photoScrollView = [[XKPhotoScrollView alloc] initWithFrame:self.view.bounds];
+        photoScrollView.backgroundColor = [UIColor blackColor];
+        photoScrollView.dataSource = self;
+        photoScrollView.delegate = self;
+        self.photoScrollView = photoScrollView;
     
-    [self.view addSubview:photoScrollView];
+        [self.view addSubview:photoScrollView];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
