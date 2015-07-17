@@ -2,7 +2,7 @@
   "name": "XKPhotoScrollView",
   "version": "0.1.0",
   "summary": "A photo viewer to mimic the Photos app full-screen view.",
-  "description": "                       An optional longer description of XKPhotoScrollView\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "description": "                       A UIView sublcass that implements a swipeable, zoomable multi-photo viewer with lots of configuration\n                       and event hooks.\n",
   "homepage": "https://github.com/karlvr/XKPhotoScrollView",
   "license": "MIT",
   "authors": {

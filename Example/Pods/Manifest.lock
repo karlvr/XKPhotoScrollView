@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XKPhotoScrollView: f55c78000161d3d3812926a243b5c4c92188115d
+  XKPhotoScrollView: 59b32bb74c7fea9d55cc0feab22e5b1d9126ba80
 
 COCOAPODS: 0.37.2

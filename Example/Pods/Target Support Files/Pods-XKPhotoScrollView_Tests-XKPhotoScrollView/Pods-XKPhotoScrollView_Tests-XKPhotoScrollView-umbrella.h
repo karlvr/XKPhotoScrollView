@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 
 #import "XKPhotoScrollView.h"
+#import "XKPhotoScrollViewAnimatedTransitioning.h"
 #import "XKPhotoScrollViewDataSource.h"
 #import "XKPhotoScrollViewDelegate.h"
 #import "XKPhotoScrollViewViewState.h"
