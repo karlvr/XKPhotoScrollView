@@ -58,12 +58,14 @@
     [self.view addSubview:photoScrollView];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+    [self.photoScrollView setOrientation:[UIDevice currentDevice].orientation animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
