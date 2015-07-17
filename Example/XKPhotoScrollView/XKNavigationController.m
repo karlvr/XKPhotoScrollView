@@ -10,10 +10,11 @@
 
 @implementation XKNavigationController
 
-/** Allow the app to rotate upside down */
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskAll;
+    /* Respect the supportedInterfaceOrientations of the topmost view controller */
+    UIViewController *viewController = self.topViewController;
+    return [viewController supportedInterfaceOrientations];
 }
 
 @end

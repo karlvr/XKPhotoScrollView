@@ -42,6 +42,11 @@
     //    _photoScrollView.bouncesZoom = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDataSource

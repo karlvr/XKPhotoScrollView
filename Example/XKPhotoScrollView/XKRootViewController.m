@@ -38,6 +38,11 @@
     _viewControllers = [NSArray arrayWithArray:viewControllers];
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - UITableView
 
 #pragma mark UITableViewDataSource

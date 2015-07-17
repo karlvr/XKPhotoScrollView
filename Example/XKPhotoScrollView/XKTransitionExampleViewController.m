@@ -52,6 +52,11 @@
     return self;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - XKPhotoScrollView
 
 #pragma mark XKPhotoScrollViewDataSource

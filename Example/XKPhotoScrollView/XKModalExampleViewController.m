@@ -42,6 +42,11 @@
     _toolbar.alpha = 0.0;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 #pragma mark - Actions
 
 - (IBAction)doClose:(id)sender
