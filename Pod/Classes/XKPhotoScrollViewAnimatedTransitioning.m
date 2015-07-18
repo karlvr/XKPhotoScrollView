@@ -60,7 +60,7 @@
         
         /* Transform scaling calculation: compare the bounds, then transform to match the bounds, then apply to toImageView's transform. */
         CGFloat scale = MIN(toImageView.bounds.size.width / animatingImageView.bounds.size.width, toImageView.bounds.size.height / animatingImageView.bounds.size.height);
-        animatingImageView.transform = CGAffineTransformConcat(toImageView.transform, CGAffineTransformScale(toPhotoScrollView.contentViewTransform, scale, scale));
+        animatingImageView.transform = CGAffineTransformConcat(toView.transform, CGAffineTransformConcat(toImageView.transform, CGAffineTransformScale(toPhotoScrollView.contentViewTransform, scale, scale)));
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
