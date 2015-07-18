@@ -55,4 +55,11 @@
     return _images.count;
 }
 
+#pragma mark XKPhotoScrollViewDelegate
+
+- (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didTapView:(UIView *)view atPoint:(CGPoint)pt atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Tap %li", (long) indexPath.col);
+}
+
 @end

@@ -22,6 +22,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="L1X-5t-7Ei" id="cfe-GB-4ac"/>
+                                    <outlet property="delegate" destination="L1X-5t-7Ei" id="apz-gE-YUX"/>
                                 </connections>
                             </view>
                         </subviews>
