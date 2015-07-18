@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeSlide
 };
 
+typedef NS_ENUM(NSInteger, XKPhotoScrollViewFillMode) {
+    XKPhotoScrollViewFillModeAspectFit,
+    XKPhotoScrollViewFillModeAspectFill
+};
+
 @interface XKPhotoScrollView : UIView
 
 - (void)reloadData;
@@ -37,6 +42,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 /** The maximum scale factor to apply to views in order to make them fit the available bounds. Default 1.0, meaning don't enlarge a view to make it fit. */
 @property (assign, nonatomic) CGFloat maximumBaseScale;
+
+@property (assign, nonatomic) XKPhotoScrollViewFillMode fillMode;
 
 @property (assign, nonatomic) CGFloat minimumDrag;
 

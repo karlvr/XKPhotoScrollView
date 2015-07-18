@@ -281,7 +281,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 	CGFloat baseScaleWidth = (viewportSize.width - _baseInsets.left - _baseInsets.right) / viewSize.width;
 	CGFloat baseScaleHeight = (viewportSize.height - _baseInsets.top - _baseInsets.bottom) / viewSize.height;
-	CGFloat baseScale = baseScaleWidth < baseScaleHeight ? baseScaleWidth : baseScaleHeight;
+    CGFloat baseScale;
+    if (self.fillMode == XKPhotoScrollViewFillModeAspectFit) {
+        baseScale = MIN(baseScaleWidth, baseScaleHeight);
+    } else {
+        baseScale = MAX(baseScaleWidth, baseScaleHeight);
+    }
     if (baseScale > self.maximumBaseScale) {
 		baseScale = self.maximumBaseScale;
     }
