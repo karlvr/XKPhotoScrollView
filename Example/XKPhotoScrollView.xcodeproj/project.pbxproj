@@ -21,6 +21,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		8469E94C2E96BDA32F573E71 /* Pods_XKPhotoScrollView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4647021A0EC134845422B66C /* Pods_XKPhotoScrollView_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		B80B4A361B5A1BD20069E999 /* XKAsyncExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */; };
 		B85C08341B589CBF00C7313E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85C08331B589CBF00C7313E /* Launch Screen.xib */; };
 		B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */; };
 		B85C083B1B589F0400C7313E /* XKModalExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C083A1B589F0400C7313E /* XKModalExampleViewController.m */; };
@@ -72,6 +73,8 @@
 		9FDC5F35FEBA156079392F2D /* Pods-XKPhotoScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A60A8E2E0799E7F7974CCD6D /* Pods_XKPhotoScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKPhotoScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26B785E91A1D2913434D647 /* Pods-XKPhotoScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKPhotoScrollView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XKPhotoScrollView_Example/Pods-XKPhotoScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B80B4A341B5A1BD20069E999 /* XKAsyncExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKAsyncExampleViewController.h; sourceTree = "<group>"; };
+		B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKAsyncExampleViewController.m; sourceTree = "<group>"; };
 		B85C08331B589CBF00C7313E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		B85C08351B589D9F00C7313E /* XKRotateTransitionExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRotateTransitionExampleViewController.h; sourceTree = "<group>"; };
 		B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRotateTransitionExampleViewController.m; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				B89AA69C1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m */,
 				B89AA69E1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.h */,
 				B89AA69F1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m */,
+				B80B4A341B5A1BD20069E999 /* XKAsyncExampleViewController.h */,
+				B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */,
 				B89AA6831B58337E00A60288 /* XKRootViewController.h */,
 				B89AA6841B58337E00A60288 /* XKRootViewController.m */,
 				B89AA68F1B58406700A60288 /* XKNavigationController.h */,
@@ -457,6 +462,7 @@
 				B89AA6911B58406700A60288 /* XKNavigationController.m in Sources */,
 				B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */,
 				B89AA69D1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m in Sources */,
+				B80B4A361B5A1BD20069E999 /* XKAsyncExampleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XKAppDelegate.m in Sources */,
 				B89AA69A1B590E4100A60288 /* XKRotateModalExampleViewController.m in Sources */,
 				B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */,

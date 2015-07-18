@@ -31,6 +31,7 @@
     NSMutableArray *viewControllers = [NSMutableArray array];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"simple"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"modal"]];
+    [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"async"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"multirow"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"transition"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"rotate"]];
