@@ -1,6 +1,0 @@
-framework module XKPhotoScrollView {
-  umbrella header "Pods-XKPhotoScrollView_Tests-XKPhotoScrollView-umbrella.h"
-
-  export *
-  module * { export * }
-}
