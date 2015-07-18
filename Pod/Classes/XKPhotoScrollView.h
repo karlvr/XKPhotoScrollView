@@ -65,12 +65,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 
 @end
 
-@interface XKPhotoScrollViewGestureRecognizer : UIGestureRecognizer
-
-@property (weak, nonatomic) XKPhotoScrollView *photoScrollView;
-
-@end
-
 @interface NSIndexPath (XKPhotoScrollView)
 
 + (NSIndexPath *)indexPathForRow:(NSInteger)row inColumn:(NSInteger)column;

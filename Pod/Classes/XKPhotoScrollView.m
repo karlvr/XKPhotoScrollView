@@ -81,6 +81,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 #define kRevealGutter  40
 
+@interface XKPhotoScrollViewGestureRecognizer : UIGestureRecognizer
+
+@property (weak, nonatomic) XKPhotoScrollView *photoScrollView;
+
+@end
+
 @interface XKPhotoScrollView ()
 
 - (BOOL)startTouches:(NSSet *)touches;
