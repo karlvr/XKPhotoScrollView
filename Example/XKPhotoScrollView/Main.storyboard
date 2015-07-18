@@ -42,6 +42,43 @@
             </objects>
             <point key="canvasLocation" x="1069" y="433"/>
         </scene>
+        <!--Fill Mode-->
+        <scene sceneID="gVI-pb-PVJ">
+            <objects>
+                <viewController storyboardIdentifier="fillmode" title="Fill Mode" useStoryboardIdentifierAsRestorationIdentifier="YES" id="62O-oa-V6n" customClass="XKFillModeExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N5P-Vr-UxM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ked-6z-zcd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ih-WD-p7X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fP-1q-Qm2" customClass="XKPhotoScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="62O-oa-V6n" id="VBs-Mb-PyB"/>
+                                    <outlet property="delegate" destination="62O-oa-V6n" id="jNA-fB-8Mf"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3fP-1q-Qm2" secondAttribute="trailing" id="1Ep-Df-wqH"/>
+                            <constraint firstItem="3fP-1q-Qm2" firstAttribute="leading" secondItem="6ih-WD-p7X" secondAttribute="leading" id="9Zf-6f-57S"/>
+                            <constraint firstItem="3fP-1q-Qm2" firstAttribute="top" secondItem="6ih-WD-p7X" secondAttribute="top" id="g34-fv-F9j"/>
+                            <constraint firstItem="Ked-6z-zcd" firstAttribute="top" secondItem="3fP-1q-Qm2" secondAttribute="bottom" id="nOi-dI-82Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="3fP-1q-Qm2" id="eex-02-v9F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tRH-iQ-GgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="283" y="433"/>
+        </scene>
         <!--Asynchronous-->
         <scene sceneID="Kgw-Wg-aga">
             <objects>
