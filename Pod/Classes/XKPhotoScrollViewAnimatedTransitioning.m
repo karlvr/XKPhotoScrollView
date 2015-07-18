@@ -43,8 +43,8 @@
     
     /* Calculate initial transform (rotation) on the animating image view */
     CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
-    CGAffineTransform fromViewTransform = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
-    CGAffineTransform result = fromViewTransform;
+    CGAffineTransform result = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
+    result = CGAffineTransformConcat(result, fromPhotoScrollView.contentViewTransform);
     result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
     result = CGAffineTransformConcat(result, fromImageView.transform);
     animatingImageView.transform = result;
@@ -57,8 +57,10 @@
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         CGPoint animationDestination = [transitionContext.containerView convertPoint:toImageView.center fromView:toImageView.superview];
         animatingImageView.center = animationDestination;
-        animatingImageView.bounds = toImageView.bounds;
-        animatingImageView.transform = CGAffineTransformConcat(toImageView.transform, toPhotoScrollView.contentViewTransform);
+        
+        /* Transform scaling calculation: compare the bounds, then transform to match the bounds, then apply to toImageView's transform. */
+        CGFloat scale = MIN(toImageView.bounds.size.width / animatingImageView.bounds.size.width, toImageView.bounds.size.height / animatingImageView.bounds.size.height);
+        animatingImageView.transform = CGAffineTransformConcat(toImageView.transform, CGAffineTransformScale(toPhotoScrollView.contentViewTransform, scale, scale));
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
