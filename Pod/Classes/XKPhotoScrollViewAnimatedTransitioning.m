@@ -23,8 +23,6 @@
     UIViewController * const to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController * const from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    UIView * const fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
     UIView * const toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     toView.alpha = 0.0;
     toView.frame = [transitionContext finalFrameForViewController:to];
@@ -45,7 +43,7 @@
     
     /* Calculate initial transform (rotation) on the animating image view */
     CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
-    CGAffineTransform fromViewTransform = fromView.transform;
+    CGAffineTransform fromViewTransform = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
     CGAffineTransform result = fromViewTransform;
     result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
     result = CGAffineTransformConcat(result, fromImageView.transform);
@@ -64,8 +62,6 @@
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
-        [fromView removeFromSuperview];
-        
         fromImageView.alpha = 1.0;
         toImageView.alpha = 1.0;
         [animatingImageView removeFromSuperview];
