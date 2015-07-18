@@ -133,6 +133,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 @implementation XKPhotoScrollView {
     CADisplayLink *_displayLink;
     
+    UIView *_contentView;
+    
     XKPhotoScrollViewViewState *_currentViewState;
     XKPhotoScrollViewViewState *_revealViewState;
     XKPhotoScrollViewRevealMode _revealMode;
@@ -206,6 +208,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     _currentSize = self.bounds.size;
     
+    /* We use a nested contentView without auto layout so you can use auto layout on the photo scroll view itself */
+    UIView *contentView = [[UIView alloc] initWithFrame:self.bounds];
+    contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self addSubview:contentView];
+    _contentView = contentView;
+    
     _animationType = XKPhotoScrollViewAnimationTypeFade;
     
     _currentViewState = [[XKPhotoScrollViewViewState alloc] init];
@@ -229,7 +237,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     _gestureRecognizer = [XKPhotoScrollViewGestureRecognizer new];
     _gestureRecognizer.photoScrollView = self;
-    [self addGestureRecognizer:_gestureRecognizer];
+    [_contentView addGestureRecognizer:_gestureRecognizer];
 }
 
 - (void)dealloc {
@@ -260,7 +268,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 }
 
 - (CGSize)viewportSize {
-	return self.bounds.size;
+	return _contentView.bounds.size;
 }
 
 /**
@@ -309,7 +317,12 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 {
     [super layoutSubviews];
     
-    const CGRect bounds = self.bounds;
+    const CGRect bounds = _contentView.bounds;
+    
+#if DEBUG_PHOTO_SCROLL_VIEW
+    NSLog(@"LAYOUT SUBVIEWS BOUNDS = %@, FRAME = %@", NSStringFromCGRect(bounds), NSStringFromCGRect(self.frame));
+#endif
+    
     if (!CGSizeEqualToSize(bounds.size, _currentSize)) {
         const CGSize previousSize = _currentSize;
         _currentSize = bounds.size;
@@ -483,7 +496,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 
 	_currentViewState.view = _placeholderCurrentView;
 	[self configureView:_currentViewState andInitialise:YES];
-	[self addSubview:_currentViewState.view];
+	[_contentView addSubview:_currentViewState.view];
 
 	_cols = [_dataSource photoScrollViewCols:self];
     if ([_dataSource respondsToSelector:@selector(photoScrollViewRows:)]) {
@@ -530,7 +543,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 			_currentViewState.placeholder = placeholder;
 			[self configureView:_currentViewState andInitialise:NO];
             _currentViewState.view.center = tmp.center;
-            [self addSubview:_currentViewState.view];
+            [_contentView addSubview:_currentViewState.view];
 
 			[tmp removeFromSuperview];
 
@@ -548,7 +561,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 			_revealViewState.placeholder = placeholder;
 			[self configureView:_revealViewState andInitialise:NO];
             _revealViewState.view.center = tmp.center;
-            [self addSubview:_revealViewState.view];
+            [_contentView addSubview:_revealViewState.view];
 
 			[tmp removeFromSuperview];
 #if DEBUG_PHOTO_SCROLL_VIEW
@@ -716,7 +729,7 @@ static BOOL XKCGPointIsValid(CGPoint pt) {
             _revealViewState.view.center = revealCenter;
         }
 		if (!_revealViewState.view.superview) {
-			[self addSubview:_revealViewState.view];
+			[_contentView addSubview:_revealViewState.view];
 		}
 
 		/* Check for the end of the reveal */
@@ -1035,7 +1048,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 - (void)startDrag:(UITouch *)touch {
 	_dragCurrentViewStart = _currentViewState.view.center;
-	_dragTouchStart = [touch locationInView:self];
+	_dragTouchStart = [touch locationInView:_contentView];
 	_dragTouchLast = _dragTouchStart;
 	_touchMode = _lastTouchMode = XKPhotoScrollViewTouchModeDragging;
 	_dragLastVector = CGPointZero;
@@ -1048,7 +1061,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 		[self startDrag:touch];
 	}
 
-	CGPoint touchNow = [touch locationInView:self];
+	CGPoint touchNow = [touch locationInView:_contentView];
 	CGPoint dragVector = CGPointAdd(touchNow, CGPointNegate(_dragTouchStart));
 
 	if (!_draggedSomeDistance) {
@@ -1102,8 +1115,8 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 - (void)startZoom:(NSArray *)allTouches {
 	UITouch *a = allTouches[0];
 	UITouch *b = allTouches[1];
-	CGPoint pA = [a locationInView:self];
-	CGPoint pB = [b locationInView:self];
+	CGPoint pA = [a locationInView:_contentView];
+	CGPoint pB = [b locationInView:_contentView];
 
 	_zoomCurrentViewStart = _currentViewState.view.center;
 	_zoomTouchStart = CGPointMid(pA, pB);
@@ -1126,8 +1139,8 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 	UITouch *a = allTouches[0];
 	UITouch *b = allTouches[1];
-	CGPoint pA = [a locationInView:self];
-	CGPoint pB = [b locationInView:self];
+	CGPoint pA = [a locationInView:_contentView];
+	CGPoint pB = [b locationInView:_contentView];
 
 	CGFloat radiusNow = CGPointDist(pA, pB) / 2;
 	CGFloat ratio = radiusNow / _zoomRadiusStart;
@@ -1183,12 +1196,12 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 		_zoomScaleStart = _currentViewState.scale;
 		_zoomScaleTarget = 1.0;
 		_zoomCurrentViewStart = _currentViewState.view.center;
-		_zoomTouchStart = [touch locationInView:self];
+		_zoomTouchStart = [touch locationInView:_contentView];
 	} else {
 		_zoomScaleStart = _currentViewState.scale;
 		_zoomScaleTarget = 2.0;
 		_zoomCurrentViewStart = _currentViewState.view.center;
-		_zoomTouchStart = [touch locationInView:self];
+		_zoomTouchStart = [touch locationInView:_contentView];
 	}
 }
 
@@ -1385,7 +1398,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
         _orientation = orientation;
         
         if (_currentViewState.view) {
-            CGRect bounds = self.bounds;
+            CGRect bounds = _contentView.bounds;
             
             if (UIDeviceOrientationIsLandscape(orientation) != UIDeviceOrientationIsLandscape(oldOrientation)) {
                 bounds.size = CGSizeInvert(_currentSize);
@@ -1393,7 +1406,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
                 bounds.size = _currentSize;
             }
             
-            self.bounds = bounds;
+            _contentView.bounds = bounds;
             
             if (animated) {
                 [UIView beginAnimations:nil context:nil];
@@ -1403,7 +1416,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
                 [self configureView:_revealViewState andInitialise:NO];
             }
             
-            self.transform = CGAffineTransformMakeRotation(rotation);
+            _contentView.transform = CGAffineTransformMakeRotation(rotation);
             
             if (animated)
                 [UIView commitAnimations];
@@ -1423,6 +1436,11 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 - (BOOL)touching {
 	return _touchMode != XKPhotoScrollViewTouchModeNone;
+}
+
+- (CGAffineTransform)contentViewTransform
+{
+    return _contentView.transform;
 }
 
 @end
