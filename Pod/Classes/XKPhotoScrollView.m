@@ -133,8 +133,6 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
 @implementation XKPhotoScrollView {
     CADisplayLink *_displayLink;
     
-    UIView *_contentView;
-    
     XKPhotoScrollViewViewState *_currentViewState;
     XKPhotoScrollViewViewState *_revealViewState;
     XKPhotoScrollViewRevealMode _revealMode;

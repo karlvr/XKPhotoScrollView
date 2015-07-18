@@ -57,6 +57,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 @property (assign, nonatomic) XKPhotoScrollViewAnimationType animationType;
 @property (readonly, copy, nonatomic) XKPhotoScrollViewViewState *currentViewState;
 @property (assign, nonatomic) NSTimeInterval minimumLongPressDuration;
+
+@property (readonly, strong, nonatomic) UIView *contentView;
 @property (readonly, nonatomic) CGAffineTransform contentViewTransform;
 
 @end
