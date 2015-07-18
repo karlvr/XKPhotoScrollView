@@ -237,7 +237,7 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     
     _gestureRecognizer = [XKPhotoScrollViewGestureRecognizer new];
     _gestureRecognizer.photoScrollView = self;
-    [_contentView addGestureRecognizer:_gestureRecognizer];
+    [self addGestureRecognizer:_gestureRecognizer];
 }
 
 - (void)dealloc {
