@@ -10,6 +10,12 @@
 
 #import "XKPhotoScrollView.h"
 
+@interface UIViewController (WithPhotoScrollView)
+
+- (XKPhotoScrollView *)photoScrollView;
+
+@end
+
 @implementation XKPhotoScrollViewAnimatedTransitioning
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
