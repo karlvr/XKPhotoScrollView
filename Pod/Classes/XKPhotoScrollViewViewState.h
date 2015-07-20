@@ -19,7 +19,7 @@
 @property (nonatomic, assign) CGFloat baseScale;
 
 /** The indexPath that this view state represents */
-@property (nonatomic, assign) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 /** Whether this view is a placeholder, that is expected to be replaced by the real view later. */
 @property (nonatomic, assign) BOOL placeholder;
