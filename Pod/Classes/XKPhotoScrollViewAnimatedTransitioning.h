@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class XKPhotoScrollView;
-
 @interface XKPhotoScrollViewAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
 
-- (XKPhotoScrollView *)photoScrollViewForViewController:(UIViewController *)viewController;
+/** Returns the view to use as the target view of the transition for the given
+    view controller. This view should either be an XKPhotoScrollView or a UIImageView.
+ */
+- (UIView *)targetViewForViewController:(UIViewController *)viewController;
 
 @end

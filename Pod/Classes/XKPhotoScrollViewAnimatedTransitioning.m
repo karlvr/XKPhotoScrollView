@@ -29,29 +29,37 @@
     [transitionContext.containerView addSubview:toView];
     [toView layoutIfNeeded]; /* Force layout so views are positioned correctly for animation calculations below */
     
-    XKPhotoScrollView * const toPhotoScrollView = [self photoScrollViewForViewController:to];
-    XKPhotoScrollView * const fromPhotoScrollView = [self photoScrollViewForViewController:from];
+    UIView * const toTargetView = [self targetViewForViewController:to];
+    UIView * const fromTargetView = [self targetViewForViewController:from];
     
-    toPhotoScrollView.currentIndexPath = fromPhotoScrollView.currentIndexPath;
+    XKPhotoScrollView * const toPhotoScrollView = ([toTargetView isKindOfClass:[XKPhotoScrollView class]] ? (XKPhotoScrollView *)toTargetView : nil);
+    XKPhotoScrollView * const fromPhotoScrollView = ([fromTargetView isKindOfClass:[XKPhotoScrollView class]] ? (XKPhotoScrollView *)fromTargetView : nil);
     
-    UIImageView * const fromImageView = (UIImageView *)fromPhotoScrollView.currentView;
+    if (fromPhotoScrollView) {
+        toPhotoScrollView.currentIndexPath = fromPhotoScrollView.currentIndexPath;
+    }
+    
+    UIImageView * const fromImageView = (UIImageView *)(fromPhotoScrollView ? fromPhotoScrollView.currentView : fromTargetView);
     fromImageView.alpha = 0.0;
     
     UIImageView * const animatingImageView = [[UIImageView alloc] initWithImage:fromImageView.image];
+    animatingImageView.contentMode = fromImageView.contentMode;
     animatingImageView.bounds = fromImageView.bounds;
     animatingImageView.center = [transitionContext.containerView convertPoint:fromImageView.center fromView:fromImageView.superview];
     
     /* Calculate initial transform (rotation) on the animating image view */
     CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
     CGAffineTransform result = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
-    result = CGAffineTransformConcat(result, fromPhotoScrollView.contentViewTransform);
+    if (fromPhotoScrollView) {
+        result = CGAffineTransformConcat(result, fromPhotoScrollView.contentViewTransform);
+    }
     result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
     result = CGAffineTransformConcat(result, fromImageView.transform);
     animatingImageView.transform = result;
     
     [transitionContext.containerView addSubview:animatingImageView];
     
-    UIView * const toImageView = toPhotoScrollView.currentView;
+    UIView * const toImageView = toPhotoScrollView ? toPhotoScrollView.currentView : toTargetView;
     toImageView.alpha = 0.0;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
@@ -60,7 +68,14 @@
         
         /* Transform scaling calculation: compare the bounds, then transform to match the bounds, then apply to toImageView's transform. */
         CGFloat scale = MIN(toImageView.bounds.size.width / animatingImageView.bounds.size.width, toImageView.bounds.size.height / animatingImageView.bounds.size.height);
-        animatingImageView.transform = CGAffineTransformConcat(toView.transform, CGAffineTransformConcat(toImageView.transform, CGAffineTransformScale(toPhotoScrollView.contentViewTransform, scale, scale)));
+        
+        CGAffineTransform transform = toView.transform;
+        transform = CGAffineTransformConcat(transform, toImageView.transform);
+        if (toPhotoScrollView) {
+            transform = CGAffineTransformConcat(transform, toPhotoScrollView.contentViewTransform);
+        }
+        transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(scale, scale));
+        animatingImageView.transform = transform;
         
         toView.alpha = 1.0;
     } completion:^(BOOL finished) {
@@ -82,15 +97,14 @@
     return 0.5;
 }
 
-- (XKPhotoScrollView *)photoScrollViewForViewController:(UIViewController *)viewController
+- (UIView *)targetViewForViewController:(UIViewController *)viewController
 {
     if ([viewController respondsToSelector:@selector(photoScrollView)]) {
         return (XKPhotoScrollView *) [viewController performSelector:@selector(photoScrollView)];
     } else if ([viewController isKindOfClass:[UINavigationController class]]) {
-        return [self photoScrollViewForViewController:((UINavigationController *)viewController).topViewController];
+        return [self targetViewForViewController:((UINavigationController *)viewController).topViewController];
     } else {
-        NSLog(@"Can't find photoScrollView from %@", viewController);
-        abort();
+        return viewController.view;
     }
 }
 
