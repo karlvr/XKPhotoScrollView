@@ -35,6 +35,7 @@
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"multirow"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"fillmode"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"transition"]];
+    [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"imagetransition"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"rotate"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"manual"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotation"]];

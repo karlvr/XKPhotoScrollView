@@ -26,6 +26,7 @@
 		B85C08341B589CBF00C7313E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85C08331B589CBF00C7313E /* Launch Screen.xib */; };
 		B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */; };
 		B85C083B1B589F0400C7313E /* XKModalExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C083A1B589F0400C7313E /* XKModalExampleViewController.m */; };
+		B89A7EA81B5F4BBC001A288C /* XKImageTransitionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89A7EA71B5F4BBC001A288C /* XKImageTransitionExampleViewController.m */; };
 		B89AA6821B5830C200A60288 /* XKSimpleExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */; };
 		B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6841B58337E00A60288 /* XKRootViewController.m */; };
 		B89AA6881B58369C00A60288 /* XKMultiRowExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89AA6871B58369C00A60288 /* XKMultiRowExampleViewController.m */; };
@@ -84,6 +85,8 @@
 		B85C08381B589DC000C7313E /* XKTransitionExampleViewController_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKTransitionExampleViewController_Internal.h; sourceTree = "<group>"; };
 		B85C08391B589F0400C7313E /* XKModalExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKModalExampleViewController.h; sourceTree = "<group>"; };
 		B85C083A1B589F0400C7313E /* XKModalExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKModalExampleViewController.m; sourceTree = "<group>"; };
+		B89A7EA61B5F4BBC001A288C /* XKImageTransitionExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKImageTransitionExampleViewController.h; sourceTree = "<group>"; };
+		B89A7EA71B5F4BBC001A288C /* XKImageTransitionExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKImageTransitionExampleViewController.m; sourceTree = "<group>"; };
 		B89AA6801B5830C200A60288 /* XKSimpleExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKSimpleExampleViewController.h; sourceTree = "<group>"; };
 		B89AA6811B5830C200A60288 /* XKSimpleExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKSimpleExampleViewController.m; sourceTree = "<group>"; };
 		B89AA6831B58337E00A60288 /* XKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRootViewController.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */,
 				B80B4A371B5A214B0069E999 /* XKFillModeExampleViewController.h */,
 				B80B4A381B5A214B0069E999 /* XKFillModeExampleViewController.m */,
+				B89A7EA61B5F4BBC001A288C /* XKImageTransitionExampleViewController.h */,
+				B89A7EA71B5F4BBC001A288C /* XKImageTransitionExampleViewController.m */,
 				B89AA6831B58337E00A60288 /* XKRootViewController.h */,
 				B89AA6841B58337E00A60288 /* XKRootViewController.m */,
 				B89AA68F1B58406700A60288 /* XKNavigationController.h */,
@@ -462,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B89AA6971B58F25500A60288 /* XKDeviceRotationExampleViewController.m in Sources */,
+				B89A7EA81B5F4BBC001A288C /* XKImageTransitionExampleViewController.m in Sources */,
 				B85C083B1B589F0400C7313E /* XKModalExampleViewController.m in Sources */,
 				B80B4A391B5A214B0069E999 /* XKFillModeExampleViewController.m in Sources */,
 				B89AA68E1B583F1000A60288 /* XKManualExampleViewController.m in Sources */,

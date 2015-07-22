@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Simple-->
@@ -229,6 +230,48 @@
             </objects>
             <point key="canvasLocation" x="2460" y="1928"/>
         </scene>
+        <!--Image Transition-->
+        <scene sceneID="mak-aI-ZUi">
+            <objects>
+                <viewController storyboardIdentifier="imagetransition" title="Image Transition" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lEo-zC-M30" customClass="XKImageTransitionExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NDX-MQ-Op1"/>
+                        <viewControllerLayoutGuide type="bottom" id="egl-q9-x5c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wNB-L5-muX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j0d-7m-FPp">
+                                <rect key="frame" x="136" y="20" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2Tm-5X-hVL"/>
+                                    <constraint firstAttribute="height" constant="300" id="NkE-tf-XB0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="j0d-7m-FPp" secondAttribute="centerX" constant="14" id="PC0-65-UkC"/>
+                            <constraint firstItem="j0d-7m-FPp" firstAttribute="leading" secondItem="wNB-L5-muX" secondAttribute="leadingMargin" constant="120" id="a0Z-OO-Nun"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j0d-7m-FPp" secondAttribute="trailing" constant="148" id="gCe-iq-Rts"/>
+                            <constraint firstItem="j0d-7m-FPp" firstAttribute="top" secondItem="NDX-MQ-Op1" secondAttribute="bottom" id="qqg-HK-bDv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="a0Z-OO-Nun"/>
+                                <exclude reference="gCe-iq-Rts"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="j0d-7m-FPp" id="b6I-Rc-mF1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xug-CQ-EOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="1928"/>
+        </scene>
         <!--Rotate-->
         <scene sceneID="SNc-3E-abt">
             <objects>
@@ -414,7 +457,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-AB-2gD">
-                                <rect key="frame" x="260" y="290" width="80" height="20.5"/>
+                                <rect key="frame" x="260" y="290" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
