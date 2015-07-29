@@ -8,11 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^XKPhotoScrollViewVoidBlock)();
+
 @interface XKPhotoScrollViewAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
 
-/** Returns the view to use as the target view of the transition for the given
-    view controller. This view should either be an XKPhotoScrollView or a UIImageView.
+/** These animation hooks can be overridden to create extra animations on your view controllers.
+ The completionBlock must be called otherwise the animation cannot complete.
  */
-- (UIView *)targetViewForViewController:(UIViewController *)viewController;
+- (void)animationDidEnd:(nonnull id<UIViewControllerContextTransitioning>)transitionContext completionBlock:(nonnull XKPhotoScrollViewVoidBlock)completionBlock;
+- (void)animationWillStart:(nonnull id<UIViewControllerContextTransitioning>)transitionContext completionBlock:(nonnull XKPhotoScrollViewVoidBlock)completionBlock;
+
+/** Returns the view to use as the target view of the transition for the given
+ view controller. This view should either be an XKPhotoScrollView or a UIImageView.
+ */
+- (nullable UIView *)targetViewForViewController:(nonnull UIViewController *)viewController;
 
 @end
+
