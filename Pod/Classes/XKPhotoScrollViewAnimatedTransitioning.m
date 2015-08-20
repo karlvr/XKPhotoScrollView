@@ -49,27 +49,36 @@
         }
         
         UIImageView * const fromImageView = (UIImageView *)(fromPhotoScrollView ? fromPhotoScrollView.currentView : fromTargetView);
-        fromImageView.alpha = 0.0;
-        
-        UIImageView * const animatingImageView = [[UIImageView alloc] initWithImage:fromImageView.image];
-        animatingImageView.contentMode = fromImageView.contentMode;
-        animatingImageView.bounds = fromImageView.bounds;
-        animatingImageView.center = [transitionContext.containerView convertPoint:fromImageView.center fromView:fromImageView.superview];
-        
-        /* Calculate initial transform (rotation) on the animating image view */
-        CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
-        CGAffineTransform result = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
-        if (fromPhotoScrollView) {
-            result = CGAffineTransformConcat(result, fromPhotoScrollView.contentViewTransform);
-        }
-        result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
-        result = CGAffineTransformConcat(result, fromImageView.transform);
-        animatingImageView.transform = result;
-        
-        [transitionContext.containerView addSubview:animatingImageView];
-        
         UIView * const toImageView = toPhotoScrollView ? toPhotoScrollView.currentView : toTargetView;
-        toImageView.alpha = 0.0;
+        
+        UIImageView * animatingImageView;
+        
+        const CGRect fromImageViewFrameInContainerView = [transitionContext.containerView convertRect:fromImageView.frame fromView:fromImageView.superview];
+        const CGRect toImageViewFrameInContainerView = [transitionContext.containerView convertRect:toImageView.frame fromView:toImageView.superview];
+        if (CGRectIntersectsRect(fromImageViewFrameInContainerView, transitionContext.containerView.bounds) && CGRectIntersectsRect(toImageViewFrameInContainerView, transitionContext.containerView.bounds)) {
+            fromImageView.alpha = 0.0;
+            
+            animatingImageView = [[UIImageView alloc] initWithImage:fromImageView.image];
+            animatingImageView.contentMode = fromImageView.contentMode;
+            animatingImageView.bounds = fromImageView.bounds;
+            animatingImageView.center = [transitionContext.containerView convertPoint:fromImageView.center fromView:fromImageView.superview];
+            
+            /* Calculate initial transform (rotation) on the animating image view */
+            CGAffineTransform containerViewTransform = transitionContext.containerView.transform;
+            CGAffineTransform result = from.view.transform; /* We access the view directly as we won't manipulate it at all, we just want to get its transform - the viewForKey returns nil if you're not removing the fromView */
+            if (fromPhotoScrollView) {
+                result = CGAffineTransformConcat(result, fromPhotoScrollView.contentViewTransform);
+            }
+            result = CGAffineTransformConcat(result, CGAffineTransformInvert(containerViewTransform));
+            result = CGAffineTransformConcat(result, fromImageView.transform);
+            animatingImageView.transform = result;
+            
+            [transitionContext.containerView addSubview:animatingImageView];
+            
+            toImageView.alpha = 0.0;
+        } else {
+            animatingImageView = nil;
+        }
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             CGPoint animationDestination = [transitionContext.containerView convertPoint:toImageView.center fromView:toImageView.superview];
