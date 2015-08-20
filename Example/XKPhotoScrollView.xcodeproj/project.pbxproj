@@ -23,6 +23,7 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B80B4A361B5A1BD20069E999 /* XKAsyncExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */; };
 		B80B4A391B5A214B0069E999 /* XKFillModeExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80B4A381B5A214B0069E999 /* XKFillModeExampleViewController.m */; };
+		B82110AF1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82110AE1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.m */; };
 		B85C08341B589CBF00C7313E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85C08331B589CBF00C7313E /* Launch Screen.xib */; };
 		B85C08371B589D9F00C7313E /* XKRotateTransitionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */; };
 		B85C083B1B589F0400C7313E /* XKModalExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85C083A1B589F0400C7313E /* XKModalExampleViewController.m */; };
@@ -79,6 +80,8 @@
 		B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKAsyncExampleViewController.m; sourceTree = "<group>"; };
 		B80B4A371B5A214B0069E999 /* XKFillModeExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKFillModeExampleViewController.h; sourceTree = "<group>"; };
 		B80B4A381B5A214B0069E999 /* XKFillModeExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKFillModeExampleViewController.m; sourceTree = "<group>"; };
+		B82110AD1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKDeviceRotationModalScrollExampleViewController.h; sourceTree = "<group>"; };
+		B82110AE1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKDeviceRotationModalScrollExampleViewController.m; sourceTree = "<group>"; };
 		B85C08331B589CBF00C7313E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		B85C08351B589D9F00C7313E /* XKRotateTransitionExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRotateTransitionExampleViewController.h; sourceTree = "<group>"; };
 		B85C08361B589D9F00C7313E /* XKRotateTransitionExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRotateTransitionExampleViewController.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				B89AA69C1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m */,
 				B89AA69E1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.h */,
 				B89AA69F1B59127F00A60288 /* XKDeviceRotationPhotoScrollViewController.m */,
+				B82110AD1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.h */,
+				B82110AE1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.m */,
 				B80B4A341B5A1BD20069E999 /* XKAsyncExampleViewController.h */,
 				B80B4A351B5A1BD20069E999 /* XKAsyncExampleViewController.m */,
 				B80B4A371B5A214B0069E999 /* XKFillModeExampleViewController.h */,
@@ -473,6 +478,7 @@
 				B89AA68E1B583F1000A60288 /* XKManualExampleViewController.m in Sources */,
 				B89AA6911B58406700A60288 /* XKNavigationController.m in Sources */,
 				B89AA6851B58337E00A60288 /* XKRootViewController.m in Sources */,
+				B82110AF1B8684B900AAF42D /* XKDeviceRotationModalScrollExampleViewController.m in Sources */,
 				B89AA69D1B59111300A60288 /* XKDeviceRotationModalExampleViewController.m in Sources */,
 				B80B4A361B5A1BD20069E999 /* XKAsyncExampleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XKAppDelegate.m in Sources */,

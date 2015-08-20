@@ -541,5 +541,83 @@
             </objects>
             <point key="canvasLocation" x="1737" y="1928"/>
         </scene>
+        <!--Device Rotation Modal Scroll-->
+        <scene sceneID="D4d-kl-AYw">
+            <objects>
+                <viewController storyboardIdentifier="devicerotationmodalscroll" title="Device Rotation Modal Scroll" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cVH-nC-H29" userLabel="Device Rotation Modal Scroll" customClass="XKDeviceRotationModalScrollExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g90-jI-VH3"/>
+                        <viewControllerLayoutGuide type="bottom" id="jwl-Cf-apf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FUz-ah-x0r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKD-oF-clA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exx-Ir-yVG" customClass="XKPhotoScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="XbR-NW-zSm"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="cVH-nC-H29" id="P9O-a4-e32"/>
+                                        </connections>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-by-MSc">
+                                        <rect key="frame" x="275" y="552" width="51" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Pzc-jY-Qlw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll down" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01B-YR-Z4B">
+                                        <rect key="frame" x="255" y="279" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="01B-YR-Z4B" firstAttribute="top" secondItem="exx-Ir-yVG" secondAttribute="bottom" constant="79" id="0gR-hF-mtL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fq0-by-MSc" secondAttribute="bottom" constant="27" id="4Yt-pN-3zt"/>
+                                    <constraint firstAttribute="centerX" secondItem="Fq0-by-MSc" secondAttribute="centerX" id="50s-qI-Su7"/>
+                                    <constraint firstItem="exx-Ir-yVG" firstAttribute="top" secondItem="eKD-oF-clA" secondAttribute="top" id="6vk-7X-0DJ"/>
+                                    <constraint firstAttribute="width" secondItem="exx-Ir-yVG" secondAttribute="width" id="CDe-oe-Er9"/>
+                                    <constraint firstAttribute="trailing" secondItem="exx-Ir-yVG" secondAttribute="trailing" id="CaH-s2-LtH"/>
+                                    <constraint firstItem="exx-Ir-yVG" firstAttribute="leading" secondItem="eKD-oF-clA" secondAttribute="leading" id="ELb-CP-N2V"/>
+                                    <constraint firstItem="Fq0-by-MSc" firstAttribute="top" secondItem="exx-Ir-yVG" secondAttribute="bottom" constant="352" id="I1j-5z-uNM"/>
+                                    <constraint firstAttribute="centerX" secondItem="01B-YR-Z4B" secondAttribute="centerX" id="Ljo-Gd-HDE"/>
+                                    <constraint firstAttribute="trailing" secondItem="exx-Ir-yVG" secondAttribute="trailing" id="Pn3-pR-6OG"/>
+                                    <constraint firstItem="exx-Ir-yVG" firstAttribute="leading" secondItem="eKD-oF-clA" secondAttribute="leading" id="ecm-al-WVc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CaH-s2-LtH"/>
+                                        <exclude reference="ELb-CP-N2V"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jwl-Cf-apf" firstAttribute="top" secondItem="eKD-oF-clA" secondAttribute="bottom" id="AIg-Ew-UzP"/>
+                            <constraint firstItem="eKD-oF-clA" firstAttribute="leading" secondItem="FUz-ah-x0r" secondAttribute="leading" id="ShZ-3e-1oL"/>
+                            <constraint firstItem="eKD-oF-clA" firstAttribute="top" secondItem="FUz-ah-x0r" secondAttribute="top" id="UfV-xj-0ho"/>
+                            <constraint firstAttribute="trailing" secondItem="eKD-oF-clA" secondAttribute="trailing" id="hLm-n2-qFU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoScrollView" destination="exx-Ir-yVG" id="CUl-tZ-1bl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVN-GG-ve2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460" y="2648"/>
+        </scene>
     </scenes>
 </document>

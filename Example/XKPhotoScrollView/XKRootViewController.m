@@ -42,6 +42,7 @@
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotationautolayout"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"rotatemodal"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotationmodal"]];
+    [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"devicerotationmodalscroll"]];
     _viewControllers = [NSArray arrayWithArray:viewControllers];
 }
 
