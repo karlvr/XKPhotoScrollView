@@ -220,7 +220,9 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewRevealMode) {
     _revealViewState.indexPath = nil;
     _request1IndexPath = _request2IndexPath = nil;
     
+#if TARGET_OS_IOS
     self.multipleTouchEnabled = YES;
+#endif
     
     self.bouncesZoom = YES;
     self.alwaysBounceScroll = NO;
@@ -1364,6 +1366,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(longPress) object:nil];
 }
 
+#if TARGET_OS_IOS
 #pragma mark Orientation
 
 - (void)setOrientation:(UIDeviceOrientation)orientation
@@ -1429,6 +1432,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
             [self.delegate photoScrollView:self orientationDidChangeTo:orientation];
     }
 }
+#endif
 
 #pragma mark Properties
 
