@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XKPhotoScrollView"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "A photo viewer to mimic the Photos app full-screen view."
   s.description      = <<-DESC
                        A UIView sublcass that implements a swipeable, zoomable multi-photo viewer with lots of configuration
@@ -22,7 +22,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/karlvr/XKPhotoScrollView.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/avon'
 
-  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '7.0'
+  s.tvos.deployment_target = '9.0'
+
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
