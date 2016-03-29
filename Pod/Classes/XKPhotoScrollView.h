@@ -50,8 +50,10 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewFillMode) {
 @property (strong, nonatomic) NSIndexPath *currentIndexPath;
 - (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath animated:(BOOL)animated;
 
+#if TARGET_OS_IOS
 @property (nonatomic) UIDeviceOrientation orientation;
 - (void)setOrientation:(UIDeviceOrientation)orientation animated:(BOOL)animated;
+#endif
 
 @property (readonly, nonatomic) BOOL touching;
 @property (assign, nonatomic) CGFloat viewScale;
