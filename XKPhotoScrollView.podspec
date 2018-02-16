@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XKPhotoScrollView"
-  s.version          = "0.1.7"
+  s.version          = "0.1.8"
   s.summary          = "A photo viewer to mimic the Photos app full-screen view."
   s.description      = <<-DESC
                        A UIView sublcass that implements a swipeable, zoomable multi-photo viewer with lots of configuration
