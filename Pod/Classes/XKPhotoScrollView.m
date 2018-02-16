@@ -12,10 +12,12 @@
 
 #define DEBUG_PHOTO_SCROLL_VIEW 0
 
+#if TARGET_OS_IOS
 static CGFloat XKPhotoScrollViewRotationUp = 0;
 static CGFloat XKPhotoScrollViewRotationRight = M_PI_2;
 static CGFloat XKPhotoScrollViewRotationDown = M_PI;
 static CGFloat XKPhotoScrollViewRotationLeft = M_PI + M_PI_2;
+#endif
 
 static inline CGPoint CGPointNegate(CGPoint p) {
     return CGPointMake(-p.x, -p.y);
@@ -55,9 +57,11 @@ static inline CGSize CGSizeMul(CGSize size, CGFloat m) {
     return CGSizeMake(size.width * m, size.height * m);
 }
 
+#if TARGET_OS_IOS
 static inline CGSize CGSizeInvert(CGSize size) {
     return CGSizeMake(size.height, size.width);
 }
+#endif
 
 typedef NS_ENUM(NSInteger, XKPhotoScrollViewTouchMode) {
 	XKPhotoScrollViewTouchModeNone,
@@ -1191,8 +1195,8 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 	CGPoint offset = CGPointAdd(_zoomCurrentViewStart, CGPointNegate(_zoomTouchStart));
 	[self updateTransformation:_currentViewState];
-	[self moveCurrentView:CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, ratio - 1))];
-    
+//    [self moveCurrentView:CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, ratio - 1))];
+
     return adjustedScale;
 }
 
