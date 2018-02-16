@@ -1195,7 +1195,7 @@ static CGFloat linear_easeNone(NSTimeInterval t, CGFloat b /* begin */, CGFloat 
 
 	CGPoint offset = CGPointAdd(_zoomCurrentViewStart, CGPointNegate(_zoomTouchStart));
 	[self updateTransformation:_currentViewState];
-//    [self moveCurrentView:CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, ratio - 1))];
+    [self moveCurrentView:CGPointAdd(_zoomCurrentViewStart, CGPointMul(offset, ratio - 1))];
 
     return adjustedScale;
 }
