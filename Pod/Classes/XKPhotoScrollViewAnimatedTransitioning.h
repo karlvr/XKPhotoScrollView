@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^XKPhotoScrollViewVoidBlock)();
+typedef void (^XKPhotoScrollViewVoidBlock)(void);
 
 @interface XKPhotoScrollViewAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
 

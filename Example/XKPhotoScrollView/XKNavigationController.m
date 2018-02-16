@@ -10,7 +10,7 @@
 
 @implementation XKNavigationController
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     /* Respect the supportedInterfaceOrientations of the topmost view controller */
     UIViewController *viewController = self.topViewController;

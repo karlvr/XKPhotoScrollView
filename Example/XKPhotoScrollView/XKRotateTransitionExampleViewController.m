@@ -16,7 +16,7 @@
 
 @implementation XKRotateTransitionExampleViewController
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     /* We allow rotation, as we watch to see that rotation and then respond by presenting the photo scroll view */
     return UIInterfaceOrientationMaskAll;

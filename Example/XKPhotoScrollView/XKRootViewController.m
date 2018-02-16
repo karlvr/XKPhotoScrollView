@@ -28,6 +28,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     NSMutableArray *viewControllers = [NSMutableArray array];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"simple"]];
     [viewControllers addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"modal"]];
@@ -46,7 +48,7 @@
     _viewControllers = [NSArray arrayWithArray:viewControllers];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }

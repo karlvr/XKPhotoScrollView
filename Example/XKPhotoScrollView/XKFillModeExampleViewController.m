@@ -43,7 +43,7 @@
     self.photoScrollView.minimumZoomScale = 0.3;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
 }
