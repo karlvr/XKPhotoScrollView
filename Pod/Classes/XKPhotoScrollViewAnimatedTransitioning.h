@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^XKPhotoScrollViewVoidBlock)(void);
 
 @interface XKPhotoScrollViewAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
@@ -25,3 +27,4 @@ typedef void (^XKPhotoScrollViewVoidBlock)(void);
 
 @end
 
+NS_ASSUME_NONNULL_END

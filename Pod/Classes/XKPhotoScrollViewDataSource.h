@@ -8,6 +8,8 @@
 
 @class XKPhotoScrollView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol XKPhotoScrollViewDataSource <NSObject>
 
 /** Called when the photo scroll view wants the data source to provide a view for the given index path. */
@@ -20,3 +22,5 @@
 - (NSUInteger)photoScrollViewRows:(XKPhotoScrollView *)photoScrollView;
 
 @end
+
+NS_ASSUME_NONNULL_END

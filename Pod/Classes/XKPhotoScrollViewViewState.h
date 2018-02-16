@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XKPhotoScrollViewViewState : NSObject <NSCopying>
 
 @property (nonatomic, strong) UIView *view;
@@ -25,3 +27,5 @@
 @property (nonatomic, assign) BOOL placeholder;
 
 @end
+
+NS_ASSUME_NONNULL_END

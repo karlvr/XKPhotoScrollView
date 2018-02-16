@@ -8,6 +8,8 @@
 
 @class XKPhotoScrollView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol XKPhotoScrollViewDelegate <NSObject>
 
 @optional
@@ -28,3 +30,5 @@
 - (void)photoScrollView:(XKPhotoScrollView *)photoScrollView didStabilizeView:(UIView *)view;
 
 @end
+
+NS_ASSUME_NONNULL_END

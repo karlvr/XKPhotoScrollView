@@ -12,6 +12,8 @@
 #import "XKPhotoScrollViewDataSource.h"
 #import "XKPhotoScrollViewDelegate.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, XKPhotoScrollViewAnimationType) {
 	XKPhotoScrollViewAnimationTypeFade,
 	XKPhotoScrollViewAnimationTypeSlide
@@ -29,8 +31,8 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewFillMode) {
 - (BOOL)wantsViewAtIndexPath:(NSIndexPath *)indexPath;
 - (void)setViewScale:(CGFloat)scale;
 
-@property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDataSource> dataSource;
-@property (weak, nonatomic) IBOutlet id<XKPhotoScrollViewDelegate> delegate;
+@property (weak, nonatomic, nullable) IBOutlet id<XKPhotoScrollViewDataSource> dataSource;
+@property (weak, nonatomic, nullable) IBOutlet id<XKPhotoScrollViewDelegate> delegate;
 @property (assign, nonatomic) BOOL bouncesZoom;
 @property (assign, nonatomic) BOOL alwaysBounceScroll;
 
@@ -85,3 +87,5 @@ typedef NS_ENUM(NSInteger, XKPhotoScrollViewFillMode) {
 - (NSInteger)col;
 
 @end
+
+NS_ASSUME_NONNULL_END
