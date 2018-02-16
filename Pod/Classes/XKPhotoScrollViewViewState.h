@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XKPhotoScrollViewViewState : NSObject <NSCopying>
 
-@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong, nullable) UIView *view;
 
 /** The current scale of the view, relative to the baseScale. This applies when the view is zoomed by the user. */
 @property (nonatomic, assign) CGFloat scale;
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat baseScale;
 
 /** The indexPath that this view state represents */
-@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong, nullable) NSIndexPath *indexPath;
 
 /** Whether this view is a placeholder, that is expected to be replaced by the real view later. */
 @property (nonatomic, assign) BOOL placeholder;
