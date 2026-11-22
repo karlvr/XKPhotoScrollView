@@ -16,7 +16,7 @@ does not support CocoaPods.
 Add the package with Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/karlvr/XKPhotoScrollView", from: "1.0.0"),
+.package(url: "https://github.com/karlvr/XKPhotoScrollView", from: "1.1.0"),
 ```
 
 The package needs iOS 15 or later.
@@ -73,7 +73,8 @@ pinch to dismiss, and the progress and the end of a swipe to dismiss.
 - Asynchronous delivery of views, with placeholders that a final view replaces
 - Minimum and maximum zoom scales, a maximum base scale, and zoom bounce
 - Aspect fit or aspect fill
-- Swipe to dismiss, with progress for a fade of the background
+- Swipe to dismiss, with progress for a fade of the background. The photo tilts as if the finger holds
+  it, and it spins as it falls away. `maximumDismissRotation` sets the largest tilt, and 0 turns it off.
 - Pinch to dismiss
 
 ## Tests

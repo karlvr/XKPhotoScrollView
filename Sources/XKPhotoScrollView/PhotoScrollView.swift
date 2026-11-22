@@ -24,6 +24,8 @@ final class PhotoScrollViewState {
 	var scale: CGFloat = 1
 	/// The scale that fits the view to the viewport (governed by `maximumBaseScale`).
 	var baseScale: CGFloat = 0
+	/// The tilt of the view in radians, clockwise; 0 except during a swipe dismissal.
+	var rotation: CGFloat = 0
 	var indexPath: IndexPath?
 	/// A stand-in view awaiting its real image; may be replaced in place.
 	var placeholder = false
@@ -33,6 +35,7 @@ final class PhotoScrollViewState {
 		c.view = view
 		c.scale = scale
 		c.baseScale = baseScale
+		c.rotation = rotation
 		c.indexPath = indexPath
 		c.placeholder = placeholder
 		return c
@@ -114,7 +117,8 @@ private final class PhotoScrollGestureRecognizer: UIGestureRecognizer {
 /// adjacent one being revealed mid-swipe), scaling each to fit and letting the
 /// user drag between photos, pinch to zoom around the fingers, and pinch past the
 /// fitted scale to dismiss. With `swipeToDismissEnabled`, a fitted photo can also
-/// be dragged vertically and flicked off screen to dismiss. Provide content
+/// be dragged vertically and flicked off screen to dismiss, and it tilts and
+/// spins as it goes (see `maximumDismissRotation`). Provide content
 /// through a `dataSource` and observe navigation through a `delegate`.
 ///
 /// Use this where a plain scroll view's nested zoom/paging arbitration falls
@@ -157,6 +161,11 @@ public final class PhotoScrollView: UIView {
 	/// flings the photo off screen and reports a swipe dismiss; otherwise the
 	/// photo settles back into place.
 	public var swipeToDismissEnabled = false
+	/// The largest tilt, in radians, of a photo during a swipe dismissal. The
+	/// photo turns as if the finger holds it at the point where the drag began,
+	/// and it keeps turning as it falls off the screen. Set it to 0 for a photo
+	/// that moves without turning.
+	public var maximumDismissRotation: CGFloat = .pi / 18
 
 	/// How a photo fits the viewport at its base scale.
 	public enum FillMode {
@@ -184,6 +193,8 @@ public final class PhotoScrollView: UIView {
 	private var animationTargetCenter = CGPoint.zero
 	private var animationStartScale: CGFloat = 0
 	private var animationTargetScale: CGFloat = 0
+	/// The tilt that a settle animation starts from; it always ends level.
+	private var animationStartRotation: CGFloat = 0
 	private var animationStartTime: TimeInterval = 0
 	private var animationDuration: TimeInterval = 0
 	private var decelerating = false
@@ -222,6 +233,11 @@ public final class PhotoScrollView: UIView {
 		var lastFrameTime: TimeInterval = 0
 		/// The progress last reported to the delegate (0 centred … 1 dismissed).
 		var lastProgress: CGFloat = 0
+		/// Where the finger holds the photo, relative to its centre, as a fraction
+		/// of its half width and half height: (-1, -1) is the top-left corner.
+		var grab = CGPoint.zero
+		/// The spin of the fling-off animation, in radians/second, clockwise.
+		var angularVelocity: CGFloat = 0
 	}
 	private var dismissDrag = DismissDrag()
 
@@ -229,6 +245,13 @@ public final class PhotoScrollView: UIView {
 	private static let dismissDisplacementFraction: CGFloat = 0.25
 	private static let dismissGravity: CGFloat = 4500
 	private static let dismissMinimumExitVelocity: CGFloat = 600
+	/// How strongly a drag tilts the photo: a drag of 1/gain of the viewport
+	/// height, holding the photo at its edge, reaches the maximum tilt.
+	private static let dismissRotationGain: CGFloat = 5
+	/// The slowest and the fastest spin of a fling, in multiples of the maximum
+	/// tilt per second. The slowest spin gives a straight fling a slight turn.
+	private static let dismissMinimumSpin: CGFloat = 1.5
+	private static let dismissMaximumSpin: CGFloat = 6
 
 	private let placeholderCurrentView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 	private let placeholderRevealView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -287,13 +310,18 @@ public final class PhotoScrollView: UIView {
 		guard let view = vs.view else { return }
 		let baseScale = vs.baseScale, scale = vs.scale
 		// Guard against scaling by exactly 1.0, which logs an error on device.
+		var transform: CGAffineTransform
 		if scale == 1.0 {
-			view.transform = (baseScale == 1.0 || baseScale == 0.0)
+			transform = (baseScale == 1.0 || baseScale == 0.0)
 				? .identity
 				: CGAffineTransform(scaleX: baseScale, y: baseScale)
 		} else {
-			view.transform = CGAffineTransform(scaleX: baseScale, y: baseScale).scaledBy(x: scale, y: scale)
+			transform = CGAffineTransform(scaleX: baseScale, y: baseScale).scaledBy(x: scale, y: scale)
 		}
+		if vs.rotation != 0 {
+			transform = transform.rotated(by: vs.rotation)
+		}
+		view.transform = transform
 	}
 
 	/// Scale `viewState`'s view to fit the viewport, and optionally re-centre and
@@ -321,6 +349,7 @@ public final class PhotoScrollView: UIView {
 		}
 		if initialise {
 			viewState.scale = 1.0
+			viewState.rotation = 0
 			viewState.placeholder = true
 		}
 		updateTransformation(viewState)
@@ -564,8 +593,10 @@ public final class PhotoScrollView: UIView {
 	private func stableViewCenter() {
 		guard let view = currentState.view else { return }
 		let viewportSize = viewportSize()
-		// Adjust for the stable zoom so we position for the scale the view will settle at.
-		let size = mul(mul(view.frame.size, 1 / currentState.scale), animationTargetScale)
+		// Position for the scale the view will settle at. The size comes from the
+		// bounds, not the frame, because the frame of a tilted view is larger, and
+		// the view settles level.
+		let size = mul(view.bounds.size, currentState.baseScale * animationTargetScale)
 		let center = animationTargetCenter
 		var stable = CGPoint.zero
 
@@ -646,17 +677,20 @@ public final class PhotoScrollView: UIView {
 		stableViewZoom()
 		stableViewCenter()
 
-		if animationTargetCenter == view.center && animationTargetScale == currentState.scale { return }
+		if animationTargetCenter == view.center && animationTargetScale == currentState.scale
+			&& currentState.rotation == 0 { return }
 
 		if animated {
 			animationStartCenter = view.center
 			animationStartScale = currentState.scale
+			animationStartRotation = currentState.rotation
 			animationStartTime = CACurrentMediaTime()
 			animationDuration = 0.25
 			startDisplayLink(#selector(stabiliseAnimation))
 		} else {
 			moveCurrentView(animationTargetCenter)
 			currentState.scale = animationTargetScale
+			currentState.rotation = 0
 			updateTransformation(currentState)
 		}
 	}
@@ -738,10 +772,17 @@ public final class PhotoScrollView: UIView {
 		// A cancelled dismiss drag settles back here; walk its progress back to 0.
 		if dismissDrag.lastProgress > 0 { reportDismissProgress() }
 
+		var transformed = false
 		if animationStartScale != animationTargetScale {
 			currentState.scale = linear(t, animationStartScale, animationTargetScale - animationStartScale, animationDuration)
-			updateTransformation(currentState)
+			transformed = true
 		}
+		// A cancelled dismiss drag also turns back to level.
+		if animationStartRotation != 0 {
+			currentState.rotation = linear(t, animationStartRotation, -animationStartRotation, animationDuration)
+			transformed = true
+		}
+		if transformed { updateTransformation(currentState) }
 
 		if t == animationDuration {
 			displayLink?.invalidate()
@@ -762,6 +803,7 @@ public final class PhotoScrollView: UIView {
 		dragAxis = .none
 		draggedSomeDistance = false
 		dismissDrag.velocity = .zero
+		dismissDrag.grab = grabPoint(dragTouchStart)
 	}
 
 	@discardableResult
@@ -801,6 +843,11 @@ public final class PhotoScrollView: UIView {
 				// reveal machinery — a dismiss drag never uncovers a neighbour.
 				let center = offset(dragCurrentViewStart, dragVector.x / 2, dragVector.y)
 				if isValid(center) { currentState.view?.center = center }
+				let rotation = dismissRotation(for: center - dragCurrentViewStart)
+				if rotation != currentState.rotation {
+					currentState.rotation = rotation
+					updateTransformation(currentState)
+				}
 				reportDismissProgress()
 				return true
 			}
@@ -897,8 +944,59 @@ public final class PhotoScrollView: UIView {
 		dismissDrag.flingVelocity = CGPoint(
 			x: dismissDrag.velocity.x / 2,
 			y: max(carried, Self.dismissMinimumExitVelocity) * direction)
+		dismissDrag.angularVelocity = dismissSpin(for: dismissDrag.flingVelocity)
 		dismissDrag.lastFrameTime = CACurrentMediaTime()
 		startDisplayLink(#selector(dismissFlingAnimation))
+	}
+
+	/// Returns where a point is on the current photo, relative to its centre, as a
+	/// fraction of its half width and half height, clamped to the photo.
+	private func grabPoint(_ point: CGPoint) -> CGPoint {
+		guard let view = currentState.view else { return .zero }
+		let half = mul(view.bounds.size, currentState.baseScale * currentState.scale / 2)
+		guard half.width > 0, half.height > 0 else { return .zero }
+		let offset = point - view.center
+		return CGPoint(
+			x: min(max(offset.x / half.width, -1), 1),
+			y: min(max(offset.y / half.height, -1), 1))
+	}
+
+	/// Returns the turning effect of a movement of the photo when the finger holds
+	/// it at the grab point, as a fraction of the viewport height. A positive value
+	/// turns the photo clockwise. It is the cross product of the grab point and the
+	/// movement, so a pull below the centre and a push above it turn the same way.
+	private func dismissTorque(_ movement: CGPoint) -> CGFloat {
+		Self.torque(grab: dismissDrag.grab, movement: movement, height: viewportSize().height)
+	}
+
+	/// Returns the turning effect of a movement of a photo that is held at `grab`
+	/// (a fraction of its half size from its centre), as a fraction of `height`.
+	/// A positive value turns the photo clockwise. Returns 0 for an empty height.
+	nonisolated static func torque(grab: CGPoint, movement: CGPoint, height: CGFloat) -> CGFloat {
+		guard height > 0 else { return 0 }
+		return (grab.x * movement.y - grab.y * movement.x) / height
+	}
+
+	/// Returns the tilt of the photo after a displacement in a dismiss drag.
+	private func dismissRotation(for displacement: CGPoint) -> CGFloat {
+		let amount = min(max(dismissTorque(displacement) * Self.dismissRotationGain, -1), 1)
+		return amount * maximumDismissRotation
+	}
+
+	/// Returns the spin of a fling at a velocity, in radians/second. A fling always
+	/// spins a little, so that a straight fling does not fall without turning. When
+	/// the velocity gives no direction, the spin follows the tilt of the photo.
+	private func dismissSpin(for velocity: CGPoint) -> CGFloat {
+		let maximum = maximumDismissRotation
+		guard maximum > 0 else { return 0 }
+		var spin = dismissTorque(velocity) * Self.dismissRotationGain * maximum
+		let slowest = maximum * Self.dismissMinimumSpin
+		if abs(spin) < slowest {
+			let turn = spin != 0 ? spin : currentState.rotation
+			spin = turn < 0 ? -slowest : slowest
+		}
+		let fastest = maximum * Self.dismissMaximumSpin
+		return min(max(spin, -fastest), fastest)
 	}
 
 	/// Let the photo fall off the screen: continue at the release velocity,
@@ -918,6 +1016,10 @@ public final class PhotoScrollView: UIView {
 		let direction: CGFloat = dismissDrag.flingVelocity.y < 0 ? -1 : 1
 		dismissDrag.flingVelocity.y += Self.dismissGravity * direction * dt
 		view.center = view.center + dismissDrag.flingVelocity * dt
+		if dismissDrag.angularVelocity != 0 {
+			currentState.rotation += dismissDrag.angularVelocity * dt
+			updateTransformation(currentState)
+		}
 		reportDismissProgress()
 
 		let half = view.frame.height / 2

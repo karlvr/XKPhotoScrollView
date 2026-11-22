@@ -98,3 +98,33 @@ struct PhotoScrollViewTests {
 		#expect(view.currentView === photo)
 	}
 }
+
+/// The turning rule of a swipe dismissal. In UIKit, a positive angle turns a view clockwise.
+struct DismissTorqueTests {
+
+	@Test func aPullDownToTheRightOfTheCentreTurnsClockwise() {
+		let torque = PhotoScrollView.torque(grab: CGPoint(x: 0.5, y: 0), movement: CGPoint(x: 0, y: 100), height: 1000)
+		#expect(torque > 0)
+	}
+
+	@Test func aPullDownToTheLeftOfTheCentreTurnsAnticlockwise() {
+		let torque = PhotoScrollView.torque(grab: CGPoint(x: -0.5, y: 0), movement: CGPoint(x: 0, y: 100), height: 1000)
+		#expect(torque < 0)
+	}
+
+	@Test func aPushRightAboveTheCentreTurnsClockwise() {
+		let torque = PhotoScrollView.torque(grab: CGPoint(x: 0, y: -0.5), movement: CGPoint(x: 100, y: 0), height: 1000)
+		#expect(torque > 0)
+	}
+
+	@Test func aPullThroughTheCentreDoesNotTurn() {
+		let torque = PhotoScrollView.torque(grab: .zero, movement: CGPoint(x: 30, y: 100), height: 1000)
+		#expect(torque == 0)
+	}
+
+	@Test func theTorqueIsAFractionOfTheHeight() {
+		let torque = PhotoScrollView.torque(grab: CGPoint(x: 1, y: 0), movement: CGPoint(x: 0, y: 250), height: 1000)
+		#expect(torque == 0.25)
+		#expect(PhotoScrollView.torque(grab: CGPoint(x: 1, y: 0), movement: CGPoint(x: 0, y: 250), height: 0) == 0)
+	}
+}
