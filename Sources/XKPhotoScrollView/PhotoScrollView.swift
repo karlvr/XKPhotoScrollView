@@ -922,9 +922,13 @@ public final class PhotoScrollView: UIView {
 
 	/// Decide the fate of a released dismiss drag: fling the photo off screen
 	/// when it was flicked hard enough or dropped far from centre, otherwise
-	/// settle it back into place.
-	private func finishDismissDrag() {
+	/// settle it back into place. `releaseTime` is the timestamp of the touch
+	/// that ended the drag.
+	private func finishDismissDrag(releasedAt releaseTime: TimeInterval) {
 		guard let view = currentState.view else { return }
+		// A finger at rest sends no moves, so the velocity of the last move is
+		// stale after a pause; let it fade with the time since that move.
+		dismissDrag.velocity = Self.releaseVelocity(dismissDrag.velocity, idle: releaseTime - dragTouchLastTime)
 		let viewportHeight = viewportSize().height
 		let displacement = view.center.y - viewportHeight / 2
 		let flicked = abs(dismissDrag.velocity.y) > Self.dismissFlickVelocity
@@ -948,6 +952,20 @@ public final class PhotoScrollView: UIView {
 		dismissDrag.lastFrameTime = CACurrentMediaTime()
 		startDisplayLink(#selector(dismissFlingAnimation))
 	}
+
+	/// Returns the velocity of a finger at its release, from the velocity of its
+	/// last move and the time that it rested after that move. The velocity fades
+	/// by about two thirds for each `releaseVelocityDecay` of rest, so a pause
+	/// before the release ends a flick.
+	nonisolated static func releaseVelocity(_ velocity: CGPoint, idle: TimeInterval) -> CGPoint {
+		guard idle > 0 else { return velocity }
+		let factor = CGFloat(exp(-idle / releaseVelocityDecay))
+		return CGPoint(x: velocity.x * factor, y: velocity.y * factor)
+	}
+
+	/// The time, in seconds, in which the velocity of a resting finger fades by
+	/// about two thirds.
+	nonisolated static let releaseVelocityDecay: TimeInterval = 0.05
 
 	/// Returns where a point is on the current photo, relative to its centre, as a
 	/// fraction of its half width and half height, clamped to the photo.
@@ -1155,7 +1173,7 @@ public final class PhotoScrollView: UIView {
 			}
 			if dragAxis == .dismiss {
 				touchMode = .none
-				finishDismissDrag()
+				finishDismissDrag(releasedAt: touches.first?.timestamp ?? dragTouchLastTime)
 				return
 			}
 		} else if touchMode == .zooming {

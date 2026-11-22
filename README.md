@@ -16,7 +16,7 @@ does not support CocoaPods.
 Add the package with Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/karlvr/XKPhotoScrollView", from: "1.1.0"),
+.package(url: "https://github.com/karlvr/XKPhotoScrollView", from: "1.1.1"),
 ```
 
 The package needs iOS 15 or later.

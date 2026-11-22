@@ -128,3 +128,23 @@ struct DismissTorqueTests {
 		#expect(PhotoScrollView.torque(grab: CGPoint(x: 1, y: 0), movement: CGPoint(x: 0, y: 250), height: 0) == 0)
 	}
 }
+
+/// The speed of a swipe dismissal at the release of the finger.
+struct ReleaseVelocityTests {
+
+	@Test func aReleaseWithoutAPauseKeepsTheVelocity() {
+		let velocity = CGPoint(x: 100, y: 1500)
+		#expect(PhotoScrollView.releaseVelocity(velocity, idle: 0) == velocity)
+	}
+
+	@Test func aShortPauseReducesTheVelocity() {
+		let velocity = PhotoScrollView.releaseVelocity(CGPoint(x: 0, y: 1500), idle: 0.05)
+		#expect(velocity.y > 500 && velocity.y < 600)
+	}
+
+	@Test func aLongPauseEndsAFlick() {
+		// A flick needs 700 points/second.
+		let velocity = PhotoScrollView.releaseVelocity(CGPoint(x: 0, y: 3000), idle: 0.3)
+		#expect(abs(velocity.y) < 10)
+	}
+}
